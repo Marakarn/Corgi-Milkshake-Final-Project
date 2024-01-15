@@ -1,0 +1,13 @@
+#account_circle {
+    font-size: 40px;
+}
+
+#lock {
+    font-size: 40px;
+}
+
+input#login_id[type="email"],
+input#login_password[type="password"] {
+  width: 100%;
+  padding: 10px 50px;
+}
