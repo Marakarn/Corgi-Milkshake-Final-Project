@@ -1,14 +1,15 @@
-import React from "react";
-import Footer from "./Footer";
-import Personaldetail from "./Personaldetail";
+// import React from "react";
+// import Footer from "./Footer";
+import Layout from "./Layout";
 
 const Setting = () => {
   return (
     <>
-      <div className="container mx-auto font-poppins min-h-[1400px] md:min-h-[1080px]">
+    <Layout>
+      <div className="min-h-[1400px] md:min-h-[1080px]">
         <div>
           <div className="flex flex-col justify-center ">
-            <div className="w-full mt-[120px]">
+            <div className="w-full mt-[50px]">
               <div className="">
                 <button className="btn bg-[#D2FE71] text-xl font-normal text-[#000000] hidden md:flex">
                   <span className="material-symbols-outlined text-[#000000]">
@@ -25,25 +26,25 @@ const Setting = () => {
             </div>
           </div>
           {/* 4 boxs */}
-          <div className=" grid grid-cols-1 grid-rows-2 gap-[100px] justify-center items-center max-w-5xl mt-[100px] ml-auto mr-auto md:grid-cols-1 lg:grid-cols-2 md:p-10 w-full ">
+          <div className="grid grid-cols-1 grid-rows-2 gap-[100px] justify-center items-center max-w-5xl mt-[100px] ml-auto mr-auto md:grid-cols-1 lg:grid-cols-2 md:p-10 w-full ">
             <button class=" flex justify-center items-center w-72 h-40  p-auto border-2 shadow-md shadow-[#8bca00] m-auto text-[#8BCA00] text-[32px]">
-              <a href="/Personaldetail">Personal Details</a>
+              <a href="/personaldetail">Personal Details</a>
             </button>
             
-            <button class="  justify-center items-center w-72 h-40  p-auto border-2 m-auto text-[#8BCA00] shadow-md shadow-[#8bca00] text-[32px]">
-              <a href="/ContactUs">Contact Us</a>
+            <button class="justify-center items-center w-72 h-40  p-auto border-2 m-auto text-[#8BCA00] shadow-md shadow-[#8bca00] text-[32px]">
+              <a href="/contact-us">Contact Us</a>
             </button>
             
-            <button class="  justify-center items-center w-72 h-40  p-auto border-2 m-auto text-[#8BCA00] shadow-md shadow-[#8bca00] text-[32px]">
-            <a href="/Deleteacc">Delete Account</a>
+            <button class="justify-center items-center w-72 h-40  p-auto border-2 m-auto text-[#8BCA00] shadow-md shadow-[#8bca00] text-[32px]">
+            <a href="/delete-acc">Delete Account</a>
             </button>
-            <button class="  justify-center items-center w-72 h-40  p-auto border-2 m-auto text-[#8BCA00] shadow-md shadow-[#8bca00] text-[32px]">
+            <button class="justify-center items-center w-72 h-40  p-auto border-2 m-auto text-[#8BCA00] shadow-md shadow-[#8bca00] text-[32px]">
               Log Out
             </button>
           </div>
         </div>
       </div>
-      <Footer />
+      </Layout>
     </>
   );
 };

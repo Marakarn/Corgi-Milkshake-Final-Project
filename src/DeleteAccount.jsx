@@ -1,8 +1,10 @@
-import React from 'react'
+// import React from 'react'
+import Layout from "./Layout"
 
 const DeleteAccount = () => {
     return (
         <>
+        <Layout>
             <div className="container mx-auto font-poppins">
                 <div className="flex flex-col justify-center ">
                     <div className="w-full mt-[120px]">
@@ -39,6 +41,7 @@ const DeleteAccount = () => {
                     </div>
                 </div>
             </div >
+        </Layout>
         </>
     )
 }

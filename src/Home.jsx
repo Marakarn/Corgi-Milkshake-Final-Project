@@ -1,11 +1,12 @@
-import React from 'react'
-
+// import React from 'react'
+import Layout from "./Layout"
 const Home = () => {
     return (
         <>
-            <div className="container mx-auto font-poppins">
+        <Layout>
+            <div className="">
                 <div className="flex flex-col justify-center ">
-                    <div className="w-full mt-[120px]">
+                    <div className="w-full mt-[50px]">
                         <div className="flex items-center">
                             <img className="mt-4" src="./image-user.png" alt="" />
                             <div className="p-5 md:p-10">
@@ -32,7 +33,7 @@ const Home = () => {
                             <h1 className="text-xl font-medium ">
                                 Your Activity
                             </h1>
-                            <button className="btn bg-[#000000] font-poppins text-xl font-normal text-[#FFFFFF] hidden md:block">
+                            <button className="btn bg-[#000000] font-poppins text-xl font-normal text-[#FFFFFF] hidden md:flex">
                                 <span class="material-symbols-outlined text-[#FFFFFF]">
                                     history
                                 </span>
@@ -67,6 +68,7 @@ const Home = () => {
                     </div>
                 </div>
             </div >
+            </Layout>
         </>
     )
 }

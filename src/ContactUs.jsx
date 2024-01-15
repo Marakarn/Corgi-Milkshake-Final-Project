@@ -1,13 +1,15 @@
-import React from "react";
-import Footer from "./Footer";
-import Daisycontact from "./Daisycontact";
+// import React from "react";
+// import Footer from "./Footer";
+import Daisycontact from "./components/Daisycontact";
+import Layout from "./Layout";
 
 const ContactUs = () => {
   return (
+    <Layout>
     <div>
       <Daisycontact />
-      <div>
-        <div class=" mt-36 flex-grow card place-items-center w-full justify-center font-poppins min-w-[310] ">
+      <div className="min-h-[800px]">
+        <div className=" mt-10 flex-grow card place-items-center w-full justify-center font-poppins min-w-[310] ">
           
           <div className=" flex flex-col h-10 w-[320px] ">  
           
@@ -40,9 +42,9 @@ const ContactUs = () => {
           />
           </div>
         </div>
-        <Footer />
       </div>
     </div>
+    </Layout>
   );
 };
 

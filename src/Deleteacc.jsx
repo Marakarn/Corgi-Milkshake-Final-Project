@@ -1,15 +1,13 @@
-import React from 'react'
-import DaisyDelete from './DaisyDelete'
-import Footer from "./Footer";
+// import React from 'react'
+import DaisyDelete from './components/DaisyDelete'
 
 const Deleteacc = () => {
   return (
     <div>
     <DaisyDelete/>
     
-
-    <div class="container mx-auto ">
-    <div className=" flex flex-col justify-center p-10  md:p-48 md:pt-10  ">
+    <div class="">
+    <div className="container mx-auto flex flex-col justify-center p-10 md:p-48 md:pt-10 ">
           {/* Box first name */}
           
           <div className="flex items-center justify-between">
@@ -69,7 +67,6 @@ const Deleteacc = () => {
             </div>
           </div>
         </div>
-        <Footer/>
     </div>
   )
 }

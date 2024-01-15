@@ -1,11 +1,13 @@
-import React from 'react'
+// import React from 'react'
+import Layout from "./Layout"
 
 const YourActivity = () => {
     return (
         <>
-            <div className="container mx-auto font-poppins">
+        <Layout>
+            <div className="">
                 <div className="flex flex-col justify-center ">
-                    <div className="w-full mt-[120px]">
+                    <div className="w-full mt-[50px]">
                         <div className="">
                             <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] hidden md:flex">
                                 <span className="material-symbols-outlined text-[#000000]">
@@ -54,6 +56,7 @@ const YourActivity = () => {
                     </div>
                 </div>
             </div >
+            </Layout>
         </>
     )
 }

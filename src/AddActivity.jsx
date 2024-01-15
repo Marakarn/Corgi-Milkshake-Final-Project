@@ -1,9 +1,11 @@
-import React from 'react'
+// import React from 'react'
+import Layout from "./Layout"
 
-const EditActivity = () => {
+const AddActivity = () => {
     return (
         <>
-            <div className="container mx-auto font-poppins">
+        <Layout>
+            <div className="">
                 <div className="flex flex-col justify-center min-h-[1080px] md:min-h-[800px]">
                     <div className="w-full">
                         <div className="">
@@ -15,7 +17,7 @@ const EditActivity = () => {
                             </button>
                         </div>
                         <h1 className="text-6xl font-semibold text-[#8BCA00] text-center">
-                            Edit Activity
+                            Add Activity
                         </h1>
                         <hr className="border-y-[#8BCA00] w-full mt-[75px]" ></hr>
                     </div>
@@ -38,7 +40,7 @@ const EditActivity = () => {
                                     <label className="label">
                                         <span className="label-text text-base font-medium">Activity Types* :</span>
                                     </label>
-                                    <select className="select select-bordered w-full text-base font-normal">
+                                    <select className="select select-bordered w-full text-base font-normal ">
                                         <option disabled selected>Choose</option>
                                         <option>Walking</option>
                                         <option>Running</option>
@@ -76,18 +78,19 @@ const EditActivity = () => {
                             </form>
                         </div>
                     </div>
-                    <div className="flex flex-col form-control mt-6 w-full items-center ">
+                    <div className="flex flex-col form-control mt-6 w-full items-center">
                         <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000]">
                             <span class="material-symbols-outlined text-[#000000]">
                                 add_circle
                             </span>
-                            Save
+                            Add Activity
                         </button>
                     </div>
                 </div>
             </div >
+            </Layout>
         </>
     )
 }
 
-export default EditActivity
+export default AddActivity

@@ -6,7 +6,7 @@ const Login = () => {
     <>
       <div className="bg-[url('/LoginPagePic.png')] bg-fixed bg-no-repeat bg-cover min-h-[850px] md:min-h-[900px] h-screen w-screen">
         <Layout>
-          <main className="font-poppins container mx-auto">
+          <main className="">
             <section className="md:mx-24 md:mt-24 md:mb-24 flex flex-col md:flex-row">
               <article className="mt-5 md:mt-0 md:w-3/5">
                 <button className="btn bg-[#d2fe71] hover:bg-[#a5cf4a]/80 drop-shadow text-xl font-normal border-none hidden md:flex">

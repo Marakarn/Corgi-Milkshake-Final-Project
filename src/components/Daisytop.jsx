@@ -1,14 +1,14 @@
-import React from 'react'
+// import React from 'react'
 
 const Daisytop = () => {
   return (
     <div>
-    <div className="container mx-auto font-poppins">
+    {/* <div className="container mx-auto font-poppins"> */}
       <div>
         <div className="flex flex-col justify-center ">
-          <div className="w-full mt-[120px]">
+          <div className="w-full mt-[50px]">
             <div className="">
-              <button className="btn bg-[#D2FE71] text-xl font-normal text-[#000000]">
+              <button className="btn bg-[#D2FE71] text-xl font-normal text-[#000000] hidden md:flex">
                 <span className="material-symbols-outlined text-[#000000]">
                   arrow_back
                 </span>
@@ -24,7 +24,7 @@ const Daisytop = () => {
         </div>
       </div>
     </div>
-  </div>
+  // </div>
   )
 }
 
