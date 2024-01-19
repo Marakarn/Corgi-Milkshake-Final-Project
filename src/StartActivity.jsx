@@ -1,5 +1,6 @@
 // import React from 'react'
 import Layout from "./Layout"
+import Backfunction from "./components/Backfunction"
 
 const StartActivity = () => {
     return (
@@ -9,12 +10,13 @@ const StartActivity = () => {
                 <div className="flex flex-col justify-center">
                     <div className="w-full mt-[50px]">
                         <div className="">
-                            <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] hidden md:flex">
+                            {/* <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] hidden md:flex">
                                 <span className="material-symbols-outlined text-[#000000]">
                                     arrow_back
                                 </span>
                                 Back
-                            </button>
+                            </button> */}
+                            <Backfunction path="/your-activity"/>
                         </div>
                         <h1 className="text-6xl font-semibold text-[#8BCA00]  text-center">
                             Start Activity

@@ -1,8 +1,11 @@
 // import React from 'react'
+import { Link } from 'react-router-dom'
 import DaisyDelete from './components/DaisyDelete'
+import Layout from './Layout'
 
 const Deleteacc = () => {
   return (
+    <Layout>
     <div>
     <DaisyDelete/>
     
@@ -59,15 +62,18 @@ const Deleteacc = () => {
             <hr className="border-y-[#8BCA00] mt-[5px]"></hr>
 
             {/* butoon change */}
+            <Link to="/delete-account">
             <div className="flex flex-row w-full justify-center">
               <button className="m-20 btn text-xl text-white border-2 bg-red-600  h-10 w-[300px] rounded-xl ">
                 Delete
                 <span class="material-symbols-outlined">arrow_forward</span>
               </button>
             </div>
+            </Link>
           </div>
         </div>
     </div>
+    </Layout>
   )
 }
 

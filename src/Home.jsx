@@ -1,11 +1,14 @@
 // import React from 'react'
 import Layout from "./Layout"
+import { Link } from "react-router-dom"
 const Home = () => {
     return (
         <>
         <Layout>
             <div className="">
                 <div className="flex flex-col justify-center ">
+                    
+                    {/* part 1 */}
                     <div className="w-full mt-[50px]">
                         <div className="flex items-center">
                             <img className="mt-4" src="./image-user.png" alt="" />
@@ -20,6 +23,10 @@ const Home = () => {
                         </div>
                         <hr className="border-y-[#8BCA00] w-full mt-[40px]" ></hr>
                     </div>
+                    {/* part 1 */}
+
+                    {/* part 2: this button need to link to form*/}
+                    <Link to="/add-activity">
                     <div className="flex justify-center mt-10">
                         <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] w-full md:w-1/2">
                             <span class="material-symbols-outlined text-[#000000]">
@@ -28,19 +35,29 @@ const Home = () => {
                             Add Activity
                         </button>
                     </div>
+                    </Link>
+                    {/* part 2 */}
+
+                    {/* part 3 */}
                     <div className="flex justify-center">
                         <div className="flex justify-between w-full md:w-1/2 items-center mt-5">
                             <h1 className="text-xl font-medium ">
                                 Your Activity
                             </h1>
+                            <Link to="/history">
                             <button className="btn bg-[#000000] font-poppins text-xl font-normal text-[#FFFFFF] hidden md:flex">
                                 <span class="material-symbols-outlined text-[#FFFFFF]">
                                     history
                                 </span>
                                 History
                             </button>
+                            </Link>
                         </div>
                     </div>
+                    {/* part 3 */}
+
+                    {/* Part4 */}
+                    <Link to="/your-activity">
                     <div className='flex justify-center'>
                         <div className="bg-base-100 shadow-xl w-full md:w-1/2 mt-9 border-2 border-[#8BCA00] rounded-[10px] p-4">
                             <div className="">
@@ -66,6 +83,8 @@ const Home = () => {
                             </div>
                         </div>
                     </div>
+                    </Link>
+                    {/* Part4 */}
                 </div>
             </div >
             </Layout>

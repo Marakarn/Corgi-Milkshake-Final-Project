@@ -1,5 +1,7 @@
 // import React from 'react'
 import Layout from "./Layout"
+import Backfunction from "./components/Backfunction"
+import { Link } from "react-router-dom"
 
 const YourActivity = () => {
     return (
@@ -9,12 +11,13 @@ const YourActivity = () => {
                 <div className="flex flex-col justify-center ">
                     <div className="w-full mt-[50px]">
                         <div className="">
-                            <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] hidden md:flex">
+                            {/* <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] hidden md:flex">
                                 <span className="material-symbols-outlined text-[#000000]">
                                     arrow_back
                                 </span>
                                 Back
-                            </button>
+                            </button> */}
+                            <Backfunction path="/home"/>
                         </div>
                         <h1 className="text-6xl font-semibold text-[#8BCA00] text-center">
                             Your Activity
@@ -24,8 +27,9 @@ const YourActivity = () => {
                     <div className="flex flex-col form-control mt-20 w-full items-center">
                         <div className="card card-side bg-base-100 shadow-xl border-2 border-[#8BCA00]">
                             <div className="card-body">
-                                <div className="flex">
-                                    <div className="hero-content flex-row">
+                                <div className="flex flex-col md:flex-row justify-between items-center">
+                                    {/* hero-content */}
+                                    <div className="hero-content flex-row ">
                                         <span class="material-symbols-outlined text-[#000000] text-4xl">
                                             directions_walk
                                         </span>
@@ -35,22 +39,41 @@ const YourActivity = () => {
                                             <p className="text-base text-normal">24/1/2024 (2 hr)</p>
                                         </div>
                                     </div>
+                                    {/* button start */}
+                                    <Link to="/start-activity"> 
+                                    <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] ">
+                                <span className="material-symbols-outlined text-[#000000] ">
+                                    play_circle
+                                </span>
+                                Start
+                            </button>
+                            </Link>
                                 </div>
                                 <img className="mx-auto mt-4" src="./image-activity.png" alt="" />
-                                <div className="card-actions justify-center md:justify-end">
-                                    <button className="btn bg-[#000000] font-poppins text-xl font-normal text-[#FFFFFF] mt-6 w-2/3 md:w-2/6">
+                                {/* <div className="card-actions justify-center md:justify-end">  */}
+                                {/* ปุ้มนี้ css ไม่โอเค */}
+                                
+                               <div className="flex justify-center md:justify-end pt-5 ">
+                                <Link to="/edit-activity">                                
+                                    <button className="btn bg-[#000000] font-poppins text-xl font-normal text-[#FFFFFF] ">
                                         <span class="material-symbols-outlined text-[#FFFFFF]">
                                             border_color
                                         </span>
                                         Edit Activity
                                     </button>
-                                    <button className="btn bg-[#E34850] font-poppins text-xl font-normal text-[#FFFFFF] mt-6 w-2/3 md:w-2/6">
+                                    </Link>   
+                                    
+                                                  
+                                    <Link to="/delete-activity"> 
+                                    <button className="btn bg-[#E34850] font-poppins text-xl font-normal text-[#FFFFFF] ">
                                         <span class="material-symbols-outlined text-[#FFFFFF]">
                                             delete
                                         </span>
                                         Delete
                                     </button>
-                                </div>
+                                    </Link>  
+                                    </div>
+                                {/* </div> */}
                             </div>
                         </div>
                     </div>
