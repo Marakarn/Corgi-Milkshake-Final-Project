@@ -18,4 +18,5 @@ function Backfunction({ path }) {
     </button>
     );
 }
+
 export default Backfunction;
