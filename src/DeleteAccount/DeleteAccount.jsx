@@ -1,7 +1,7 @@
 // import React from 'react'
-import Layout from "./Layout"
-import Backfunction from "./components/Backfunction"
-import ModalDeleteAccount from "./components/ModalDeleteAccount"
+import Layout from "../components/Layout"
+import Backfunction from "../components/Backfunction"
+import ModalDeleteAccount from "../components/ModalDeleteAccount"
 
 
 

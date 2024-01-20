@@ -1,7 +1,7 @@
 // import React from "react";
 // import Footer from "./Footer";
-import Daisytop from "./components/Daisytop";
-import Layout from "./Layout";
+import Daisytop from "../components/Daisytop";
+import Layout from "../components/Layout";
 
 const ContactUs = () => {
   return (

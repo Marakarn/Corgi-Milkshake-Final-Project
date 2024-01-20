@@ -1,6 +1,6 @@
 // import React from 'react'
-import Layout from "./Layout"
-import Backfunction from "./components/Backfunction"
+import Layout from "../components/Layout"
+import Backfunction from "../components/Backfunction"
 
 const History = () => {
     return (

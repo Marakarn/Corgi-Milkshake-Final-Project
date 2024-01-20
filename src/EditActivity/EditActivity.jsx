@@ -1,8 +1,8 @@
 // import React from 'react'
-import Layout from "./Layout"
-import Backfunction from "./components/Backfunction"
+import Layout from "../components/Layout"
+import Backfunction from "../components/Backfunction"
 import { Link } from "react-router-dom"
-import ModalEditActivity from "./components/ModalEditActivity"
+import ModalEditActivity from "../components/ModalEditActivity"
 
 
 const EditActivity = () => {
@@ -13,12 +13,6 @@ const EditActivity = () => {
                 <div className="flex flex-col justify-center min-h-[1080px] md:min-h-[800px]">
                     <div className="w-full">
                         <div className="">
-                            {/* <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] hidden md:flex">
-                                <span className="material-symbols-outlined text-[#000000]">
-                                    arrow_back
-                                </span>
-                                Back
-                            </button> */}
                             <Backfunction path="/your-activity"/>
                         </div>
                         <h1 className="text-6xl font-semibold text-[#8BCA00] text-center">

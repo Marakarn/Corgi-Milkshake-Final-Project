@@ -1,4 +1,4 @@
-import "./App.css";
+import "../App.css";
 // import Layout from "./Layout";
 // import Backfunction from "./components/Backfunction";
 import { Link } from "react-router-dom";

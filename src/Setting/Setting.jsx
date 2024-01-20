@@ -1,8 +1,8 @@
 // import React from "react";
 // import Footer from "./Footer";
-import Layout from "./Layout";
+import Layout from "../components/Layout";
 import { Link } from "react-router-dom";
-import Backfunction from "./components/Backfunction";
+import Backfunction from "../components/Backfunction";
 
 const Setting = () => {
   return (

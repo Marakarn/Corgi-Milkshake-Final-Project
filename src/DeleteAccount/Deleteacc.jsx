@@ -1,7 +1,7 @@
 // import React from 'react'
 import { Link } from 'react-router-dom'
-import Daisytop from './components/Daisytop'
-import Layout from './Layout'
+import Daisytop from '../components/Daisytop'
+import Layout from '../components/Layout'
 
 const Deleteacc = () => {
   return (
