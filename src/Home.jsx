@@ -60,7 +60,7 @@ const Home = () => {
                     <Link to="/your-activity">
                     <div className='flex justify-center'>
                         <div className="bg-base-100 shadow-xl w-full md:w-1/2 mt-9 border-2 border-[#8BCA00] rounded-[10px] p-4">
-                            <div className="">
+                            <div className="">                            
                                 <div className="flex flex-row lg:flex-row justify-between items-center">
                                     <div className="flex flex-row">
                                         <span class="material-symbols-outlined text-[#000000] text-4xl">
@@ -72,6 +72,7 @@ const Home = () => {
                                             <p className="text-base text-normal">24/1/2024 (2 hr)</p>
                                         </div>
                                     </div>
+                                    
                                     <div className="flex">
                                         <button className="btn btn-circle bg-[#8BCA00]">
                                             <span class="material-symbols-outlined text-[#FFFFFF]">
@@ -80,8 +81,9 @@ const Home = () => {
                                         </button>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                            
                         </div>
+                        
                     </div>
                     </Link>
                     {/* Part4 */}
