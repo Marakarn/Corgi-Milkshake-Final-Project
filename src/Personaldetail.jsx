@@ -11,7 +11,7 @@ const Personaldetail = () => {
       <div className="">
         <div class="flex flex-col md:flex-row min-h-[600px]">
           {/* picture side */}
-          <div class="w-full md:w1/2">
+          <div class="w-full md:w-1/2">
             <div className="form-control mt-10 md:mt-48 items-center">
               <label className="label">
                 <span className="label-text text-base font-medium"></span>
@@ -66,7 +66,7 @@ const Personaldetail = () => {
                   <label className="">Enail Address</label>
                   <input
                     type="text"
-                    className="form-control flex items-center  "
+                    className="form-control flex items-center"
                     placeholder="Email"
                   />
                 </div>

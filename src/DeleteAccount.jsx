@@ -9,7 +9,7 @@ const DeleteAccount = () => {
     return (
         <>
         <Layout>
-            <div className="container mx-auto font-poppins">
+            <div className="container mx-auto font-poppins min-h-[980px]">
                 <div className="flex flex-col justify-center ">
                     <div className="w-full mt-[120px]">
                         <div className="">

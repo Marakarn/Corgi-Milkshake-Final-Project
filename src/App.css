@@ -11,3 +11,8 @@ input#login_password[type="password"] {
   width: 100%;
   padding: 10px 50px;
 }
+
+/* body {
+  min-height: 100vh;
+  margin: 0;
+} */

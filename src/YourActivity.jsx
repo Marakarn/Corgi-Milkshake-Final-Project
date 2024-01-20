@@ -8,7 +8,7 @@ const YourActivity = () => {
         <>
         <Layout>
             <div className="">
-                <div className="flex flex-col justify-center ">
+                <div className="flex flex-col justify-center pb-[80px]">
                     <div className="w-full mt-[50px]">
                         <div className="">
                             {/* <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] hidden md:flex">
@@ -53,7 +53,7 @@ const YourActivity = () => {
                                 {/* <div className="card-actions justify-center md:justify-end">  */}
                                 {/* ปุ้มนี้ css ไม่โอเค */}
                                 
-                               <div className="flex justify-center md:justify-end pt-5 ">
+                                <div className="flex justify-center md:justify-end pt-5 ">
                                 <Link to="/edit-activity">                                
                                     <button className="btn bg-[#000000] font-poppins text-xl font-normal text-[#FFFFFF] ">
                                         <span class="material-symbols-outlined text-[#FFFFFF]">
@@ -63,7 +63,6 @@ const YourActivity = () => {
                                     </button>
                                     </Link>   
                                     
-                                                  
                                     <Link to="/delete-activity"> 
                                     <button className="btn bg-[#E34850] font-poppins text-xl font-normal text-[#FFFFFF] ">
                                         <span class="material-symbols-outlined text-[#FFFFFF]">

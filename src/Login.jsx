@@ -1,5 +1,5 @@
 import "./App.css";
-import Layout from "./Layout";
+// import Layout from "./Layout";
 import { Link } from "react-router-dom";
 
 const Login = () => {

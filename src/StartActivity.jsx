@@ -6,7 +6,7 @@ const StartActivity = () => {
     return (
         <>
         <Layout>
-            <div className="">
+            <div className="min-h-[1080px] md:min-h-[800px]">
                 <div className="flex flex-col justify-center">
                     <div className="w-full mt-[50px]">
                         <div className="">

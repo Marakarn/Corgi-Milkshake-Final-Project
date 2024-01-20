@@ -8,7 +8,7 @@ const DeleteActivity = () => {
     return (
         <>
         <Layout>
-            <div className="">
+            <div className="min-h-[980px]">
                 <div className="flex flex-col justify-center ">
                     <div className="w-full mt-[120px]">
                         <div className="">
@@ -43,7 +43,6 @@ const DeleteActivity = () => {
                                 
                                 {/* </Link> */}
                                 
-                               
                             </div>
                         </form>
                         <ModalDeleteActivity/>

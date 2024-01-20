@@ -10,7 +10,7 @@ const AddActivity = () => {
             <div className="">
                 <div className="flex flex-col justify-center min-h-[1080px] md:min-h-[800px]">
                     
-                    {/* paet 1 */}
+                    {/* part 1 */}
                     <div className="w-full">
                         <div className="">
                             {/* <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] hidden md:flex">

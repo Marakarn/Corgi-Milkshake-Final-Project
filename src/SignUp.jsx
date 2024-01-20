@@ -1,6 +1,6 @@
 import "./App.css";
-import Layout from "./Layout";
-import Backfunction from "./components/Backfunction";
+// import Layout from "./Layout";
+// import Backfunction from "./components/Backfunction";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
@@ -10,12 +10,14 @@ const SignUp = () => {
     
         <main className="container mx-auto font-poppins">
             <section className="pt-20 relative">
+
             <Link to="/login">
-            <button className="btn bg-[#d2fe71] hover:bg-[#a5cf4a]/80 drop-shadow text-xl font-normal border-none hidden md:flex absolute top-[90px] left-[10px]">
-                    <span class="material-symbols-outlined">arrow_back</span>
-                        Back
-                    </button>
-                    </Link>
+                <button className="btn bg-[#d2fe71] hover:bg-[#a5cf4a]/80 drop-shadow text-xl font-normal border-none hidden md:flex absolute top-[90px] left-[10px]">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                            Back
+                        </button>
+            </Link>
+
                 <div className="bg-[#8BCA00]/60 text-center rounded-t-[20px] p-[10px]">
                     <h2 className="text-white font-semibold text-[32px]">Sign Up</h2>
                 </div>

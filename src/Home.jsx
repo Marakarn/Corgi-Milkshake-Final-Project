@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <>
         <Layout>
-            <div className="">
+            <div className="md:min-h-[800px] pb-48 md:pb-20">
                 <div className="flex flex-col justify-center ">
                     
                     {/* part 1 */}
@@ -57,9 +57,9 @@ const Home = () => {
                     {/* part 3 */}
 
                     {/* Part4 */}
-                    <Link to="/your-activity">
+                    {/* <Link to="/your-activity"> */}
                     <div className='flex justify-center'>
-                        <div className="bg-base-100 shadow-xl w-full md:w-1/2 mt-9 border-2 border-[#8BCA00] rounded-[10px] p-4">
+                        <Link to="/your-activity" className="bg-base-100 shadow-xl w-full md:w-1/2 mt-9 border-2 border-[#8BCA00] rounded-[10px] p-4">
                             <div className="">                            
                                 <div className="flex flex-row lg:flex-row justify-between items-center">
                                     <div className="flex flex-row">
@@ -82,10 +82,89 @@ const Home = () => {
                                     </div>
                                 </div>
                             </div>                            
-                        </div>
-                        
+                        </Link>
                     </div>
-                    </Link>
+
+                    {/* test another card */}
+                    {/* <div className='flex justify-center'>
+                        <Link to="/your-activity" className="bg-base-100 shadow-xl w-full md:w-1/2 mt-9 border-2 border-[#8BCA00] rounded-[10px] p-4">
+                            <div className="">                            
+                                <div className="flex flex-row lg:flex-row justify-between items-center">
+                                    <div className="flex flex-row">
+                                        <span class="material-symbols-outlined text-[#000000] text-4xl">
+                                            directions_walk
+                                        </span>
+                                        <div>
+                                            <h2 className="card-title text-2xl text-[#8BCA00]">Walking alone</h2>
+                                            <p className="text-base text-normal">Walking for exercise</p>
+                                            <p className="text-base text-normal">24/1/2024 (2 hr)</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex">
+                                        <button className="btn btn-circle bg-[#8BCA00]">
+                                            <span class="material-symbols-outlined text-[#FFFFFF]">
+                                                play_arrow
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </Link>
+                    </div>
+                    <div className='flex justify-center'>
+                        <Link to="/your-activity" className="bg-base-100 shadow-xl w-full md:w-1/2 mt-9 border-2 border-[#8BCA00] rounded-[10px] p-4">
+                            <div className="">                            
+                                <div className="flex flex-row lg:flex-row justify-between items-center">
+                                    <div className="flex flex-row">
+                                        <span class="material-symbols-outlined text-[#000000] text-4xl">
+                                            directions_walk
+                                        </span>
+                                        <div>
+                                            <h2 className="card-title text-2xl text-[#8BCA00]">Walking alone</h2>
+                                            <p className="text-base text-normal">Walking for exercise</p>
+                                            <p className="text-base text-normal">24/1/2024 (2 hr)</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex">
+                                        <button className="btn btn-circle bg-[#8BCA00]">
+                                            <span class="material-symbols-outlined text-[#FFFFFF]">
+                                                play_arrow
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </Link>
+                    </div>
+                    <div className='flex justify-center'>
+                        <Link to="/your-activity" className="bg-base-100 shadow-xl w-full md:w-1/2 mt-9 border-2 border-[#8BCA00] rounded-[10px] p-4">
+                            <div className="">                            
+                                <div className="flex flex-row lg:flex-row justify-between items-center">
+                                    <div className="flex flex-row">
+                                        <span class="material-symbols-outlined text-[#000000] text-4xl">
+                                            directions_walk
+                                        </span>
+                                        <div>
+                                            <h2 className="card-title text-2xl text-[#8BCA00]">Walking alone</h2>
+                                            <p className="text-base text-normal">Walking for exercise</p>
+                                            <p className="text-base text-normal">24/1/2024 (2 hr)</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div className="flex">
+                                        <button className="btn btn-circle bg-[#8BCA00]">
+                                            <span class="material-symbols-outlined text-[#FFFFFF]">
+                                                play_arrow
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>                            
+                        </Link>
+                    </div> */}
+                    {/* </Link> */}
                     {/* Part4 */}
                 </div>
             </div >
