@@ -1,4 +1,5 @@
-import Navbar from "./Navbar"
+import Navbar from "./components/Navbar"
+// import Menubar from "./components/Menubar"
 // import Footer from "./Footer"
 const Layout = ({ children }) => {
 
@@ -8,6 +9,7 @@ const Layout = ({ children }) => {
             <div className="container mx-auto font-poppins">
             {children}
             </div>
+            {/* <Menubar /> */}
             {/* <Footer /> */}
         </>
     )
