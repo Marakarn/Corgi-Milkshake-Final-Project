@@ -7,7 +7,7 @@ const Personaldetail = () => {
   return (
     <>
     <Layout>
-      <Daisytop />
+      <Daisytop text='Personal Detail'/>
       <div className="">
         <div class="flex flex-col md:flex-row min-h-[600px]">
           {/* picture side */}

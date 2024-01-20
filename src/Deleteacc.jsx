@@ -1,13 +1,13 @@
 // import React from 'react'
 import { Link } from 'react-router-dom'
-import DaisyDelete from './components/DaisyDelete'
+import Daisytop from './components/Daisytop'
 import Layout from './Layout'
 
 const Deleteacc = () => {
   return (
     <Layout>
     <div>
-    <DaisyDelete/>
+    <Daisytop text='Delete Account'/>
     
     <div class="">
     <div className="container mx-auto flex flex-col justify-center p-10 md:p-48 md:pt-10 ">

@@ -1,13 +1,13 @@
 // import React from "react";
 // import Footer from "./Footer";
-import Daisycontact from "./components/Daisycontact";
+import Daisytop from "./components/Daisytop";
 import Layout from "./Layout";
 
 const ContactUs = () => {
   return (
     <Layout>
     <div>
-      <Daisycontact />
+      <Daisytop text='Contact Us'/>
       <div className="min-h-[800px]">
         <div className=" mt-10 flex-grow card place-items-center w-full justify-center font-poppins min-w-[310] ">
           

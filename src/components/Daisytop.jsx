@@ -1,7 +1,7 @@
 // import React from 'react'
 import Backfunction from "./Backfunction"
 
-const Daisytop = () => {
+const Daisytop = ({text}) => {
   return (
     <div>
     {/* <div className="container mx-auto font-poppins"> */}
@@ -12,7 +12,7 @@ const Daisytop = () => {
             <Backfunction path="/setting"/>
             </div>
             <h1 className="text-6xl font-semibold text-[#8BCA00] text-center">
-              Personal Detail
+              {text}
             </h1>
 
             <hr className="border-y-[#8BCA00] w-full mt-[75px]"></hr>

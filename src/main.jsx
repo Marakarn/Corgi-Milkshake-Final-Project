@@ -10,7 +10,7 @@ import Deleteacc from './Deleteacc.jsx';
 import Login from './Login.jsx'
 import SignUp from './SignUp.jsx'
 import Home from './Home.jsx';
-import AddActivity from './AddActivity.jsx'
+import AddActivity from './AddActivity/AddActivity.jsx'
 import ModalAddActivity from './components/ModalAddActivity.jsx'
 import EditActivity from './EditActivity.jsx'
 import ModalEditActivity from './components/ModalEditActivity.jsx'

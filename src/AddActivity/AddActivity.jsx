@@ -1,7 +1,7 @@
 // import React from 'react'
-import Layout from "./Layout"
-import ModalAddActivity from "./components/ModalAddActivity"
-import Backfunction from "./components/Backfunction"
+import Layout from "../Layout"
+import ModalAddActivity from "../components/ModalAddActivity"
+import Head from "./Head"
 
 const AddActivity = () => {
     return (
@@ -10,23 +10,7 @@ const AddActivity = () => {
             <div className="">
                 <div className="flex flex-col justify-center min-h-[1080px] md:min-h-[800px]">
                     
-                    {/* part 1 */}
-                    <div className="w-full">
-                        <div className="">
-                            {/* <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] hidden md:flex">
-                                <span className="material-symbols-outlined text-[#000000]">
-                                    arrow_back
-                                </span>
-                                Back
-                            </button> */}
-                            <Backfunction path="/home"/>
-                        </div>
-                        <h1 className="text-6xl font-semibold text-[#8BCA00] text-center">
-                            Add Activity
-                        </h1>
-                        <hr className="border-y-[#8BCA00] w-full mt-[75px]" ></hr>
-                    </div>
-                    {/* part 1 */}
+                    <Head />
                     {/* part 2 */}
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full md:w-1/2">
