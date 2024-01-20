@@ -1,6 +1,7 @@
 // import React from 'react'
 import Layout from "../components/Layout"
 import Backfunction from "../components/Backfunction"
+import Daisytop from "../components/Daisytop"
 
 const StartActivity = () => {
     return (
@@ -8,21 +9,7 @@ const StartActivity = () => {
         <Layout>
             <div className="min-h-[1080px] md:min-h-[800px]">
                 <div className="flex flex-col justify-center">
-                    <div className="w-full mt-[50px]">
-                        <div className="">
-                            {/* <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] hidden md:flex">
-                                <span className="material-symbols-outlined text-[#000000]">
-                                    arrow_back
-                                </span>
-                                Back
-                            </button> */}
-                            <Backfunction path="/your-activity"/>
-                        </div>
-                        <h1 className="text-6xl font-semibold text-[#8BCA00]  text-center">
-                            Start Activity
-                        </h1>
-                        <hr className="border-y-[#8BCA00] w-full mt-[75px]" ></hr>
-                    </div>
+                <Daisytop text='Start Activity' path = "/your-activity"/>
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full md:w-1/2 ">
                             <form className="card-body">

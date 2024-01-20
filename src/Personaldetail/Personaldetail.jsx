@@ -7,7 +7,7 @@ const Personaldetail = () => {
   return (
     <>
     <Layout>
-      <Daisytop text='Personal Detail'/>
+      <Daisytop text='Personal Detail' path ='/setting'/>
       <div className="">
         <div class="flex flex-col md:flex-row min-h-[600px]">
           {/* picture side */}

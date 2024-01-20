@@ -7,7 +7,7 @@ const ContactUs = () => {
   return (
     <Layout>
     <div>
-      <Daisytop text='Contact Us'/>
+      <Daisytop text='Contact Us' path ='/setting'/>
       <div className="min-h-[800px]">
         <div className=" mt-10 flex-grow card place-items-center w-full justify-center font-poppins min-w-[310] ">
           

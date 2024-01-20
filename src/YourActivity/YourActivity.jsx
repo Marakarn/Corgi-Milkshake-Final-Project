@@ -1,7 +1,7 @@
 // import React from 'react'
 import Layout from "../components/Layout"
-import Backfunction from "../components/Backfunction"
 import { Link } from "react-router-dom"
+import Daisytop from "../components/Daisytop"
 
 const YourActivity = () => {
     return (
@@ -9,21 +9,8 @@ const YourActivity = () => {
         <Layout>
             <div className="">
                 <div className="flex flex-col justify-center pb-[80px]">
-                    <div className="w-full mt-[50px]">
-                        <div className="">
-                            {/* <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] hidden md:flex">
-                                <span className="material-symbols-outlined text-[#000000]">
-                                    arrow_back
-                                </span>
-                                Back
-                            </button> */}
-                            <Backfunction path="/home"/>
-                        </div>
-                        <h1 className="text-6xl font-semibold text-[#8BCA00] text-center">
-                            Your Activity
-                        </h1>
-                        <hr className="border-y-[#8BCA00] w-full mt-[75px]" ></hr>
-                    </div>
+                <Daisytop text='Your Activity' path = "/home"/>
+                      
                     <div className="flex flex-col form-control mt-20 w-full items-center">
                         <div className="card card-side bg-base-100 shadow-xl border-2 border-[#8BCA00]">
                             <div className="card-body">
@@ -77,7 +64,7 @@ const YourActivity = () => {
                         </div>
                     </div>
                 </div>
-            </div >
+            </div>
             </Layout>
         </>
     )
