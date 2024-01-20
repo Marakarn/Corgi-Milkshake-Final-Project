@@ -4,27 +4,15 @@ import Backfunction from "../components/Backfunction"
 import { Link } from "react-router-dom"
 import ModalDeleteActivity from "../components/ModalDeleteActivity"
 import ModalAddActivity from "../components/ModalAddActivity"
+import Daisytop from "../components/Daisytop"
+
 const DeleteActivity = () => {
     return (
         <>
         <Layout>
             <div className="min-h-[980px]">
                 <div className="flex flex-col justify-center ">
-                    <div className="w-full mt-[120px]">
-                        <div className="">
-                            {/* <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] hidden md:flex">
-                                <span className="material-symbols-outlined text-[#000000]">
-                                    arrow_back
-                                </span>
-                                Back
-                            </button> */}
-                            <Backfunction path="/your-activity"/>
-                        </div>
-                        <h1 className="text-6xl font-semibold text-[#8BCA00] text-center">
-                            Delete Activity
-                        </h1>
-                        <hr className="border-y-[#8BCA00] w-full mt-[75px]" ></hr>
-                    </div>
+                    <Daisytop text = "Delete Activity" path = "/your-activity"/>
                     <div className="flex flex-col form-control mt-6 w-full items-center ">
                         <form className="card-body">
                             <div className="form-control">

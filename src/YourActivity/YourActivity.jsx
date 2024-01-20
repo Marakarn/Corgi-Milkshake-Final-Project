@@ -2,6 +2,9 @@
 import Layout from "../components/Layout"
 import { Link } from "react-router-dom"
 import Daisytop from "../components/Daisytop"
+import Btnstart from "./Btnstart"
+import Btnedit from "./Btnedit"
+import Btndeleteactivity from "./Btndeleteactivity"
 
 const YourActivity = () => {
     return (
@@ -27,37 +30,18 @@ const YourActivity = () => {
                                         </div>
                                     </div>
                                     {/* button start */}
-                                    <Link to="/start-activity"> 
-                                    <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] ">
-                                <span className="material-symbols-outlined text-[#000000] ">
-                                    play_circle
-                                </span>
-                                Start
-                            </button>
-                            </Link>
+                            
+                                 <Btnstart/>
                                 </div>
                                 <img className="mx-auto mt-4" src="./image-activity.png" alt="" />
                                 {/* <div className="card-actions justify-center md:justify-end">  */}
                                 {/* ปุ้มนี้ css ไม่โอเค */}
                                 
                                 <div className="flex justify-center md:justify-end pt-5 ">
-                                <Link to="/edit-activity">                                
-                                    <button className="btn bg-[#000000] font-poppins text-xl font-normal text-[#FFFFFF] ">
-                                        <span class="material-symbols-outlined text-[#FFFFFF]">
-                                            border_color
-                                        </span>
-                                        Edit Activity
-                                    </button>
-                                    </Link>   
+                                
+                                    <Btnedit/>
                                     
-                                    <Link to="/delete-activity"> 
-                                    <button className="btn bg-[#E34850] font-poppins text-xl font-normal text-[#FFFFFF] ">
-                                        <span class="material-symbols-outlined text-[#FFFFFF]">
-                                            delete
-                                        </span>
-                                        Delete
-                                    </button>
-                                    </Link>  
+                                    <Btndeleteactivity/>
                                     </div>
                                 {/* </div> */}
                             </div>
