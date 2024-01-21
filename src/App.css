@@ -12,7 +12,9 @@ input#login_password[type="password"] {
   padding: 10px 50px;
 }
 
-/* body {
-  min-height: 100vh;
-  margin: 0;
-} */
+footer {
+  position: fixed ;
+  left: 0px ;
+  bottom: 0px ;
+  width: 100% ;
+}
