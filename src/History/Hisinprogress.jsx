@@ -1,19 +1,16 @@
-import React from "react";
 
-const Hisinprogress = () => {
+const HisinProgress = () => {
   return (
-    <div>
-      <div className="block w-1/2 ">
+    <>
+      {/* Inprogress */}
+      <div className="">
         <form className="card-body">
-          <div className="form-control mt-6">
-            <button className="btn bg-[#8BCA00] font-poppins text-xl font-normal text-[#FFFFFF]">
-              In progress
-            </button>
+          <div className="form-control">
 
             <div className="card card-side bg-base-100 shadow-xl w-full mt-9 border-2 border-[#8BCA00]">
               <div className="card-body p-1">
-                <div className="hero-content flex-col lg:flex-row justify-between">
-                  <div className="flex flex-row">
+                <div className="hero-content">
+                  <div className="flex">
                     <span class="material-symbols-outlined text-[#000000] text-4xl">
                       directions_walk
                     </span>
@@ -42,8 +39,9 @@ const Hisinprogress = () => {
           </div>
         </form>
       </div>
-    </div>
+      {/* <Hisinprogress/> */}
+    </>
   );
 };
 
-export default Hisinprogress;
+export default HisinProgress;
