@@ -1,7 +1,7 @@
 // import React from 'react'
 // import { useState } from 'react';
 import Layout from "./Layout"
-// import Backfunction from "./components/Backfunction"
+import Backfunction from "./components/Backfunction"
 
 const History = () => {
 
@@ -14,7 +14,7 @@ const History = () => {
                 <div className="flex flex-col justify-center ">
                     <div className="w-full mt-[50px]">
                         <div className="">
-                            {/* <Backfunction path="/home"/> */}
+                            <Backfunction path="/home"/>
                             <h1>test</h1>
                             <h1>test</h1>
                             <h1>test</h1>
@@ -84,7 +84,7 @@ const History = () => {
                             </form>
                         </div>
                         {/* Inprogress */}
-                        <div className="block w-1/2 ">
+                        {/*<}div className="block w-1/2 ">
                             <form className="card-body">
                                 <div className="form-control mt-6">
                                     <button className="btn bg-[#8BCA00] font-poppins text-xl font-normal text-[#FFFFFF]">
@@ -124,7 +124,7 @@ const History = () => {
                         {/* <Hisinprogress/> */}
 
                         {/* Finish */}
-                        <div className="block w-1/2 ">
+                        {/*<div className="block w-1/2 ">
                             <form className="card-body">
                                 <div className="form-control mt-6">
                                     <button className="btn bg-[#BDBDBD] font-poppins text-xl font-normal text-[#FFFFFF]">
