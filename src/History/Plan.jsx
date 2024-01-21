@@ -2,7 +2,7 @@ import React from "react";
 
 const Plan = () => {
   return (
-    <div>
+    
       <div className="form-control mt-6">
         <button className="btn bg-[#BDBDBD] font-poppins text-xl font-normal text-[#FFFFFF]">
           Plan
@@ -36,7 +36,7 @@ const Plan = () => {
           </div>
         </div>
       </div>
-    </div>
+   
   );
 };
 

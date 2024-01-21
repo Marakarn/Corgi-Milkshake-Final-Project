@@ -18,19 +18,7 @@ const DeleteActivity = () => {
                             <div className="form-control">
                                 <img className="mx-auto p-6" src="./delete-activity.png" alt="" />
                                 <h1 className="text-4xl font-bold text-[#E34850] text-center p-6">Do you want to delete activity?</h1>
-                                <p className="text-xl font-normal text-center">If you delete your activity the system will delete all data.</p>
-                                
-                                {/* <Link to="/modal-delete-activity">   */}
-                                {/* <button className="btn bg-[#E34850] font-poppins text-xl font-normal text-[#FFFFFF] mt-6">
-                                    <span class="material-symbols-outlined text-[#FFFFFF]">
-                                        delete
-                                    </span>
-                                    Delete
-                                </button> */}
-                                
-                                
-                                {/* </Link> */}
-                                
+                                <p className="text-xl font-normal text-center">If you delete your activity the system will delete all data.</p>                                
                             </div>
                         </form>
                         <ModalDeleteActivity/>

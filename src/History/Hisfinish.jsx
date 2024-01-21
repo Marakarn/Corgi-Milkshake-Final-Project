@@ -2,7 +2,7 @@ import React from "react";
 
 const Hisfinish = () => {
   return (
-    <div>
+    
       <div className="block w-1/2 ">
         <form className="card-body">
           <div className="form-control mt-6">
@@ -42,7 +42,7 @@ const Hisfinish = () => {
           </div>
         </form>
       </div>
-    </div>
+    
   );
 };
 

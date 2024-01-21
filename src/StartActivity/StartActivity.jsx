@@ -2,6 +2,7 @@
 import Layout from "../components/Layout"
 import Backfunction from "../components/Backfunction"
 import Daisytop from "../components/Daisytop"
+import Startvideo from "./Startvideo"
 
 const StartActivity = () => {
     return (
@@ -11,18 +12,8 @@ const StartActivity = () => {
                 <div className="flex flex-col justify-center">
                 <Daisytop text='Start Activity' path = "/your-activity"/>
                     <div className="flex flex-col md:flex-row">
-                        <div className="w-full md:w-1/2 ">
-                            <form className="card-body">
-                                <div className="form-control">
-                                    <label className="label">
-                                        <span className="label-text text-3xl font-medium">Warm Up</span>
-                                    </label>
-                                    <iframe class="w-full aspect-video ..." src="https://youtu.be/f3zOrYCwquE?si=-aBXLYmytVMtjGt9"></iframe>
-                                    {/* <video className="aspect-video" src="https://youtu.be/f3zOrYCwquE?si=-aBXLYmytVMtjGt9">
-                                    </video> */}
-                                </div>
-                            </form>
-                        </div>
+                       
+                        <Startvideo />
                         <div className="w-full md:w-1/2 ">
                             <form className="card-body">
                                 <div className="form-control">
