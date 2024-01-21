@@ -1,7 +1,7 @@
 // import React from 'react'
 // import { useState } from 'react';
-import Layout from "./Layout"
-import Backfunction from "./components/Backfunction"
+import Layout from '../components/Layout';
+import Backfunction from "../components/Backfunction"
 
 const History = () => {
 
@@ -15,10 +15,6 @@ const History = () => {
                     <div className="w-full mt-[50px]">
                         <div className="">
                             <Backfunction path="/home"/>
-                            <h1>test</h1>
-                            <h1>test</h1>
-                            <h1>test</h1>
-                            <h1>test</h1>
                         </div>
                         <h1 className="text-6xl font-semibold text-[#8BCA00]  text-center">
                             History
