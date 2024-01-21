@@ -3,26 +3,26 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import './index.css'
 import App from './App.jsx'
-import Setting from './Setting.jsx';
-import Personaldetail from './Personaldetail.jsx';
-import ContactUs from './ContactUs.jsx';
-import Deleteacc from './Deleteacc.jsx';
-import Login from './Login.jsx'
-import SignUp from './SignUp.jsx'
-import Home from './Home.jsx';
-import AddActivity from './AddActivity.jsx'
+import Setting from './Setting/Setting.jsx';
+import Personaldetail from './Personaldetail/Personaldetail.jsx';
+import ContactUs from './Contactus/ContactUs.jsx';
+import Deleteacc from './DeleteAccount/Deleteacc.jsx';
+import Login from './Login/Login.jsx'
+import SignUp from './Signup/SignUp.jsx'
+import Home from './Home/Home.jsx';
+import AddActivity from './AddActivity/AddActivity.jsx'
 import ModalAddActivity from './components/ModalAddActivity.jsx'
-import EditActivity from './EditActivity.jsx'
+import EditActivity from './EditActivity/EditActivity.jsx'
 import ModalEditActivity from './components/ModalEditActivity.jsx'
-import DeleteActivity from './DeleteActivity.jsx'
+import DeleteActivity from './DeleteActivity/DeleteActivity.jsx'
 import ModalDeleteActivity from './components/ModalDeleteActivity.jsx'
-import DeleteAccount from './DeleteAccount.jsx'
+import DeleteAccount from './DeleteAccount/DeleteAccount.jsx'
 import ModalDeleteAccount from './components/ModalDeleteAccount.jsx'
-import StartActivity from './StartActivity.jsx'
+import StartActivity from './StartActivity/StartActivity.jsx'
 import ModalStartActivity from './components/ModalStartActivity.jsx'
 import ModalEditPersonal from './components/ModalEditPersonal.jsx'
-import YourActivity from './YourActivity.jsx'
-import History from './History.jsx'
+import YourActivity from './YourActivity/YourActivity.jsx'
+import History from './History/History.jsx'
 import ModalSignUp from './components/ModalSignUp.jsx'
 
 
