@@ -1,7 +1,7 @@
 // import React from 'react'
 // import { useState } from 'react';
 import Layout from "./Layout"
-import Backfunction from "./components/Backfunction"
+// import Backfunction from "./components/Backfunction"
 
 const History = () => {
 
@@ -14,7 +14,7 @@ const History = () => {
                 <div className="flex flex-col justify-center ">
                     <div className="w-full mt-[50px]">
                         <div className="">
-                            <Backfunction path="/home"/>
+                            {/* <Backfunction path="/home"/> */}
                         </div>
                         <h1 className="text-6xl font-semibold text-[#8BCA00]  text-center">
                             History
