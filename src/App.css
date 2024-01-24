@@ -6,6 +6,10 @@
     font-size: 40px;
 }
 
+#menu_icon {
+  font-size: 40px;
+}
+
 input#login_id[type="email"],
 input#login_password[type="password"] {
   width: 100%;

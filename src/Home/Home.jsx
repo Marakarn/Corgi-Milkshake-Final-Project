@@ -14,16 +14,14 @@ const Home = () => {
             <Headerhome />
 
             {/* part 2: this button need to link to form*/}
-            <Link to="/add-activity">
               <div className="flex justify-center mt-10">
-                <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] w-full md:w-1/2">
+                <Link to="/add-activity" className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] w-full md:w-1/2">
                   <span class="material-symbols-outlined text-[#000000]">
                     add_circle
                   </span>
                   Add Activity
-                </button>
+                </Link>
               </div>
-            </Link>
 
             <Tiltebutton />
 
