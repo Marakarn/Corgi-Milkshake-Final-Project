@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Menubar = () => {
 
@@ -19,16 +19,14 @@ const Menubar = () => {
                     {
                         Menus.map((menu,i)=>(
                             <li key={i} className="">
-                                <Link to={menu.link} className="flex items-center" onClick={() => { setActive(i); }}
->
-                                    <span className= {`material-symbols-outlined ${i === active && "text-[#8BCA00]"}`} id="menu_icon">{menu.icon}</span>
-                                    {/* <span className={` text-[#8BCA00] ${active === i ? 'duration-300 opacity-100' : 'opacity-0 translate-y-10' } `} >{menu.name}</span> */}
-                                </Link>
+                                <NavLink to={menu.link} style={({ isActive, isPending }) => { return { color: isActive ? "#8BCA00" : "inherit", };}} className="flex items-center" onClick={() => { setActive(i); }}>
+                                    <span className= {`material-symbols-outlined ${i === active }`} id="menu_icon">{menu.icon}</span>
+                                </NavLink>
                             </li>
                         ))
                     }
-                </ul>
-            </div>
+                    </ul>
+                </div>
             </div>
         </>
     );

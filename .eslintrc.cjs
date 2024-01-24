@@ -13,6 +13,7 @@ module.exports = {
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
   rules: {
+    "react/jsx-no-undef": ["error", { "allow": ["isPending"] }],
     'react-refresh/only-export-components': [
       'warn',
       { allowConstantExport: true },
@@ -20,7 +21,7 @@ module.exports = {
     'react/no-unknown-property': [0 , { ignore: ['css'] }],
     'react/prop-types': [2, {
       'skipUndeclared': true,
-      'ignore': ['children', 'className']
+      'ignore': ['children', 'className', 'isPending']
     }],
   },
 };
