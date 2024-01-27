@@ -15,8 +15,6 @@ const Inputpic = () => {
           </button>
         </div>
       </div>
-
-      
     </>
   );
 };

@@ -10,6 +10,11 @@
   font-size: 40px;
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 input#login_id[type="email"],
 input#login_password[type="password"] {
   width: 100%;
@@ -17,7 +22,7 @@ input#login_password[type="password"] {
 }
 
 footer {
-  position: fixed ;
+  position: absolute;
   left: 0px ;
   bottom: 0px ;
   width: 100% ;

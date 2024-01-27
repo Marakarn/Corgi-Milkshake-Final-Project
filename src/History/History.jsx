@@ -11,7 +11,7 @@ const History = () => {
     setSection(value);
   };
 
-  const [section, setSection] = useState('InProgress');
+  const [section, setSection] = useState("InProgress");
 
   return (
     <>
@@ -51,10 +51,8 @@ const History = () => {
                   >
                     Finish
                   </button>
-                  
                 </div>
-                    <Display className="w-full" section={section}/>
-
+                <Display className="w-full" section={section} />
               </div>
             </div>
           </div>
@@ -64,22 +62,17 @@ const History = () => {
   );
 };
 
-function Display({section}) {
-
-    let show;
-    if (section === 'Plan') {
-      show = <DisplayPlan/>;
-    } else if (section === 'InProgress') {
-      show = <DisplayInProgress/>;
-    } else if (section === 'Finish') {
-      show = <DisplayFinish/>;
-    }
-  
-    return (
-      <div>
-        {show}
-      </div>
-    );
+function Display({ section }) {
+  let show;
+  if (section === "Plan") {
+    show = <DisplayPlan />;
+  } else if (section === "InProgress") {
+    show = <DisplayInProgress />;
+  } else if (section === "Finish") {
+    show = <DisplayFinish />;
   }
+
+  return <div>{show}</div>;
+}
 
 export default History;

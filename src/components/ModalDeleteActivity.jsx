@@ -38,7 +38,7 @@ const ModalDeleteActivity = () => {
                 </span>
                 Back to Home
               </button> */}
-              <Backfunction path = "/your-activity"/>
+              <Backfunction path="/your-activity" />
             </form>
           </div>
         </div>

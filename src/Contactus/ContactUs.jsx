@@ -1,5 +1,4 @@
 // import React from "react";
-// import Footer from "./Footer";
 import Daisytop from "../components/Daisytop";
 import Layout from "../components/Layout";
 import Pn from "./Pn";
@@ -13,7 +12,7 @@ const ContactUs = () => {
     <Layout>
       <div>
         <Daisytop text="Contact Us" path="/setting" />
-        <div className="min-h-[800px]">
+        <div className="min-h-[600px]">
           <div className=" mt-10 flex-grow card place-items-center w-full justify-center font-poppins min-w-[310] ">
             <div className=" flex flex-col h-10 w-[320px] ">
               <Pn />

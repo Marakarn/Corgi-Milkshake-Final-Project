@@ -1,7 +1,7 @@
 // import React from 'react'
 import Layout from "../components/Layout"
-import Backfunction from "../components/Backfunction"
-import { Link } from "react-router-dom"
+import { mockData } from '../mockData';
+import { useParams } from "react-router-dom"
 import ModalEditActivity from "../components/ModalEditActivity"
 import Daisytop from "../components/Daisytop"
 import Editname from "./Editname"
@@ -12,12 +12,16 @@ import Editdate from "./Editdate"
 import Editinputimg from "./Editinputimg"
 
 const EditActivity = () => {
+
+    const { id } = useParams();
+    const data = mockData[id];
+
     return (
         <>
         <Layout>
             <div className="">
                 <div className="flex flex-col justify-center min-h-[1080px] md:min-h-[800px]">
-                <Daisytop text='Edit Activity' path = "/your-activity"/>
+                <Daisytop text='Edit Activity' path ={`/your-activity/${data.id}`}/>
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full md:w-1/2">
                             <form className="card-body">

@@ -1,4 +1,3 @@
-
 const Hisfinish = () => {
   return (
     <>
@@ -6,7 +5,6 @@ const Hisfinish = () => {
       <div className="">
         <form className="card-body">
           <div className="form-control">
-
             <div className="card card-side bg-base-100 shadow-xl w-full mt-9 border-2 border-[#8BCA00]">
               <div className="card-body p-1">
                 <div className="hero-content">
