@@ -11,19 +11,19 @@ import Login from "./Login/Login.jsx";
 import SignUp from "./Signup/SignUp.jsx";
 import Home from "./Home/Home.jsx";
 import AddActivity from "./AddActivity/AddActivity.jsx";
-import ModalAddActivity from "./components/ModalAddActivity.jsx";
+// import ModalAddActivity from "./components/ModalAddActivity.jsx";
 import EditActivity from "./EditActivity/EditActivity.jsx";
-import ModalEditActivity from "./components/ModalEditActivity.jsx";
+// import ModalEditActivity from "./components/ModalEditActivity.jsx";
 import DeleteActivity from "./DeleteActivity/DeleteActivity.jsx";
-import ModalDeleteActivity from "./components/ModalDeleteActivity.jsx";
+// import ModalDeleteActivity from "./components/ModalDeleteActivity.jsx";
 import DeleteAccount from "./DeleteAccount/DeleteAccount.jsx";
-import ModalDeleteAccount from "./components/ModalDeleteAccount.jsx";
+// import ModalDeleteAccount from "./components/ModalDeleteAccount.jsx";
 import StartActivity from "./StartActivity/StartActivity.jsx";
-import ModalStartActivity from "./components/ModalStartActivity.jsx";
-import ModalEditPersonal from "./components/ModalEditPersonal.jsx";
+// import ModalStartActivity from "./components/ModalStartActivity.jsx";
+// import ModalEditPersonal from "./components/ModalEditPersonal.jsx";
 import YourActivity from "./YourActivity/YourActivity.jsx";
 import History from "./History/History.jsx";
-import ModalSignUp from "./components/ModalSignUp.jsx";
+// import ModalSignUp from "./components/ModalSignUp.jsx";
 
 const router = createBrowserRouter([
   {
@@ -46,46 +46,46 @@ const router = createBrowserRouter([
     path: "/add-activity",
     element: <AddActivity />,
   },
-  {
-    path: "/modal-add-activity",
-    element: <ModalAddActivity />,
-  },
+  // {
+  //   path: "/modal-add-activity",
+  //   element: <ModalAddActivity />,
+  // },
   {
     path: "/edit-activity/:id",
     element: <EditActivity />,
   },
+  // {
+  //   path: "/modal-edit-activity",
+  //   element: <ModalEditActivity />,
+  // },
   {
-    path: "/modal-edit-activity",
-    element: <ModalEditActivity />,
-  },
-  {
-    path: "/delete-activity",
+    path: "/delete-activity/:id",
     element: <DeleteActivity />,
   },
-  {
-    path: "/modal-delete-activity",
-    element: <ModalDeleteActivity />,
-  },
+  // {
+  //   path: "/modal-delete-activity",
+  //   element: <ModalDeleteActivity />,
+  // },
   {
     path: "/delete-account",
     element: <DeleteAccount />,
   },
-  {
-    path: "/modal-delete-account",
-    element: <ModalDeleteAccount />,
-  },
+  // {
+  //   path: "/modal-delete-account",
+  //   element: <ModalDeleteAccount />,
+  // },
   {
     path: "/start-activity/:id",
     element: <StartActivity />,
   },
-  {
-    path: "/modal-start-activity",
-    element: <ModalStartActivity />,
-  },
-  {
-    path: "/modal-edit-personal",
-    element: <ModalEditPersonal />,
-  },
+  // {
+  //   path: "/modal-start-activity",
+  //   element: <ModalStartActivity />,
+  // },
+  // {
+  //   path: "/modal-edit-personal",
+  //   element: <ModalEditPersonal />,
+  // },
   {
     path: "/your-activity/:id",
     element: <YourActivity />,
@@ -94,10 +94,10 @@ const router = createBrowserRouter([
     path: "/history",
     element: <History />,
   },
-  {
-    path: "/modal-signup",
-    element: <ModalSignUp />,
-  },
+  // {
+  //   path: "/modal-signup",
+  //   element: <ModalSignUp />,
+  // },
   {
     path: "/setting",
     element: <Setting />,
