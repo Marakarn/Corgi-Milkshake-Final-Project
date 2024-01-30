@@ -11,6 +11,7 @@ import Login from "./Login/Login.jsx";
 import SignUp from "./Signup/SignUp.jsx";
 import Home from "./Home/Home.jsx";
 import AddActivity from "./AddActivity/AddActivity.jsx";
+import Validateref from "./ValidateRef.jsx";
 // import ModalAddActivity from "./components/ModalAddActivity.jsx";
 import EditActivity from "./EditActivity/EditActivity.jsx";
 // import ModalEditActivity from "./components/ModalEditActivity.jsx";
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
   {
     path: "/add-activity",
     element: <AddActivity />,
+  },
+  {
+    path: "validate-ref",
+    element: <Validateref />
   },
   // {
   //   path: "/modal-add-activity",
