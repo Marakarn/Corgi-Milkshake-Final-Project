@@ -8,6 +8,7 @@ import Activitiestypes from "./Activitiestypes";
 import Activityduration from "./Activityduration";
 import Activiydate from "./Activiydate";
 import Activityimage from "./Activityimage";
+
 const AddActivity = () => {
   return (
     <>
