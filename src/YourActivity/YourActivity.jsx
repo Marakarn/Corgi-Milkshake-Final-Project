@@ -43,7 +43,7 @@ const YourActivity = () => {
                     {/* button start */}
                     <Btnstart />
                   </div>
-                  <img className="mx-auto mt-4" src={imageActivity} alt="" />
+                  <img className="mx-auto mt-4 object-cover h-32 w-full" src={data.image} alt="" />
                   <div className="flex justify-center md:justify-end pt-5 ">
                     <Btnedit />
 
