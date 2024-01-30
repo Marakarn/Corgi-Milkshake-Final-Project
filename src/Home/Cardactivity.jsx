@@ -13,7 +13,7 @@ const Cardactivity = ({ mockData }) => {
             <div className="">
               <div className="flex flex-row lg:flex-row justify-between items-center">
                 <div className="flex flex-row">
-                  <span class="material-symbols-outlined text-[#000000] text-4xl">
+                      <span class="material-symbols-outlined text-[#000000] text-4xl">
                     {mockCardData.icon}
                   </span>
                   <div>
@@ -44,11 +44,5 @@ const Cardactivity = ({ mockData }) => {
     </>
   );
 };
-
-// const Cardactivity2 =({mockData}) => {
-//     return (
-//         <YourActivity mockData={mockData} />
-//     )
-// }
 
 export default Cardactivity;
