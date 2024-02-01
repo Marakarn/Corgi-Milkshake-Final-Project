@@ -8,12 +8,14 @@ const Validateref = () => {
   const initialFormData = { name: "", email: "" }
   const [formData, setFormData] = useState(initialFormData);
   const [msg, setMsg]=useState("");
+
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setFormData({
       ...formData,
       [id]: value
     });
+    
     if(id==="password"){
       const isPasswordLength = isLength(formData.password, { min: 3, max: 7 })
       if(isPasswordLength){

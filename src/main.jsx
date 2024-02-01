@@ -24,6 +24,7 @@ import StartActivity from "./StartActivity/StartActivity.jsx";
 // import ModalEditPersonal from "./components/ModalEditPersonal.jsx";
 import YourActivity from "./YourActivity/YourActivity.jsx";
 import History from "./History/History.jsx";
+import SignUpTest from "./Signup/SignUp test validate.jsx";
 // import ModalSignUp from "./components/ModalSignUp.jsx";
 
 const router = createBrowserRouter([
@@ -48,8 +49,12 @@ const router = createBrowserRouter([
     element: <AddActivity />,
   },
   {
-    path: "validate-ref",
+    path: "/validate-ref",
     element: <Validateref />
+  },
+  {
+    path: "/signup-test",
+    element: <SignUpTest />,
   },
   // {
   //   path: "/modal-add-activity",
