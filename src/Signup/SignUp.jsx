@@ -279,7 +279,7 @@ const SignUp = () => {
                                 photo_camera
                                 </span>
                                 <p class="mt-2 text-base text-center leading-normal">Select a Photo</p>
-                                <input type='file' accept=".jpg, .png, .jpeg" class="hidden" />
+                                <input type='file' accept=".jpg, .png, .jpeg" class="hidden" id="signup_photo"/>
                             </label>
                         </div>
                     </div>

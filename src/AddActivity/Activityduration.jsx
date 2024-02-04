@@ -1,6 +1,6 @@
 import React from "react";
 
-const Activityduration = () => {
+const Activityduration = ({setHours ,setMinute}) => {
   return (
     <>
       <div className="form-control">
@@ -17,6 +17,7 @@ const Activityduration = () => {
             min="0"
             placeholder="hours"
             className="input input-bordered text-base font-normal w-1/2"
+            onChange={(e)=>setHours(e.target.value)}
             required
           />
           <input
@@ -27,6 +28,7 @@ const Activityduration = () => {
             max="59"
             placeholder="minutes"
             className="input input-bordered text-base font-normal w-1/2"
+            onChange={(e)=>setMinute(e.target.value)}
             required
           />
         </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Activitiestypes = () => {
+const Activitiestypes = ({setType}) => {
   return (
     <>
       <div className="form-control w-full">
@@ -9,16 +9,16 @@ const Activitiestypes = () => {
             Activity Types* :
           </span>
         </label>
-        <select className="select select-bordered w-full text-base font-normal ">
+        <select className="select select-bordered w-full text-base font-normal " id="activityType" onChange={(e)=>setType(e.target.value)} >
           <option disabled selected>
             Choose
           </option>
-          <option>Walking</option>
-          <option>Running</option>
-          <option>Weight-lifting</option>
-          <option>Swimming</option>
-          <option>Cycling</option>
-          <option>Aerobics</option>
+          <option value="walking">Walking</option>
+          <option value="Running">Running</option>
+          <option value="Weight-lifting">Weight-lifting</option>
+          <option value="Swimming">Swimming</option>
+          <option value="Cycling">Cycling</option>
+          <option value="Aerobics">Aerobics</option>
         </select>
       </div>
     </>
