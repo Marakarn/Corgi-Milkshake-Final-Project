@@ -11,7 +11,7 @@ import Login from "./Login/Login.jsx";
 import SignUp from "./Signup/SignUp.jsx";
 import Home from "./Home/Home.jsx";
 import AddActivity from "./AddActivity/AddActivity.jsx";
-import Validateref from "./ValidateRef.jsx";
+// import Validateref from "./ValidateRef.jsx";
 // import ModalAddActivity from "./components/ModalAddActivity.jsx";
 import EditActivity from "./EditActivity/EditActivity.jsx";
 // import ModalEditActivity from "./components/ModalEditActivity.jsx";
@@ -24,7 +24,7 @@ import StartActivity from "./StartActivity/StartActivity.jsx";
 // import ModalEditPersonal from "./components/ModalEditPersonal.jsx";
 import YourActivity from "./YourActivity/YourActivity.jsx";
 import History from "./History/History.jsx";
-import SignUpTest from "./Signup/SignUp test validate.jsx";
+// import SignUpTest from "./Signup/SignUp test validate.jsx";
 // import ModalSignUp from "./components/ModalSignUp.jsx";
 
 const router = createBrowserRouter([
@@ -48,14 +48,14 @@ const router = createBrowserRouter([
     path: "/add-activity",
     element: <AddActivity />,
   },
-  {
-    path: "/validate-ref",
-    element: <Validateref />
-  },
-  {
-    path: "/signup-test",
-    element: <SignUpTest />,
-  },
+  // {
+  //   path: "/validate-ref",
+  //   element: <Validateref />
+  // },
+  // {
+  //   path: "/signup-test",
+  //   element: <SignUpTest />,
+  // },
   // {
   //   path: "/modal-add-activity",
   //   element: <ModalAddActivity />,
