@@ -1,6 +1,6 @@
 import React from "react";
 
-const Activityimage = () => {
+const Activityimage = ({setActImage}) => {
   return (
     <>
       <div className="form-control">
@@ -11,6 +11,7 @@ const Activityimage = () => {
           type="file"
           className="file-input file-input-bordered w-full max-w-x"
           id="actImage"
+          onChange={(e)=>setActImage(e.target.value)}
         />
       </div>
     </>

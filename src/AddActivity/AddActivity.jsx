@@ -8,21 +8,31 @@ import Activitiestypes from "./Activitiestypes";
 import Activityduration from "./Activityduration";
 import Activiydate from "./Activiydate";
 import Activityimage from "./Activityimage";
+import axios from "axios";
+import { useState } from "react";
 
 const AddActivity = () => {
 
-  const [name,  setName]  = useState("")
+  const [name, setName]  = useState("")
+  const [description, setDescription] = useState("");
+  const [type, setType] = useState("");
+  const [hours, setHours] = useState("");
+  const [minutes, setMinutes] = useState("");
+  const [date, setDate] = useState("");
+  const [actImage, setActImage] = useState("");
 
-  const createData = async (name) => {
+  const createData = async (name, description, type, hours, minutes, date, actImage) => {
     const requestData = {
       activityName: name,
-      activityDescription: "",
-      activityType: "",
-      activityDuration: "",
-      activityDate: "",
-      activityImage: "",
+      activityDes: description,
+      activityType: type,
+      hours: hours,
+      minutes: minutes,
+      date: date,
+      actImage: "actImage",
     
     };
+    console.log(requestData);
 
     const response = await axios.post(
       "https://greensculpt.onrender.com/add-activity",
@@ -38,6 +48,7 @@ const AddActivity = () => {
 
   };
 
+
   return (
     <>
       <Layout>
@@ -48,20 +59,20 @@ const AddActivity = () => {
               <div className="w-full md:w-1/2">
                 <form className="card-body">
                   <Activityname setName = {setName}/>
-                  <Activitydescription />
-                  <Activitiestypes />
+                  <Activitydescription setDescription={setDescription} />
+                  <Activitiestypes setType={setType} />
                 </form>
               </div>
 
               <div className="w-full md:w-1/2">
                 <form className="p-[32px] pt-0 md:pt-[32px]">
-                  <Activityduration />
-                  <Activiydate />
-                  <Activityimage />
+                  <Activityduration setHours={setHours} setMinute={setMinutes} />
+                  <Activiydate setDate={setDate} />
+                  <Activityimage setActImage={setActImage} />
                 </form>
               </div>
             </div>
-            <ModalAddActivity getSave = {createData} name={name}/>
+            <ModalAddActivity submitData = {createData} name={name} description={description} type={type} hours={hours} minutes={minutes} date={date} actImage={actImage}/>
           </div>
         </div>
       </Layout>

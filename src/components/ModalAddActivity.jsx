@@ -1,6 +1,7 @@
 // import React from 'react'
 
-const ModalAddActivity = ({getSave, name}) => {
+const ModalAddActivity = ({submitData, name, description, type, hours, minutes, date, actImage}) => {
+
   return (
     <>
       <div className="container mx-auto font-poppins">
@@ -10,7 +11,7 @@ const ModalAddActivity = ({getSave, name}) => {
               className="btn bg-[#D2FE71] text-xl font-normal text-[#000000]"
               onClick={() => {
                 document.getElementById("my_modal_1").showModal();
-                getSave({name});}}
+                submitData(name, description, type, hours, minutes, date, actImage);}}
             >
               <span class="material-symbols-outlined text-[#000000]">
                 add_circle

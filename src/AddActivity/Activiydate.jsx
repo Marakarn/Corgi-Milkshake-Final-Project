@@ -1,6 +1,6 @@
 import React from "react";
 
-const Activiydate = () => {
+const Activiydate = ({setDate}) => {
   return (
     <>
       <div className="form-control">
@@ -11,10 +11,9 @@ const Activiydate = () => {
           type="date"
           id="date"
           name="trip-start"
-          value="2018-07-22"
           min="2018-01-01"
-          max="2018-12-31"
           className="input input-bordered"
+          onChange={(e)=>setDate(e.target.value)}
           required
         />
       </div>
