@@ -29,7 +29,7 @@ const SignUp = () => {
                                 photo_camera
                                 </span>
                                 <p class="mt-2 text-base text-center leading-normal">Select a Photo</p>
-                                <input type='file' accept=".jpg, .png, .jpeg" class="hidden" />
+                                <input type='file' accept=".jpg, .png, .jpeg" class="hidden" id="signup_photo"/>
                             </label>
                         </div>
                     </div>
@@ -38,7 +38,7 @@ const SignUp = () => {
                             <div className="md:flex md:justify-evenly">
                                 <div className="md:w-2/5">
                                     <label className="font-medium text-xl text-gray-800" htmlFor="Email">Email</label>
-                                    <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="email" placeholder="Email Address"/>
+                                    <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="email" placeholder="Email Address" id="login_email"/>
                                 </div>
                                 {/* Div เปล่า ทำให้ด้านข้างเสมอกันกับข้างล่าง */}
                                 <div className="md:w-2/5"></div>
@@ -46,39 +46,39 @@ const SignUp = () => {
                             <div className="md:flex md:justify-evenly">
                                 <div className="md:w-2/5">
                                     <label className="font-medium text-xl text-gray-800" htmlFor="Password">Password</label>
-                                    <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="password" placeholder="Password"/>
+                                    <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="password" placeholder="Password" id="login_password"/>
                                 </div>
                                 <div className="md:w-2/5">
                                     <label className="font-medium text-xl text-gray-800" htmlFor="Confirm Password">Confirm Password</label>
-                                    <input className="w-full p-2 mb-20 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="password" placeholder="Password"/>
+                                    <input className="w-full p-2 mb-20 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="password" placeholder="Password" id="signup_con_pass"/>
                                 </div>
                             </div>
 
                             <div className="md:flex justify-evenly">
                                 <div className="md:w-2/5">
                                     <label className="font-medium text-xl text-gray-800" htmlFor="First Name">First Name</label>
-                                    <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="text" placeholder="First Name"/>
+                                    <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="text" placeholder="First Name" id="signup_firstname"/>
                                 </div>
                                 <div className="md:w-2/5">
                                     <label className="font-medium text-xl text-gray-800" htmlFor="Last Name">Last Name</label>
-                                    <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="text" placeholder="Last Name"/>
+                                    <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="text" placeholder="Last Name" id="signup_lastname"/>
                                 </div>
                             </div>
 
                             <div className="md:flex md:justify-evenly">
                                 <div className="md:w-2/5">
                                     <label className="font-medium text-xl text-gray-800" htmlFor="Date of Birth">Date of Birth</label>
-                                    <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="date"/>
+                                    <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="date" id="signup_date"/>
                                 </div>
 
                                 <div className="md:w-2/5 md:flex md:justify-between">
                                     <div className="w-full md:w-2/5">
                                         <label className="font-medium text-xl text-gray-800" htmlFor="Height">Height</label>
-                                        <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="text" placeholder="Height : cm"/>
+                                        <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="text" placeholder="Height : cm" id="signup_height"/>
                                     </div>
                                     <div className="w-full md:w-2/5">
                                         <label className="font-medium text-xl text-gray-800" htmlFor="Weight">Weight</label>
-                                        <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="text" placeholder="Weight : kg"/>
+                                        <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="text" placeholder="Weight : kg" id="signup_weight"/>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +86,7 @@ const SignUp = () => {
                             <div className="md:flex md:justify-evenly">
                                 <div className="md:w-2/5">
                                     <label className="font-medium text-xl text-gray-800" htmlFor="Gender">Gender</label>
-                                    <select className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" id="gender">
+                                    <select className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" id="signup_gender">
                                         <option value="" selected>Select Gender</option>
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
@@ -96,7 +96,7 @@ const SignUp = () => {
 
                                 <div className="md:w-2/5">
                                     <label className="font-medium text-xl text-gray-800" htmlFor="PhoneNumber">Phone Number</label>
-                                    <input className="w-full p-2 mb-20 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="number" placeholder="123-456-789"/>
+                                    <input className="w-full p-2 mb-20 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="number" placeholder="123-456-789" id="signup_phone"/>
                                 </div>
                             </div>
                             <div className="md:flex md:justify-evenly">

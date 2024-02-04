@@ -12,7 +12,7 @@ const Activitydescription = () => {
         <textarea
           placeholder="Activity Description"
           className="textarea textarea-bordered textarea-lg w-full text-base font-normal"
-        ></textarea>
+          id="activityDes"></textarea>
       </div>
     </>
   );

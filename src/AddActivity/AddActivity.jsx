@@ -10,6 +10,34 @@ import Activiydate from "./Activiydate";
 import Activityimage from "./Activityimage";
 
 const AddActivity = () => {
+
+  const [name,  setName]  = useState("")
+
+  const createData = async (name) => {
+    const requestData = {
+      activityName: name,
+      activityDescription: "",
+      activityType: "",
+      activityDuration: "",
+      activityDate: "",
+      activityImage: "",
+    
+    };
+
+    const response = await axios.post(
+      "https://greensculpt.onrender.com/add-activity",
+      requestData
+    );
+
+    if (response.status === 200) {
+      alert("Data successfully sent to the backend!");
+      // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
+  } else {
+      alert("Failed to send data to the backend.");
+  }
+
+  };
+
   return (
     <>
       <Layout>
@@ -19,7 +47,7 @@ const AddActivity = () => {
             <div className="flex flex-col md:flex-row">
               <div className="w-full md:w-1/2">
                 <form className="card-body">
-                  <Activityname />
+                  <Activityname setName = {setName}/>
                   <Activitydescription />
                   <Activitiestypes />
                 </form>
@@ -33,7 +61,7 @@ const AddActivity = () => {
                 </form>
               </div>
             </div>
-            <ModalAddActivity />
+            <ModalAddActivity getSave = {createData} name={name}/>
           </div>
         </div>
       </Layout>

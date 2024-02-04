@@ -1,6 +1,6 @@
 // import React from 'react'
 
-const ModalAddActivity = () => {
+const ModalAddActivity = ({getSave, name}) => {
   return (
     <>
       <div className="container mx-auto font-poppins">
@@ -8,7 +8,9 @@ const ModalAddActivity = () => {
           <div className="flex flex-col form-control mt-6 w-full items-center ">
             <button
               className="btn bg-[#D2FE71] text-xl font-normal text-[#000000]"
-              onClick={() => document.getElementById("my_modal_1").showModal()}
+              onClick={() => {
+                document.getElementById("my_modal_1").showModal();
+                getSave({name});}}
             >
               <span class="material-symbols-outlined text-[#000000]">
                 add_circle

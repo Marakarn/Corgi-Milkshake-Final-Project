@@ -9,7 +9,7 @@ const Activiydate = () => {
         </label>
         <input
           type="date"
-          id="start"
+          id="date"
           name="trip-start"
           value="2018-07-22"
           min="2018-01-01"

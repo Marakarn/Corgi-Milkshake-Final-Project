@@ -9,7 +9,7 @@ const Activitiestypes = () => {
             Activity Types* :
           </span>
         </label>
-        <select className="select select-bordered w-full text-base font-normal ">
+        <select className="select select-bordered w-full text-base font-normal " id="activityType">
           <option disabled selected>
             Choose
           </option>
