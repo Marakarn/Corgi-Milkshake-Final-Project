@@ -87,7 +87,7 @@ const SignUp = () => {
                 setPassColorMsg("text-[#8BCA00]");
                 setPassColorfield("border-[#8BCA00]");
             } else if (!strongPass){
-                setPassMsg("Your password must contain 8 Length, 1 Lowercase, 1 Uppercase, 1 Numbers");
+                setPassMsg("Your password must contain 8 characters including 1 Lowercase, 1 Uppercase and 1 Numbers");
                 setPassColorMsg("text-red-500");
                 setPassColorfield("border-red-500");
             } if (isEmptyPass){
