@@ -8,11 +8,42 @@ import Btndeleteactivity from "./Btndeleteactivity";
 import { mockData } from "../mockData";
 import { useParams } from "react-router-dom";
 import imageActivity from "/image-activity.png";
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 const YourActivity = () => {
-  const { id } = useParams();
-  const data = mockData[id];
+  // const { _id } = useParams();
+  // const data = activities[_id];
+  // const [activities, setActivities] = useState([]);
+  // const [reload, setReload] = useState(false);
+  // console.log("we are here")
+  // useEffect(()=> {
+  //   const getData = async () => {
+  //     const response = await axios.get(
+  //       `https://greensculpt.onrender.com/add-activity${_id}`
+  //     );
+  //     console.log(response)
+  //     setActivities(response.data);
+  //   };
+  //  console.log("sd"+getData)
+  //   getData();
+  // }, [reload]);
 
+  const { _id } = useParams();
+  const [activity, setActivity] = useState(null);
+  useEffect(()=> {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://greensculpt.onrender.com/add-activity${_id}`);
+        setActivity(response.data);
+      } catch (error) {
+        console.error("Error fetching activity:", error);
+      }
+    };
+    
+    fetchData();
+  }, [_id]);
+  
   return (
     <>
       <Layout>
@@ -30,20 +61,20 @@ const YourActivity = () => {
                       </span>
                       <div>
                         <h2 className="card-title text-2xl text-[#8BCA00]">
-                          {data.name}
+                          {activity.activityName}
                         </h2>
                         <p className="text-base text-normal">
-                          Walking for exercise
+                        {activity.activityDes}
                         </p>
                         <p className="text-base text-normal">
-                          24/1/2024 (2 hr)
+                        {activity.date} {activity.hour}
                         </p>
                       </div>
                     </div>
                     {/* button start */}
                     <Btnstart />
                   </div>
-                  <img className="mx-auto mt-4 object-cover h-32 w-full" src={data.image} alt="" />
+                  <img className="mx-auto mt-4 object-cover h-32 w-full" src={activity.actImage} alt="" />
                   <div className="flex justify-center md:justify-end pt-5 ">
                     <Btnedit />
 

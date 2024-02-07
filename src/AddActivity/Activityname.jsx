@@ -1,6 +1,6 @@
 import React from "react";
 
-const Activityname = ({setName}) => {
+const Activityname = () => {
   return (
     <>
       <div className="form-control">
