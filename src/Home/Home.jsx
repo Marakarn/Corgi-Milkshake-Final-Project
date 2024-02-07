@@ -5,14 +5,24 @@ import { useEffect, useState } from "react";
 import Headerhome from "./headerhome";
 import Tiltebutton from "./Tiltebutton";
 import Cardactivity from "./Cardactivity";
-import { mockData } from "../mockData";
+import axios from "axios";
 
 const Home = () => {
-  const [mockdata, setMockdata] = useState([]);
+  const [activities, setActivities] = useState([]);
+  const [reload, setReload] = useState(false);
+  // useEffect(() => {
+  //   setMockdata(mockData);
+  // }, []);
+  useEffect(()=> {
+    const getData = async () => {
+      const response = await axios.get(
+        "https://greensculpt.onrender.com/add-activity"
+      );
+      setActivities(response.data);
+    };
 
-  useEffect(() => {
-    setMockdata(mockData);
-  }, []);
+    getData();
+  }, [reload]);
 
   return (
     <>
@@ -35,7 +45,7 @@ const Home = () => {
 
             <Tiltebutton />
 
-            <Cardactivity mockData={mockData} />
+            <Cardactivity activities={activities} />
           </div>
         </div>
       </Layout>

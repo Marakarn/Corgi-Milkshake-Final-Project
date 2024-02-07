@@ -1,30 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Cardactivity = ({ mockData }) => {
+const Cardactivity = ({ activities }) => {
   return (
     <>
-      {mockData.map((mockCardData) => (
+      {activities.map((activities) => (
         <div className="flex justify-center">
           <Link
-            to={`/your-activity/${mockCardData.id}`}
+            to={`/your-activity/${activities._id}`}
             className="bg-base-100 shadow-xl w-full md:w-1/2 mt-9 border-2 border-[#8BCA00] rounded-[10px] p-4"
           >
             <div className="">
               <div className="flex flex-row lg:flex-row justify-between items-center">
                 <div className="flex flex-row">
                       <span class="material-symbols-outlined text-[#000000] text-4xl">
-                    {mockCardData.icon}
+                    {activities.icon}
                   </span>
                   <div>
                     <h2 className="card-title text-2xl text-[#8BCA00]">
-                      {mockCardData.name}
+                      {activities.activityName}
                     </h2>
                     <p className="text-base text-normal">
-                      {mockCardData.description}
+                      {activities.activityDes}
                     </p>
                     <p className="text-base text-normal">
-                      {mockCardData.date} {mockCardData.duration}
+                      {activities.date} {activities.hours} {activities.minutes}
                     </p>
                   </div>
                 </div>
