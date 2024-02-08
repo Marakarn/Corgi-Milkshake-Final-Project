@@ -254,6 +254,10 @@ const SignUp = () => {
 
     }
 
+    const fileSelectedHandler = event => {
+        console.log(event.target.files[0]);
+    }
+
     return (
     <>
     <div className="bg-[url('/moutain_pic.png')] bg-fixed bg-no-repeat bg-cover min-h-[1800px] md:min-h-[1100px] h-screen w-screen">
@@ -279,7 +283,7 @@ const SignUp = () => {
                                 photo_camera
                                 </span>
                                 <p class="mt-2 text-base text-center leading-normal">Select a Photo</p>
-                                <input type='file' accept=".jpg, .png, .jpeg" class="hidden" id="signup_photo"/>
+                                <input type='file' onChange={fileSelectedHandler} accept=".jpg, .png, .jpeg" class="hidden" id="signup_photo"/>
                             </label>
                         </div>
                     </div>

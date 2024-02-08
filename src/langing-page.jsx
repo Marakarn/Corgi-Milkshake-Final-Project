@@ -2,13 +2,15 @@
 // import { Link } from "react-router-dom";
 // import path from "path"; // Import the path module
 import "./App.css";
+import NavbarLangingPage from "./components/Navbar-landingPage"
 
 const LandingPage = () => {
   return (
     <>
+    <NavbarLangingPage />
       <header className="bg-[url('/banner.png')] w-full h-96 bg-cover bg-center bg-no-repeat min-h-[400px] md:min-h-[700px] ">
         <div className="container mx-auto flex justify-left items-center font-poppins">
-          <div className="w-1/2 mt-60 ps-40">
+          <div className="w-1/2 mt-60 ps-10">
             <h1 className="text-6xl font-bold text-white text-center md:text-start lg:text-7xl xl:text-8xl mt-10 md:mt-[72px] drop-shadow">GreenSculpt</h1>
             <p className="text-white font-semibold text-[32px]">Sculpt your discipline.</p>
             <p className="text-white font-semibold text-[32px]">Sculpt yourself.</p>
