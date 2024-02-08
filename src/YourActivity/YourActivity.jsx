@@ -1,11 +1,9 @@
 // import React from 'react'
 import Layout from "../components/Layout";
-import { Form, Link } from "react-router-dom";
 import Daisytop from "../components/Daisytop";
 import Btnstart from "./Btnstart";
 import Btnedit from "./Btnedit";
 import Btndeleteactivity from "./Btndeleteactivity";
-import { mockData } from "../mockData";
 import { useParams } from "react-router-dom";
 import imageActivity from "/image-activity.png";
 import axios from "axios";
@@ -30,19 +28,19 @@ const YourActivity = () => {
   // }, [reload]);
 
   const { _id } = useParams();
-  const [activity, setActivity] = useState(null);
+  const [activities, setActivities] = useState([]);
+  
   useEffect(()=> {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`https://greensculpt.onrender.com/add-activity${_id}`);
-        setActivity(response.data);
-      } catch (error) {
-        console.error("Error fetching activity:", error);
-      }
+    const getData = async () => {
+      console.log('id From Front'+_id);
+      const response = await axios.get(
+        `https://greensculpt.onrender.com/your-activity/${_id}`
+      );
+      setActivities(response.data);
     };
-    
-    fetchData();
-  }, [_id]);
+
+    getData();
+  }, []);
   
   return (
     <>
@@ -56,29 +54,29 @@ const YourActivity = () => {
                   <div className="flex flex-col md:flex-row justify-between items-center">
                     {/* hero-content */}
                     <div className="hero-content flex-row ">
-                      <span class="material-symbols-outlined text-[#000000] text-4xl">
+                      <span className="material-symbols-outlined text-[#000000] text-4xl">
                         directions_walk
                       </span>
                       <div>
                         <h2 className="card-title text-2xl text-[#8BCA00]">
-                          {activity.activityName}
+                          {activities.activityName}
                         </h2>
                         <p className="text-base text-normal">
-                        {activity.activityDes}
+                          {activities.activityDes}
                         </p>
                         <p className="text-base text-normal">
-                        {activity.date} {activity.hour}
+                          {activities.date} {activities.hour}
                         </p>
                       </div>
                     </div>
                     {/* button start */}
-                    <Btnstart />
+                    {/* <Btnstart /> */}
                   </div>
-                  <img className="mx-auto mt-4 object-cover h-32 w-full" src={activity.actImage} alt="" />
+                  <img className="mx-auto mt-4 object-cover h-32 w-full" src={activities.actImage} alt="" />
                   <div className="flex justify-center md:justify-end pt-5 ">
-                    <Btnedit />
+                    {/* <Btnedit /> */}
 
-                    <Btndeleteactivity />
+                    {/* <Btndeleteactivity /> */}
                   </div>
                 </div>
               </div>

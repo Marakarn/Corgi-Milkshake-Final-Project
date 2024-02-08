@@ -13,7 +13,7 @@ const Cardactivity = ({ activities }) => {
             <div className="">
               <div className="flex flex-row lg:flex-row justify-between items-center">
                 <div className="flex flex-row">
-                      <span class="material-symbols-outlined text-[#000000] text-4xl">
+                      <span className="material-symbols-outlined text-[#000000] text-4xl">
                     {activities.icon}
                   </span>
                   <div>
@@ -31,7 +31,7 @@ const Cardactivity = ({ activities }) => {
 
                 <div className="flex">
                   <button className="btn btn-circle bg-[#8BCA00]">
-                    <span class="material-symbols-outlined text-[#FFFFFF]">
+                    <span className="material-symbols-outlined text-[#FFFFFF]">
                       play_arrow
                     </span>
                   </button>

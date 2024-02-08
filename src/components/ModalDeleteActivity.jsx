@@ -11,7 +11,7 @@ const ModalDeleteActivity = () => {
               className="btn bg-[#E34850] font-poppins text-xl font-normal text-[#FFFFFF] mt-6"
               onClick={() => document.getElementById("my_modal_1").showModal()}
             >
-              <span class="material-symbols-outlined text-[#FFFFFF]">
+              <span className="material-symbols-outlined text-[#FFFFFF]">
                 delete
               </span>
               Delete

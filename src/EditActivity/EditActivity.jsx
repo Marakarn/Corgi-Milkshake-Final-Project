@@ -20,7 +20,7 @@ const EditActivity = () => {
         <>
         <Layout>
             <div className="">
-                <div className="flex flex-col justify-center min-h-[1080px] md:min-h-[800px]">
+                <div className="flex flex-col justify-center min-h-[1080px] md:min-h-[800px] pb-48 md:pb-40">
                 <Daisytop text='Edit Activity' path ={`/your-activity/${data.id}`}/>
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full md:w-1/2">

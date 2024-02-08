@@ -9,7 +9,7 @@ const Startvideo = () => {
             <span className="label-text text-3xl font-medium">Warm Up</span>
           </label>
           <iframe
-            class="w-full aspect-video ..."
+            className="w-full aspect-video ..."
             src="https://youtu.be/f3zOrYCwquE?si=-aBXLYmytVMtjGt9"
           ></iframe>
           {/* <video

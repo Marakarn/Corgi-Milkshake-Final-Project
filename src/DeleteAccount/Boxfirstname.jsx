@@ -13,7 +13,7 @@ const Boxfirstname = () => {
           />
         </div>
         <div className="">
-          <span class="material-symbols-outlined text-[#8bca00]">
+          <span className="material-symbols-outlined text-[#8bca00]">
             edit_square
           </span>
         </div>

@@ -12,7 +12,7 @@ const Btndeleteactivity = () => {
     <div>
       <Link to={`/delete-activity/${data.id}`}>
         <button className="btn bg-[#E34850] font-poppins text-xl font-normal text-[#FFFFFF] ">
-          <span class="material-symbols-outlined text-[#FFFFFF]">delete</span>
+          <span className="material-symbols-outlined text-[#FFFFFF]">delete</span>
           Delete
         </button>
       </Link>

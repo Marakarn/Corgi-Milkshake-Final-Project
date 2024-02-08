@@ -13,7 +13,7 @@ const ModalAddActivity = ({submitData, name, description, type, hours, minutes, 
                 document.getElementById("my_modal_1").showModal();
                 submitData(name, description, type, hours, minutes, date, actImage);}}
             >
-              <span class="material-symbols-outlined text-[#000000]">
+              <span className="material-symbols-outlined text-[#000000]">
                 add_circle
               </span>
               Add Activity

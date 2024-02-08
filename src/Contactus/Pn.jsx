@@ -4,7 +4,7 @@ const Pn = () => {
   return (
     <div>
       <div className="flex items-center gap-6">
-        <span class="material-symbols-outlined size-2 text-[#8BCA00]">
+        <span className="material-symbols-outlined size-2 text-[#8BCA00]">
           call
         </span>
         <p className="mt-5">+66894411198</p>
