@@ -1,6 +1,6 @@
 import React from "react";
 
-const Activitydescription = () => {
+const Activitydescription = ({setDescription}) => {
   return (
     <>
       <div className="form-control">
@@ -12,7 +12,8 @@ const Activitydescription = () => {
         <textarea
           placeholder="Activity Description"
           className="textarea textarea-bordered textarea-lg w-full text-base font-normal"
-        ></textarea>
+          id="activityDes"
+          onChange={(e)=>setDescription(e.target.value)}></textarea>
       </div>
     </>
   );

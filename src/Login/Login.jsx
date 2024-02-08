@@ -34,7 +34,7 @@ const Login = () => {
                     type="email"
                     name="login_id"
                     id="login_id"
-                    placeholder="Email Adress"
+                    placeholder="Email Address"
                   />
                 </div>
                 <i

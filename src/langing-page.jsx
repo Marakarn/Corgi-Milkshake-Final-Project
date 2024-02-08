@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 // import { Link } from "react-router-dom";
 // import path from "path"; // Import the path module
 import "./App.css";
@@ -58,7 +58,7 @@ const LandingPage = () => {
 
 
       <section>
-        <div class="flex flex-col items-center justify-center h-96 w-full bg-[#8BCA00] bg-cover bg-center p-8 text-white text-center font-poppins">
+        <div className="flex flex-col items-center justify-center h-96 w-full bg-[#8BCA00] bg-cover bg-center p-8 text-white text-center font-poppins">
           <h2 className="text-2xl m-80 p-60 leading-loose">Discover a healthier, happier you with <strong>GreenSculpt</strong>. <br/>We offer a variety of workouts, personalized plans, and expert guidance to help you achieve your fitness goals.</h2>
         </div>
       </section>
@@ -71,7 +71,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-   
       <footer className="flex flex-col items-center justify-center h-60 w-full bg-[#8BCA00] bg-cover bg-center text-white text-center font-poppins">
         <div className="flex space-x-4">
           <a href="#" className="text-white">Home</a>
