@@ -10,7 +10,7 @@ const Login = () => {
           <section className="md:mx-24 md:pt-24 md:mb-24 flex flex-col md:flex-row ">
             <article className="mt-5 md:mt-0 md:w-3/5">
               <button className="btn bg-[#d2fe71] hover:bg-[#a5cf4a]/80 drop-shadow text-xl font-normal border-none hidden md:flex">
-                <span class="material-symbols-outlined">arrow_back</span>
+                <span className="material-symbols-outlined">arrow_back</span>
                 Back
               </button>
               <h1 className="text-white text-5xl text-center md:text-start lg:text-7xl xl:text-8xl font-semibold mt-10 md:mt-[72px] drop-shadow">
@@ -24,7 +24,7 @@ const Login = () => {
               <div className="flex flex-col p-[20px] relative">
                 <div className="flex flex-col">
                   <span
-                    class="material-symbols-outlined absolute inset-y-[45px] left-5 text-[#5d6d39]"
+                    className="material-symbols-outlined absolute inset-y-[45px] left-5 text-[#5d6d39]"
                     id="account_circle"
                   >
                     account_circle

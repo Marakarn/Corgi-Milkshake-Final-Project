@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <>
       <Layout>
-        <div className="md:min-h-[800px] pb-48 md:pb-20">
+        <div className="md:min-h-[800px] pb-48 md:pb-40">
           <div className="flex flex-col justify-center ">
             <Headerhome />
             {/* part 2: this button need to link to form*/}
@@ -36,7 +36,7 @@ const Home = () => {
                 to="/add-activity"
                 className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] w-full md:w-1/2"
               >
-                <span class="material-symbols-outlined text-[#000000]">
+                <span className="material-symbols-outlined text-[#000000]">
                   add_circle
                 </span>
                 Add Activity

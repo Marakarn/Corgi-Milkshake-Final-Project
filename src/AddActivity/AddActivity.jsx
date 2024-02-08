@@ -53,7 +53,7 @@ const AddActivity = () => {
     <>
       <Layout>
         <div className="">
-          <div className="flex flex-col justify-center min-h-[1080px] md:min-h-[800px]">
+          <div className="flex flex-col justify-center min-h-[1080px] md:min-h-[800px] pb-48 md:pb-40">
             <Daisytop text="Add Activity" path="/home" />
             <div className="flex flex-col md:flex-row">
               <div className="w-full md:w-1/2">

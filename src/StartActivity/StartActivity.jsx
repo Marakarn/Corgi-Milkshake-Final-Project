@@ -40,7 +40,7 @@ const StartActivity = () => {
 
                     {/* ห้ามลบ walking */}
                     <div className="flex flex-col form-control mt-6 w-full items-center ">
-                      <span class="material-symbols-outlined text-[#000000] text-7xl">
+                      <span className="material-symbols-outlined text-[#000000] text-7xl">
                         directions_walk
                       </span>
 
@@ -49,7 +49,7 @@ const StartActivity = () => {
 
                     {/* ห้ามลบ running */}
                     {/* <div className="flex flex-col form-control mt-6 w-full items-center ">
-                                        <span class="material-symbols-outlined text-[#000000] text-7xl">
+                                        <span className="material-symbols-outlined text-[#000000] text-7xl">
                                             directions_run
                                         </span>
 
@@ -58,7 +58,7 @@ const StartActivity = () => {
 
                     {/* ห้ามลบ weight-lifting */}
                     {/* <div className="flex flex-col form-control mt-6 w-full items-center ">
-                                        <span class="material-symbols-outlined text-[#000000] text-7xl">
+                                        <span className="material-symbols-outlined text-[#000000] text-7xl">
                                             exercise
                                         </span>
 
@@ -67,7 +67,7 @@ const StartActivity = () => {
 
                     {/* ห้ามลบ swimming */}
                     {/* <div className="flex flex-col form-control mt-6 w-full items-center ">
-                                        <span class="material-symbols-outlined text-[#000000] text-7xl">
+                                        <span className="material-symbols-outlined text-[#000000] text-7xl">
                                             pool
                                         </span>
 
@@ -76,7 +76,7 @@ const StartActivity = () => {
 
                     {/* ห้ามลบ cycling */}
                     {/* <div className="flex flex-col form-control mt-6 w-full items-center ">
-                                        <span class="material-symbols-outlined text-[#000000] text-7xl">
+                                        <span className="material-symbols-outlined text-[#000000] text-7xl">
                                             directions_bike
                                         </span>
 
@@ -85,7 +85,7 @@ const StartActivity = () => {
 
                     {/* ห้ามลบ aerobics */}
                     {/* <div className="flex flex-col form-control mt-6 w-full items-center ">
-                                        <span class="material-symbols-outlined text-[#000000] text-7xl">
+                                        <span className="material-symbols-outlined text-[#000000] text-7xl">
                                             sports_gymnastics
                                         </span>
 
@@ -114,7 +114,7 @@ const StartActivity = () => {
                     </div>
                     <div className="flex flex-col form-control w-full items-center mt-16">
                       <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000]">
-                        <span class="material-symbols-outlined text-[#000000]">
+                        <span className="material-symbols-outlined text-[#000000]">
                           play_circle
                         </span>
                         Start
@@ -124,7 +124,7 @@ const StartActivity = () => {
                     {/* ห้ามลบ stop button */}
                     {/* <div className="flex flex-col form-control mt-6 w-full items-center ">
                                         <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000]">
-                                            <span class="material-symbols-outlined text-[#000000]">
+                                            <span className="material-symbols-outlined text-[#000000]">
                                                 pause_circle
                                             </span>
                                             Pause

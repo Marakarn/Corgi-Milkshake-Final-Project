@@ -12,7 +12,7 @@ const Deleteacc = () => {
       <div>
         <Daisytop text="Delete Account" path="/setting" />
 
-        <div class="">
+        <div className="">
           <div className="container mx-auto flex flex-col justify-center p-10 md:p-48 md:pt-10 ">
             <Boxfirstname />
             <Boxlastname />

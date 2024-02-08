@@ -12,7 +12,7 @@ const Blastname = () => {
             placeholder="Last Name"
           />
         </div>
-        <span class="material-symbols-outlined text-[#8bca00]">
+        <span className="material-symbols-outlined text-[#8bca00]">
           edit_square
         </span>
       </div>

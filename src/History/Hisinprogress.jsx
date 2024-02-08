@@ -9,7 +9,7 @@ const HisinProgress = () => {
               <div className="card-body p-1">
                 <div className="hero-content">
                   <div className="flex">
-                    <span class="material-symbols-outlined text-[#000000] text-4xl">
+                    <span className="material-symbols-outlined text-[#000000] text-4xl">
                       directions_walk
                     </span>
 
@@ -26,7 +26,7 @@ const HisinProgress = () => {
 
                   <div className="flex">
                     <button className="btn btn-circle bg-[#8BCA00]">
-                      <span class="material-symbols-outlined text-[#FFFFFF]">
+                      <span className="material-symbols-outlined text-[#FFFFFF]">
                         pause
                       </span>
                     </button>

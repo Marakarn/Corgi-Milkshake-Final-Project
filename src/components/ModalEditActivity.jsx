@@ -19,7 +19,7 @@ const ModalEditActivity = () => {
               className="btn bg-[#D2FE71] text-xl font-normal text-[#000000]"
               onClick={() => document.getElementById("my_modal_1").showModal()}
             >
-              <span class="material-symbols-outlined text-[#000000]">
+              <span className="material-symbols-outlined text-[#000000]">
                 add_circle
               </span>
               Save

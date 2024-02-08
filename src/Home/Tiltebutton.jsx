@@ -9,7 +9,7 @@ const Tiltebutton = () => {
           <h1 className="text-xl font-medium ">Your Activity</h1>
           <Link to="/history">
             <button className="btn bg-[#000000] font-poppins text-xl font-normal text-[#FFFFFF] hidden md:flex">
-              <span class="material-symbols-outlined text-[#FFFFFF]">
+              <span className="material-symbols-outlined text-[#FFFFFF]">
                 history
               </span>
               History

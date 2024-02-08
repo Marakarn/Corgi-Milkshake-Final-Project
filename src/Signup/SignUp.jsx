@@ -254,10 +254,6 @@ const SignUp = () => {
 
     }
 
-    const fileSelectedHandler = event => {
-        console.log(event.target.files[0]);
-    }
-
     return (
     <>
     <div className="bg-[url('/moutain_pic.png')] bg-fixed bg-no-repeat bg-cover min-h-[1800px] md:min-h-[1100px] h-screen w-screen">
@@ -277,13 +273,13 @@ const SignUp = () => {
                 </div>
                 <div className="flex flex-col md:flex-row bg-[rgb(255,255,255)]/75 ">
                     <div className="md:w-1/5 flex justify-center" >
-                        <div class="justify-center bg-grey-lighter pt-10 md:p-24">
-                            <label class="w-48 h-48 md:h-36 md:w-36 flex flex-col items-center justify-center bg-gray-200 text-blue rounded-[40px] shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-[#8BCA00]">
-                            <span class="material-symbols-outlined">
+                        <div className="justify-center bg-grey-lighter pt-10 md:p-24">
+                            <label className="w-48 h-48 md:h-36 md:w-36 flex flex-col items-center justify-center bg-gray-200 text-blue rounded-[40px] shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-[#8BCA00]">
+                            <span className="material-symbols-outlined">
                                 photo_camera
                                 </span>
-                                <p class="mt-2 text-base text-center leading-normal">Select a Photo</p>
-                                <input type='file' onChange={fileSelectedHandler} accept=".jpg, .png, .jpeg" class="hidden" id="signup_photo"/>
+                                <p className="mt-2 text-base text-center leading-normal">Select a Photo</p>
+                                <input type='file' accept=".jpg, .png, .jpeg" className="hidden" id="signup_photo"/>
                             </label>
                         </div>
                     </div>
