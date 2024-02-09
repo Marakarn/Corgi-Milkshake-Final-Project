@@ -16,16 +16,18 @@ const AddActivity = () => {
   const [name, setName]  = useState("")
   const [description, setDescription] = useState("");
   const [type, setType] = useState("");
+  // const [icon, setIcon] = useState("");
   const [hours, setHours] = useState("");
   const [minutes, setMinutes] = useState("");
   const [date, setDate] = useState("");
   const [actImage, setActImage] = useState("");
 
-  const createData = async (name, description, type, hours, minutes, date, actImage) => {
+  const createData = async (name, description, type, icon, hours, minutes, date, actImage) => {
     const requestData = {
       activityName: name,
       activityDes: description,
       activityType: type,
+      // activityIcon: icon,
       hours: hours,
       minutes: minutes,
       date: date,
@@ -60,7 +62,7 @@ const AddActivity = () => {
                 <form className="card-body">
                   <Activityname setName = {setName}/>
                   <Activitydescription setDescription={setDescription} />
-                  <Activitiestypes setType={setType} />
+                  <Activitiestypes setType={setType}/>
                 </form>
               </div>
 
