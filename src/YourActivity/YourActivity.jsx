@@ -29,10 +29,10 @@ const YourActivity = () => {
 
   const { _id } = useParams();
   const [activities, setActivities] = useState([]);
-  
-  useEffect(()=> {
+
+  useEffect(() => {
     const getData = async () => {
-      console.log('id From Front'+_id);
+      console.log('id From Front' + _id);
       const response = await axios.get(
         `https://greensculpt.onrender.com/your-activity/${_id}`
       );
@@ -40,14 +40,14 @@ const YourActivity = () => {
     };
 
     getData();
-  }, []);
+  }, [_id]);
   
   return (
     <>
       <Layout>
         <div className="">
           <div className="flex flex-col justify-center pb-[80px]">
-            <Daisytop text="Your Activity" path="/home" />
+            <Daisytop text="Your Activity" />
             <div className="flex flex-col form-control mt-20 w-full items-center">
               <div className="card card-side bg-base-100 shadow-xl border-2 border-[#8BCA00]">
                 <div className="card-body">
@@ -76,7 +76,7 @@ const YourActivity = () => {
                   <div className="flex justify-center md:justify-end pt-5 ">
                     {/* <Btnedit /> */}
 
-                    {/* <Btndeleteactivity /> */}
+                    <Btndeleteactivity />
                   </div>
                 </div>
               </div>

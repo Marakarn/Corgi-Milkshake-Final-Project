@@ -1,7 +1,28 @@
 // import React from 'react'
 import Backfunction from "./Backfunction";
 import modalDeleteActivityPic from "/modal-delete-activity.png"
-const ModalDeleteActivity = () => {
+import { useParams } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+
+import axios from "axios";
+import { useState } from "react";
+
+const ModalDeleteActivity = ({_id}) => {
+
+  const removeData = async (_id) => {
+    const response = await axios.delete(
+      `https://greensculpt.onrender.com/your-activity/${_id}`
+    );
+
+    if (response.status === 200) {
+      setReload(!reload);
+    };
+  };
+
+  // const handleClick = () => {
+
+  // }
+
   return (
     <>
       <div className="container mx-auto font-poppins">
@@ -9,7 +30,7 @@ const ModalDeleteActivity = () => {
           <div className="flex flex-col form-control mt-6 w-full items-center ">
             <button
               className="btn bg-[#E34850] font-poppins text-xl font-normal text-[#FFFFFF] mt-6"
-              onClick={() => document.getElementById("my_modal_1").showModal()}
+              onClick={() => {document.getElementById("my_modal_1").showModal(), removeData(_id)}}
             >
               <span className="material-symbols-outlined text-[#FFFFFF]">
                 delete

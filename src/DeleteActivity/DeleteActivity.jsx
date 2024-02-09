@@ -3,21 +3,24 @@ import Layout from "../components/Layout";
 import { Link } from "react-router-dom";
 import ModalDeleteActivity from "../components/ModalDeleteActivity";
 import Daisytop from "../components/Daisytop";
-import { mockData } from "../mockData";
 import { useParams } from "react-router-dom";
 import deleateActivityPic from "/delete-activity.png"
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 const DeleteActivity = () => {
 
-  const { id } = useParams();
-  const data = mockData[id];
+  let { state } = useLocation();
+  const { _id } = useParams();
+  console.log(state._id)
+  console.log(_id)
 
   return (
     <>
       <Layout>
         <div className="min-h-[980px]">
           <div className="flex flex-col justify-center ">
-            <Daisytop text="Delete Activity" path={`/your-activity/${data.id}`} />
+            <Daisytop text="Delete Activity" />
             <div className="flex flex-col form-control mt-6 w-full items-center ">
               <form className="card-body">
                 <div className="form-control">
@@ -34,7 +37,7 @@ const DeleteActivity = () => {
                   </p>
                 </div>
               </form>
-              <ModalDeleteActivity />
+              <ModalDeleteActivity _id={state._id} />
             </div>
           </div>
         </div>
