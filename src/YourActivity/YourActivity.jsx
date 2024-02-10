@@ -32,7 +32,7 @@ const YourActivity = () => {
 
   useEffect(() => {
     const getData = async () => {
-      console.log('id From Front' + _id);
+      console.log('id From Front ' + _id);
       const response = await axios.get(
         `https://greensculpt.onrender.com/your-activity/${_id}`
       );
@@ -54,8 +54,8 @@ const YourActivity = () => {
                   <div className="flex flex-col md:flex-row justify-between items-center">
                     {/* hero-content */}
                     <div className="hero-content flex-row ">
-                      <span className="material-symbols-outlined text-[#000000] text-4xl">
-                        directions_walk
+                      <span className="material-symbols-outlined text-[#000000] text-4xl" id='card_icon'>
+                        {activities.activityIcon}
                       </span>
                       <div>
                         <h2 className="card-title text-2xl text-[#8BCA00]">
@@ -70,11 +70,11 @@ const YourActivity = () => {
                       </div>
                     </div>
                     {/* button start */}
-                    {/* <Btnstart /> */}
+                    <Btnstart activities={activities}/>
                   </div>
                   <img className="mx-auto mt-4 object-cover h-32 w-full" src={activities.actImage} alt="" />
                   <div className="flex justify-center md:justify-end pt-5 ">
-                    {/* <Btnedit /> */}
+                    <Btnedit />
 
                     <Btndeleteactivity />
                   </div>

@@ -16,7 +16,7 @@ const AddActivity = () => {
   const [name, setName]  = useState("")
   const [description, setDescription] = useState("");
   const [type, setType] = useState("");
-  // const [icon, setIcon] = useState("");
+  const [icon, setIcon] = useState("");
   const [hours, setHours] = useState("");
   const [minutes, setMinutes] = useState("");
   const [date, setDate] = useState("");
@@ -27,12 +27,12 @@ const AddActivity = () => {
       activityName: name,
       activityDes: description,
       activityType: type,
-      // activityIcon: icon,
+      activityIcon: icon,
       hours: hours,
       minutes: minutes,
       date: date,
-      actImage: "actImage",
-    
+      actImage: "actImage"
+
     };
     console.log(requestData);
 
@@ -62,7 +62,7 @@ const AddActivity = () => {
                 <form className="card-body">
                   <Activityname setName = {setName}/>
                   <Activitydescription setDescription={setDescription} />
-                  <Activitiestypes setType={setType}/>
+                  <Activitiestypes setType={setType} setIcon={setIcon} />
                 </form>
               </div>
 
@@ -74,7 +74,7 @@ const AddActivity = () => {
                 </form>
               </div>
             </div>
-            <ModalAddActivity submitData = {createData} name={name} description={description} type={type} hours={hours} minutes={minutes} date={date} actImage={actImage}/>
+            <ModalAddActivity submitData = {createData} name={name} description={description} type={type} icon={icon} hours={hours} minutes={minutes} date={date} actImage={actImage}/>
           </div>
         </div>
       </Layout>

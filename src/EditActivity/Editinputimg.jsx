@@ -1,6 +1,6 @@
 import React from "react";
 
-const Editinputimg = () => {
+const Editinputimg = ({setActImage}) => {
   return (
     <div>
       <div className="form-control">
@@ -10,6 +10,9 @@ const Editinputimg = () => {
         <input
           type="file"
           className="file-input file-input-bordered w-full max-w-x"
+          id="editActImage"
+          accept=".jpg, .png, .jpeg"
+          onChange={(e)=>setActImage(e.target.value)}
         />
       </div>
     </div>

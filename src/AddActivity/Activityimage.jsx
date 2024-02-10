@@ -10,6 +10,7 @@ const Activityimage = ({setActImage}) => {
         <input
           type="file"
           className="file-input file-input-bordered w-full max-w-x"
+          accept=".jpg, .png, .jpeg"
           id="actImage"
           onChange={(e)=>setActImage(e.target.value)}
         />

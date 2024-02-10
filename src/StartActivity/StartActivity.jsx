@@ -2,8 +2,8 @@
 import Layout from "../components/Layout";
 import Daisytop from "../components/Daisytop";
 import Startvideo from "./Startvideo";
-import { mockData } from "../mockData";
 import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const StartActivity = () => {
   // const [name, setName] = useState();
@@ -13,8 +13,11 @@ const StartActivity = () => {
   // const [date, setDate] = useState();
   // const [image, setImage] = useState();
 
-  const { id } = useParams();
-  const data = mockData[id];
+  // const { _id } = useParams();
+  let { state } = useLocation();
+  const activity = state.activities
+
+  console.log(activity)
 
   return (
     <>
@@ -24,7 +27,6 @@ const StartActivity = () => {
             {/* {data.map((mockData) => ( */}
             <Daisytop
               text="Start Activity"
-              path={`/your-activity/${data.id}`}
             />
             {/* ))} */}
             <div className="flex flex-col md:flex-row">
@@ -40,11 +42,11 @@ const StartActivity = () => {
 
                     {/* ห้ามลบ walking */}
                     <div className="flex flex-col form-control mt-6 w-full items-center ">
-                      <span className="material-symbols-outlined text-[#000000] text-7xl">
-                        directions_walk
+                      <span className="material-symbols-outlined text-[#000000]" id="card_icon">
+                      {activity.activityIcon}
                       </span>
 
-                      <p className="text-2xl text-normal mt-4">Walking</p>
+                      <p className="text-2xl text-normal mt-4">{activity.activityType}</p>
                     </div>
 
                     {/* ห้ามลบ running */}

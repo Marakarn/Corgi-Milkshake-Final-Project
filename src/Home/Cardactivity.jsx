@@ -12,9 +12,9 @@ const Cardactivity = ({ activities }) => {
           >
             <div className="">
               <div className="flex flex-row lg:flex-row justify-between items-center">
-                <div className="flex flex-row">
-                      <span className="material-symbols-outlined text-[#000000] text-4xl">
-                    {activities.icon}
+                <div className="flex flex-row items-center">
+                      <span className="material-symbols-outlined text-[#000000] pr-3" id='card_icon'>
+                    {activities.activityIcon}
                   </span>
                   <div>
                     <h2 className="card-title text-2xl text-[#8BCA00]">
@@ -24,7 +24,7 @@ const Cardactivity = ({ activities }) => {
                       {activities.activityDes}
                     </p>
                     <p className="text-base text-normal">
-                      {activities.date} {activities.hours} {activities.minutes}
+                      Date: {activities.date}, {activities.hours} Hr {activities.minutes} m
                     </p>
                   </div>
                 </div>

@@ -10,9 +10,7 @@ import axios from "axios";
 const Home = () => {
   const [activities, setActivities] = useState([]);
   const [reload, setReload] = useState(false);
-  // useEffect(() => {
-  //   setMockdata(mockData);
-  // }, []);
+
   useEffect(()=> {
     const getData = async () => {
       const response = await axios.get(

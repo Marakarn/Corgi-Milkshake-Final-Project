@@ -1,6 +1,6 @@
 import React from "react";
 
-const Editdate = () => {
+const Editdate = ({setDate}) => {
   return (
     <div>
       <div className="form-control">
@@ -9,12 +9,11 @@ const Editdate = () => {
         </label>
         <input
           type="date"
-          id="start"
+          id="editDate"
           name="trip-start"
-          value="2018-07-22"
           min="2018-01-01"
-          max="2018-12-31"
           className="input input-bordered"
+          onChange={(e)=>setDate(e.target.value)}
           required
         />
       </div>

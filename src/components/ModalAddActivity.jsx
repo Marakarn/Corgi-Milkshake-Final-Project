@@ -1,6 +1,6 @@
 // import React from 'react'
 
-const ModalAddActivity = ({submitData, name, description, type, hours, minutes, date, actImage}) => {
+const ModalAddActivity = ({submitData, name, description, type, icon, hours, minutes, date, actImage}) => {
 
   return (
     <>
@@ -11,7 +11,7 @@ const ModalAddActivity = ({submitData, name, description, type, hours, minutes, 
               className="btn bg-[#D2FE71] text-xl font-normal text-[#000000]"
               onClick={() => {
                 document.getElementById("my_modal_1").showModal();
-                submitData(name, description, type, hours, minutes, date, actImage);}}
+                submitData(name, description, type, icon, hours, minutes, date, actImage);}}
             >
               <span className="material-symbols-outlined text-[#000000]">
                 add_circle
