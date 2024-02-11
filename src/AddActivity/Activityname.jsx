@@ -1,6 +1,6 @@
 import React from "react";
 
-const Activityname = ({setName}) => {
+const Activityname = ({handleInputChange}) => {
   return (
     <>
       <div className="form-control">
@@ -15,7 +15,7 @@ const Activityname = ({setName}) => {
           className="input input-bordered text-base font-normal"
           id="activityName"
           required
-          onChange={(e)=>setName(e.target.value)}
+          onChange={handleInputChange}
         />
       </div>
     </>

@@ -13,25 +13,37 @@ import { useState } from "react";
 
 const AddActivity = () => {
 
-  const [name, setName]  = useState("")
-  const [description, setDescription] = useState("");
-  const [type, setType] = useState("");
-  const [icon, setIcon] = useState("");
-  const [hours, setHours] = useState("");
-  const [minutes, setMinutes] = useState("");
-  const [date, setDate] = useState("");
-  const [actImage, setActImage] = useState("");
+  const initialFormData = { activityName: "", activityDes: "", activityType: "", activityIcon: "", hours: "", minutes: "", date: "", actImage: ""}
+  const [formData, setFormData] = useState(initialFormData);
 
-  const createData = async (name, description, type, icon, hours, minutes, date, actImage) => {
+  // const [name, setName]  = useState("")
+  // const [description, setDescription] = useState("");
+  // const [type, setType] = useState("");
+  // const [icon, setIcon] = useState("");
+  // const [hours, setHours] = useState("");
+  // const [minutes, setMinutes] = useState("");
+  // const [date, setDate] = useState("");
+  // const [actImage, setActImage] = useState("");
+
+  const handleInputChange = (e) => {
+    const { id, value } =e.target;
+    setFormData({
+        ...formData,
+        [id]:value,
+    });
+  }
+
+  const createData = async (e) => {
+
     const requestData = {
-      activityName: name,
-      activityDes: description,
-      activityType: type,
-      activityIcon: icon,
-      hours: hours,
-      minutes: minutes,
-      date: date,
-      actImage: "actImage"
+      activityName: formData.activityName,
+      activityDes: formData.activityDes,
+      activityType: formData.activityType,
+      activityIcon: formData.activityIcon,
+      hours: formData.hours,
+      minutes: formData.minutes,
+      date: formData.date,
+      actImage: formData.actImage
 
     };
     console.log(requestData);
@@ -47,9 +59,9 @@ const AddActivity = () => {
   } else {
       alert("Failed to send data to the backend.");
   }
-
-  };
-
+  
+};
+  console.log(formData)
 
   return (
     <>
@@ -60,21 +72,21 @@ const AddActivity = () => {
             <div className="flex flex-col md:flex-row">
               <div className="w-full md:w-1/2">
                 <form className="card-body">
-                  <Activityname setName = {setName}/>
-                  <Activitydescription setDescription={setDescription} />
-                  <Activitiestypes setType={setType} setIcon={setIcon} />
+                  <Activityname handleInputChange={handleInputChange} />
+                  <Activitydescription handleInputChange={handleInputChange} />
+                  <Activitiestypes handleInputChange={handleInputChange} setFormData={setFormData}/>
                 </form>
               </div>
 
               <div className="w-full md:w-1/2">
                 <form className="p-[32px] pt-0 md:pt-[32px]">
-                  <Activityduration setHours={setHours} setMinute={setMinutes} />
-                  <Activiydate setDate={setDate} />
-                  <Activityimage setActImage={setActImage} />
+                  <Activityduration handleInputChange={handleInputChange} />
+                  <Activiydate handleInputChange={handleInputChange} />
+                  <Activityimage handleInputChange={handleInputChange} />
                 </form>
               </div>
             </div>
-            <ModalAddActivity submitData = {createData} name={name} description={description} type={type} icon={icon} hours={hours} minutes={minutes} date={date} actImage={actImage}/>
+            <ModalAddActivity submitData={createData}/>
           </div>
         </div>
       </Layout>

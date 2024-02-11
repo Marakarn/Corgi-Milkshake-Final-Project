@@ -1,32 +1,53 @@
 import React from "react";
 
-const Activitiestypes = ({setType, setIcon}) => {
+const Activitiestypes = ({handleInputChange, setFormData}) => {
   
   const handleTypeChange = (e) => {
     const selectedType = e.target.value;
-    setType(selectedType); // เซ็ตค่า type
+    handleInputChange(e); // เรียกใช้ handleInputChange เพื่ออัพเดตข้อมูลใน formData
     // เซ็ตค่า icon ตาม type ที่ถูกเลือก
-    switch(selectedType) {
+    switch (selectedType) {
       case "walking":
-        setIcon("directions_walk");
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          activityIcon: "directions_walk"
+        }));
         break;
       case "Running":
-        setIcon("directions_run");
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          activityIcon: "directions_run"
+        }));
         break;
       case "Weight-lifting":
-        setIcon("exercise");
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          activityIcon: "exercise"
+        }));
         break;
       case "Swimming":
-        setIcon("pool");
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          activityIcon: "pool"
+        }));
         break;
       case "Cycling":
-        setIcon("directions_bike");
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          activityIcon: "directions_bike"
+        }));
         break;
       case "Aerobics":
-        setIcon("sports_gymnastics");
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          activityIcon: "sports_gymnastics"
+        }));
         break;
       default:
-        setIcon(""); // หรือให้เป็นค่าว่างหากไม่ตรงกับเงื่อนไขใดๆ
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          activityIcon: "" // หรือให้เป็นค่าว่างหากไม่ตรงกับเงื่อนไขใดๆ
+        }));
     }
   };
   

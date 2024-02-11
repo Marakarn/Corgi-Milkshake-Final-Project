@@ -1,26 +1,41 @@
 // import React from 'react'
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Layout from "../components/Layout";
+import axios from "axios";
 import Backfunction from "../components/Backfunction";
 import DisplayPlan from "./Plan";
 import DisplayInProgress from "./Hisinprogress";
 import DisplayFinish from "./Hisfinish";
 
 const History = () => {
+  
   const handleClick = (value) => {
     setSection(value);
   };
 
-  const [section, setSection] = useState("InProgress");
+  const [section, setSection] = useState("Plan");
+  const [activities, setActivities] = useState([]);
+  const [reload, setReload] = useState(false);
+
+  useEffect(()=> {
+    const getData = async () => {
+      const response = await axios.get(
+        "https://greensculpt.onrender.com/add-activity"
+      );
+      setActivities(response.data);
+    };
+
+    getData();
+  }, [reload]);
 
   return (
     <>
       <Layout>
-        <div className="min-h-[800px]">
-          <div className="flex flex-col justify-center ">
+        <div className="">
+          <div className="flex flex-col justify-center mb-40">
             <div className="w-full mt-[50px]">
               <div className="">
-                <Backfunction path="/home" />
+                <Backfunction />
               </div>
               <h1 className="text-6xl font-semibold text-[#8BCA00]  text-center">
                 History
@@ -52,7 +67,7 @@ const History = () => {
                     Finish
                   </button>
                 </div>
-                <Display className="w-full" section={section} />
+                  <Display className="w-full h-full" section={section} activities={activities} />
               </div>
             </div>
           </div>
@@ -62,14 +77,14 @@ const History = () => {
   );
 };
 
-function Display({ section }) {
+function Display({ section, activities }) {
   let show;
   if (section === "Plan") {
-    show = <DisplayPlan />;
+    show = <DisplayPlan activities={activities} />;
   } else if (section === "InProgress") {
-    show = <DisplayInProgress />;
+    show = <DisplayInProgress activities={activities} />;
   } else if (section === "Finish") {
-    show = <DisplayFinish />;
+    show = <DisplayFinish activities={activities} />;
   }
 
   return <div>{show}</div>;

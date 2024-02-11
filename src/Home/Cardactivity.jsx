@@ -2,10 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Cardactivity = ({ activities }) => {
+
+  // const sortedActivities = activities.sort((a, b) => {
+  //   return new Date(b.date) - new Date(a.date);
+  // });
+  const sortedActivities = activities.reverse().slice(0, 4);
+
   return (
     <>
-      {activities.map((activities) => (
-        <div className="flex justify-center">
+      {sortedActivities.map((activities) => (
+        <div key={activities._id} className="flex justify-center">
           <Link
             to={`/your-activity/${activities._id}`}
             className="bg-base-100 shadow-xl w-full md:w-1/2 mt-9 border-2 border-[#8BCA00] rounded-[10px] p-4"
@@ -22,6 +28,9 @@ const Cardactivity = ({ activities }) => {
                     </h2>
                     <p className="text-base text-normal">
                       {activities.activityDes}
+                    </p>
+                    <p className="text-base text-normal">
+                      {activities.activityType}
                     </p>
                     <p className="text-base text-normal">
                       Date: {activities.date}, {activities.hours} Hr {activities.minutes} m
