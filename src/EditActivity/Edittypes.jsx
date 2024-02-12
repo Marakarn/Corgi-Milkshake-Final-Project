@@ -1,32 +1,53 @@
 import React from "react";
 
-const Edittypes = ({setType, setIcon}) => {
+const Edittypes = ({handleInputChange, setFormData}) => {
 
   const handleTypeChange = (e) => {
     const selectedType = e.target.value;
-    setType(selectedType); // เซ็ตค่า type
+    handleInputChange(e); // เรียกใช้ handleInputChange เพื่ออัพเดตข้อมูลใน formData
     // เซ็ตค่า icon ตาม type ที่ถูกเลือก
-    switch(selectedType) {
+    switch (selectedType) {
       case "walking":
-        setIcon("directions_walk");
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          editActivityIcon: "directions_walk"
+        }));
         break;
       case "Running":
-        setIcon("directions_run");
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          editActivityIcon: "directions_run"
+        }));
         break;
       case "Weight-lifting":
-        setIcon("exercise");
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          editActivityIcon: "exercise"
+        }));
         break;
       case "Swimming":
-        setIcon("pool");
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          editActivityIcon: "pool"
+        }));
         break;
       case "Cycling":
-        setIcon("directions_bike");
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          editActivityIcon: "directions_bike"
+        }));
         break;
       case "Aerobics":
-        setIcon("sports_gymnastics");
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          editActivityIcon: "sports_gymnastics"
+        }));
         break;
       default:
-        setIcon(""); // หรือให้เป็นค่าว่างหากไม่ตรงกับเงื่อนไขใดๆ
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          editActivityIcon: "" // หรือให้เป็นค่าว่างหากไม่ตรงกับเงื่อนไขใดๆ
+        }));
     }
   };
 
@@ -38,7 +59,7 @@ const Edittypes = ({setType, setIcon}) => {
             Activity Types* :
           </span>
         </label>
-        <select className="select select-bordered w-full text-base font-normal" id="editActivityType" onChange={handleTypeChange}>
+        <select className="select select-bordered w-full text-base font-normal" id="editActivityType" onChange={handleTypeChange} required>
           <option disabled selected>
             Choose
           </option>

@@ -10,11 +10,18 @@ import axios from "axios";
 const Home = () => {
   const [activities, setActivities] = useState([]);
   const [reload, setReload] = useState(false);
+  const token = JSON.parse(localStorage.getItem("token"));
+  const firstname = token.id.signup_firstname;
+  const id = token.id._id;
+
+  // console.log(JSON.parse(token));
+  // console.log(firstname);
 
   useEffect(()=> {
     const getData = async () => {
       const response = await axios.get(
-        "https://greensculpt.onrender.com/add-activity"
+        `https://greensculpt.onrender.com/add-activity/${id}`
+        // `http://localhost:3000/add-activity/${id}`
       );
       setActivities(response.data);
     };
@@ -27,7 +34,7 @@ const Home = () => {
       <Layout>
         <div className="md:min-h-[800px] pb-48 md:pb-40">
           <div className="flex flex-col justify-center ">
-            <Headerhome />
+            <Headerhome firstname={firstname}/>
             {/* part 2: this button need to link to form*/}
             <div className="flex justify-center mt-10">
               <Link

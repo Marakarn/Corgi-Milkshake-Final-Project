@@ -10,26 +10,24 @@ const Activityduration = ({handleInputChange}) => {
           </span>
         </label>
         <div className="flex md:justify-between gap-x-1.5">
-          <input
+          <input className="input input-bordered font-normal w-1/2"
             type="number"
             id="hours"
             name="hours"
             min="0"
-            placeholder="hours"
-            className="input input-bordered text-base font-normal w-1/2"
-            onChange={handleInputChange}
-            required
-          />
-          <input
+            max="24"
+            maxLength={2}
+            placeholder="Hours"
+            onChange={handleInputChange} />
+          <input className="input input-bordered font-normal w-1/2"
             type="number"
             id="minutes"
             name="minutes"
             min="0"
             max="59"
-            placeholder="minutes"
-            className="input input-bordered text-base font-normal w-1/2"
+            maxLength={2}
+            placeholder="Minutes"
             onChange={handleInputChange}
-            required
           />
         </div>
       </div>

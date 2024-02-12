@@ -16,6 +16,7 @@ const Activityname = ({handleInputChange}) => {
           id="activityName"
           required
           onChange={handleInputChange}
+          maxLength="30"
         />
       </div>
     </>

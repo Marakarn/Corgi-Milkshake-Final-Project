@@ -19,8 +19,8 @@ html {
   min-height: 100%;
 }
 
-input#login_id[type="email"],
-input#login_password[type="password"] {
+input.email[type="email"],
+input.password[type="password"] {
   width: 100%;
   padding: 10px 50px;
 }
@@ -30,4 +30,8 @@ footer {
   left: 0px ;
   bottom: 0px ;
   width: 100% ;
+}
+
+#textwrap {
+  overflow: hidden;
 }

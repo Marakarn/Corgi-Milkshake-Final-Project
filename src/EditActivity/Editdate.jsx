@@ -1,6 +1,6 @@
 import React from "react";
 
-const Editdate = ({setDate}) => {
+const Editdate = ({handleInputChange}) => {
   return (
     <div>
       <div className="form-control">
@@ -13,7 +13,7 @@ const Editdate = ({setDate}) => {
           name="trip-start"
           min="2018-01-01"
           className="input input-bordered"
-          onChange={(e)=>setDate(e.target.value)}
+          onChange={handleInputChange}
           required
         />
       </div>

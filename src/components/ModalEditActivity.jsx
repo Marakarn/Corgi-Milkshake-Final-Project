@@ -6,7 +6,12 @@ import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import modalAddactivityPic from "/modal-add-activity.png"
 
-const ModalEditActivity = ({_id, updateData, name, description, type, icon, hours, minutes, date, actImage}) => {
+const ModalEditActivity = ({_id, updateData}) => {
+
+  const handleSubmit = () => {
+    updateData(_id);
+    document.getElementById("my_modal_1").showModal();
+  };
 
   return (
     <>
@@ -15,8 +20,7 @@ const ModalEditActivity = ({_id, updateData, name, description, type, icon, hour
           <div className="flex flex-col form-control mt-6 w-full items-center ">
             <button
               className="btn bg-[#D2FE71] text-xl font-normal text-[#000000]"
-              onClick={() => {document.getElementById("my_modal_1").showModal(),
-              updateData( _id, name, description, type, icon, hours, minutes, date, actImage);}}
+              onClick={handleSubmit}
             >
               <span className="material-symbols-outlined text-[#000000]">
                 add_circle

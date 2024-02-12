@@ -12,6 +12,7 @@ import toDate from "validator/lib/toDate";
 import toInt from "validator/lib/toInt";
 import axios, {isCancel, AxiosError} from 'axios';
 import { Link } from "react-router-dom";
+import randomToken from "random-token";
 
 const SignUp = () => {
 
@@ -216,6 +217,7 @@ const SignUp = () => {
 
             // สร้าง object ที่มีข้อมูลทั้งหมดที่คุณต้องการส่งไปยัง backend
             const requestData = {
+                userId:randomToken(16),
                 login_email: formData.email,
                 signup_firstname: formData.firstname,
                 signup_lastname: formData.lastname,

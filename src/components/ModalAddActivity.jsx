@@ -1,14 +1,8 @@
 // import React from 'react'
+import Backfunction from "./Backfunction";
 
 const ModalAddActivity = ({submitData}) => {
-
-  const handleSubmit = () => {
-    submitData();
-    document.getElementById("my_modal_1").showModal();
-  };
-
   
-
   return (
     <>
       <div className="container mx-auto font-poppins">
@@ -16,7 +10,8 @@ const ModalAddActivity = ({submitData}) => {
           <div className="flex flex-col form-control mt-6 w-full items-center ">
             <button
               className="btn bg-[#D2FE71] text-xl font-normal text-[#000000]"
-              onClick={handleSubmit}
+              // onClick={handleSubmit}
+              onClick={submitData}
             >
               <span className="material-symbols-outlined text-[#000000]">
                 add_circle
@@ -29,16 +24,27 @@ const ModalAddActivity = ({submitData}) => {
       <dialog id="my_modal_1" className="modal justify-center">
         <div className="modal-box p-[40px]">
           <img className="mx-auto" src="./modal-add-activity.png" alt="" />
-          <p className="py-4 font-poppins text-base font-normal text-center">
+          <p className="py-4 font-poppins text-base font-normal text-center ">
             Successfully created activity!
           </p>
-          <div className="modal-action">
-            <form method="dialog">
-              <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] items-center">
-                <span className="material-symbols-outlined text-[#000000]">
-                  arrow_back
-                </span>
-                Back to Home
+          <div className="modal-action flex justify-center">
+            <Backfunction path={"/home"} />
+          </div>
+        </div>
+      </dialog>
+      <dialog id="my_modal_2" className="modal justify-center">
+        <div className="modal-box p-[40px]">
+          {/* <img className="mx-auto" src="./modal-add-activity.png" alt="" /> */}
+          <p className="py-4 font-poppins text-base font-normal text-center ">
+            You must correct <br/> all required form field <br/> ( with "*")
+          </p>
+          <div className="modal-action flex justify-center">
+          <form method="dialog">
+            <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] items-center ">
+              <span className="material-symbols-outlined text-[#000000] ">
+                arrow_back
+              </span>
+                Back
               </button>
             </form>
           </div>

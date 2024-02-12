@@ -59,10 +59,8 @@ const Activitiestypes = ({handleInputChange, setFormData}) => {
             Activity Types* :
           </span>
         </label>
-        <select className="select select-bordered w-full text-base font-normal" id="activityType" onChange={handleTypeChange}>
-          <option disabled selected>
-            Choose
-          </option>
+        <select className="select select-bordered w-full text-base font-normal" id="activityType" onChange={handleTypeChange} required>
+          <option value="" disabled selected>Choose</option>
           <option value="walking">Walking</option>
           <option value="Running">Running</option>
           <option value="Weight-lifting">Weight-lifting</option>

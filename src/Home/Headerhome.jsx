@@ -1,6 +1,6 @@
 import React from "react";
 
-const Headerhome = () => {
+const Headerhome = ({firstname}) => {
   return (
     <>
       <div className="w-full mt-[50px]">
@@ -9,7 +9,7 @@ const Headerhome = () => {
           <div className="p-5 md:p-10">
             <h1 className="text-xl md:text-3xl font-normal">Welcome back,</h1>
             <h1 className="text-2xl md:text-5xl font-semibold">
-              Hello, Suttikarn
+              Hello, {firstname}
             </h1>
           </div>
         </div>

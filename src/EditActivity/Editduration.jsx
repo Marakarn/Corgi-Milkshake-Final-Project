@@ -1,6 +1,6 @@
 import React from "react";
 
-const Editduration = ({setHours ,setMinute}) => {
+const Editduration = ({handleInputChange}) => {
   return (
     <div>
       <div className="form-control">
@@ -17,18 +17,18 @@ const Editduration = ({setHours ,setMinute}) => {
             min="0"
             placeholder="hours"
             className="input input-bordered text-base font-normal w-1/2"
-            onChange={(e)=>setHours(e.target.value)}
+            onChange={handleInputChange}
             required
           />
           <input
             type="number"
-            id="editeMinutes"
+            id="editMinutes"
             name="minutes"
             min="0"
             max="59"
             placeholder="minutes"
             className="input input-bordered text-base font-normal w-1/2"
-            onChange={(e)=>setMinute(e.target.value)}
+            onChange={handleInputChange}
             required
           />
         </div>

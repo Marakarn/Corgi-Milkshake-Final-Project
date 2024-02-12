@@ -9,6 +9,12 @@ import Bmail from "./Bmail";
 import Bc from "./Bc";
 
 const Personaldetail = () => {
+
+  const token = JSON.parse(localStorage.getItem("token"));
+  const firstname = token.id.signup_firstname;
+  const lastname = token.id.signup_lastname;
+  const email = token.id.login_email;
+
   return (
     <>
       <Layout>
@@ -17,9 +23,9 @@ const Personaldetail = () => {
           <div className="flex flex-col md:flex-row min-h-[600px]">
             <Inputpic />
             <div className="min-h-[500px] md:w-1/2 p-10">
-              <Bfirstname />
-              <Blastname />
-              <Bmail />
+              <Bfirstname firstname={firstname} />
+              <Blastname lastname={lastname} />
+              <Bmail email={email} />
               <Bc />
             </div>
           </div>

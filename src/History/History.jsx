@@ -8,6 +8,9 @@ import DisplayInProgress from "./Hisinprogress";
 import DisplayFinish from "./Hisfinish";
 
 const History = () => {
+
+  const token = JSON.parse(localStorage.getItem("token"));
+  const id = token.id._id;
   
   const handleClick = (value) => {
     setSection(value);
@@ -20,7 +23,8 @@ const History = () => {
   useEffect(()=> {
     const getData = async () => {
       const response = await axios.get(
-        "https://greensculpt.onrender.com/add-activity"
+        `https://greensculpt.onrender.com/add-activity/${id}`
+        // `http://localhost:3000/add-activity/${id}`
       );
       setActivities(response.data);
     };

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Editname = ({setName}) => {
+const Editname = ({handleInputChange}) => {
   return (
     <div>
       <div className="form-control">
@@ -13,9 +13,10 @@ const Editname = ({setName}) => {
           type="text"
           placeholder="Activity Name"
           className="input input-bordered text-base font-normal"
-          required
           id="editActivityName"
-          onChange={(e)=>setName(e.target.value)}
+          required
+          onChange={handleInputChange}
+          maxlength="30"
         />
       </div>
     </div>

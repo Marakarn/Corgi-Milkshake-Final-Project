@@ -13,7 +13,8 @@ const Activitydescription = ({handleInputChange}) => {
           placeholder="Activity Description"
           className="textarea textarea-bordered textarea-lg w-full text-base font-normal"
           id="activityDes"
-          onChange={handleInputChange}></textarea>
+          onChange={handleInputChange}
+          maxLength="100"></textarea>
       </div>
     </>
   );

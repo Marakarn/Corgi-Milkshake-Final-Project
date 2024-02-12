@@ -1,6 +1,6 @@
 import React from "react";
 
-const Editdes = ({setDescription}) => {
+const Editdes = ({handleInputChange}) => {
   return (
     <div>
       <div className="form-control">
@@ -13,7 +13,8 @@ const Editdes = ({setDescription}) => {
           placeholder="Activity Description"
           className="textarea textarea-bordered textarea-lg w-full text-base font-normal"
           id="editActivityDes"
-          onChange={(e)=>setDescription(e.target.value)}
+          onChange={handleInputChange}
+          maxlength="100"
         ></textarea>
       </div>
     </div>

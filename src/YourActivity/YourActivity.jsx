@@ -46,18 +46,18 @@ const YourActivity = () => {
     <>
       <Layout>
         <div className="">
-          <div className="flex flex-col justify-center pb-[80px]">
+          <div className="flex flex-col justify-center pb-[80px] mb-20">
             <Daisytop text="Your Activity" />
             <div className="flex flex-col form-control mt-20 w-full items-center">
               <div className="card card-side bg-base-100 shadow-xl border-2 border-[#8BCA00]">
                 <div className="card-body">
                   <div className="flex flex-col md:flex-row justify-between items-center">
                     {/* hero-content */}
-                    <div className="hero-content flex-row ">
+                    <div className="hero-content flex-row">
                       <span className="material-symbols-outlined text-[#000000] text-4xl" id='card_icon'>
                         {activities.activityIcon}
                       </span>
-                      <div>
+                      <div className="w-72 overflow-hidden">
                         <h2 className="card-title text-2xl text-[#8BCA00]">
                           {activities.activityName}
                         </h2>

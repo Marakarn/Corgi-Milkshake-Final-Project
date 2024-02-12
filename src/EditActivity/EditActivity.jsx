@@ -20,35 +20,51 @@ const EditActivity = () => {
     const _id = state._id
     console.log(_id)
 
-    const [name, setName]  = useState("")
-    const [description, setDescription] = useState("");
-    const [type, setType] = useState("");
-    const [icon, setIcon] = useState("");
-    const [hours, setHours] = useState("");
-    const [minutes, setMinutes] = useState("");
-    const [date, setDate] = useState("");
-    const [actImage, setActImage] = useState("");
+    const initialFormData = { editActivityName: "", editActivityDes: "", editActivityType: "", editActivityIcon: "", editHours: "", editMinutes: "", editDate: "", editActImage: ""}
+    const [formData, setFormData] = useState(initialFormData);
 
-    const updateData = async (_id, name, description, type, icon, hours, minutes, date, actImage) => {
+    // const [name, setName]  = useState("")
+    // const [description, setDescription] = useState("");
+    // const [type, setType] = useState("");
+    // const [icon, setIcon] = useState("");
+    // const [hours, setHours] = useState("");
+    // const [minutes, setMinutes] = useState("");
+    // const [date, setDate] = useState("");
+    // const [actImage, setActImage] = useState("");
+
+    const handleInputChange = (e) => {
+        const { id, value } =e.target;
+        setFormData({
+            ...formData,
+            [id]:value,
+        });
+    }
+
+    const updateData = async (_id) => {
+        
         const requestData = {
-            activityName: name,
-            activityDes: description,
-            activityType: type,
-            activityIcon: icon,
-            hours: hours,
-            minutes: minutes,
-            date: date,
-            actImage: "actImage"
+            activityName: formData.editActivityName,
+            activityDes: formData.editActivityDes,
+            activityType: formData.editActivityType,
+            activityIcon: formData.editActivityIcon,
+            hours: formData.editHours,
+            minutes: formData.editMinutes,
+            date: formData.editDate,
+            actImage: formData.editActImage
 
         };
+        console.log(requestData);
+
         const response = await axios.put(
             `https://greensculpt.onrender.com/your-activity/${_id}`,
             requestData
         );
     
         if (response.status === 200) {
-            setReload(!reload);
-            console.log(response);
+            alert("Data successfully sent to the backend!");
+            // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
+        } else {
+            alert("Failed to send data to the backend.");
         }
     };
 
@@ -61,20 +77,20 @@ const EditActivity = () => {
                     <div className="flex flex-col md:flex-row">
                         <div className="w-full md:w-1/2">
                             <form className="card-body">
-                                <Editname setName = {setName} />
-                                <Editdes setDescription={setDescription}/>
-                                <Edittypes setType={setType} setIcon={setIcon}/>
+                                <Editname handleInputChange={handleInputChange} />
+                                <Editdes handleInputChange={handleInputChange}/>
+                                <Edittypes handleInputChange={handleInputChange} setFormData={setFormData}/>
                             </form>
                         </div>
                         <div className="w-full md:w-1/2">
                             <form className="p-[32px] pt-0 md:pt-[32px]">
-                                <Editduration setHours={setHours} setMinute={setMinutes}/>
-                                <Editdate setDate={setDate}/>
-                                <Editinputimg setActImage={setActImage}/>
+                                <Editduration handleInputChange={handleInputChange}/>
+                                <Editdate handleInputChange={handleInputChange}/>
+                                <Editinputimg handleInputChange={handleInputChange}/>
                             </form>
                         </div>
                     </div>
-                    <ModalEditActivity _id={state._id} updateData={updateData} name={name} description={description} type={type} icon={icon} hours={hours} minutes={minutes} date={date} actImage={actImage}/>
+                    <ModalEditActivity _id={state._id} updateData={updateData}/>
                 </div>
             </div >
             </Layout>

@@ -9,6 +9,9 @@ import Activityduration from "./Activityduration";
 import Activiydate from "./Activiydate";
 import Activityimage from "./Activityimage";
 import axios from "axios";
+import isEmpty from 'validator/lib/isEmpty';
+import toDate from "validator/lib/toDate";
+import toInt from "validator/lib/toInt";
 import { useState } from "react";
 
 const AddActivity = () => {
@@ -16,14 +19,8 @@ const AddActivity = () => {
   const initialFormData = { activityName: "", activityDes: "", activityType: "", activityIcon: "", hours: "", minutes: "", date: "", actImage: ""}
   const [formData, setFormData] = useState(initialFormData);
 
-  // const [name, setName]  = useState("")
-  // const [description, setDescription] = useState("");
-  // const [type, setType] = useState("");
-  // const [icon, setIcon] = useState("");
-  // const [hours, setHours] = useState("");
-  // const [minutes, setMinutes] = useState("");
-  // const [date, setDate] = useState("");
-  // const [actImage, setActImage] = useState("");
+  const token = JSON.parse(localStorage.getItem("token"));
+  const id = token.id._id
 
   const handleInputChange = (e) => {
     const { id, value } =e.target;
@@ -34,34 +31,64 @@ const AddActivity = () => {
   }
 
   const createData = async (e) => {
+    e.preventDefault();
+    const isEmptyActivityName = isEmpty(formData.activityName);
+    const isEmptyActivityType = isEmpty(formData.activityType);
+    const isEmptyActivityHours = isEmpty(formData.hours);
+    const isEmptyActivityMinutes = isEmpty(formData.minutes);
+    const isEmptyActivityDate = isEmpty(formData.date);
 
-    const requestData = {
-      activityName: formData.activityName,
-      activityDes: formData.activityDes,
-      activityType: formData.activityType,
-      activityIcon: formData.activityIcon,
-      hours: formData.hours,
-      minutes: formData.minutes,
-      date: formData.date,
-      actImage: formData.actImage
+    if(  !isEmptyActivityName
+      && !isEmptyActivityType
+      && !isEmptyActivityHours
+      && !isEmptyActivityMinutes
+      && !isEmptyActivityDate
+    ){
+      alert("Valid Data");
+    
+    try {
+      const requestData = {
 
-    };
-    console.log(requestData);
+        activityName: formData.activityName,
+        activityDes: formData.activityDes,
+        activityType: formData.activityType,
+        activityIcon: formData.activityIcon,
+        hours: toInt(formData.hours),
+        minutes: toInt(formData.minutes),
+        date: toDate(formData.date),
+        actImage: formData.actImage,
+        user_id: id
 
-    const response = await axios.post(
-      "https://greensculpt.onrender.com/add-activity",
+
+      };
+      console.log(requestData);
+
+      const response = await axios.post(
+      // "https://greensculpt.onrender.com/add-activity",
+      `http://localhost:3000/add-activity`,
       requestData
-    );
+      );
 
-    if (response.status === 200) {
-      alert("Data successfully sent to the backend!");
-      // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
-  } else {
-      alert("Failed to send data to the backend.");
+      if (response.status === 200) {
+        alert("Data successfully sent to the backend!");
+        document.getElementById("my_modal_1").showModal();
+        // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
+      } else {
+          alert("Failed to send data to the backend.");
+      }
+  } catch (error) {
+    console.error("Error sending data to the backend:", error);
+    alert("An error occurred while sending data to the backend.");
   }
+
+  } else{
+    alert("Invalid Data");
+    document.getElementById("my_modal_2").showModal();
+  };
   
+  console.log(requestData);
+
 };
-  console.log(formData)
 
   return (
     <>

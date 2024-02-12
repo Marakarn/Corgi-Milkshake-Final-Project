@@ -1,11 +1,12 @@
 import React from "react";
 
-const Bfirstname = () => {
+const Bfirstname = ({firstname}) => {
   return (
     <>
       <div className="flex flex-1 items-center justify-between">
         <div className="">
           <label className="">First Name</label>
+          <p>{firstname}</p>
           <input
             type="text"
             className="form-control items-center"
