@@ -1,12 +1,11 @@
 import React from "react";
 
-const Bmail = ({email}) => {
+const Bmail = ({ email }) => {
   return (
     <>
       <div className="flex flex-1 items-center justify-between">
-        <div>
-          <label className="">Email Address</label>
-          <p>{email}</p>
+        <div className="my-5">
+          <label className="text-lg font-medium">Email Address: {email}</label>
           <input
             type="text"
             className="form-control flex items-center"

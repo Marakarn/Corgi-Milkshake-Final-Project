@@ -1,12 +1,11 @@
 import React from "react";
 
-const Blastname = ({lastname}) => {
+const Blastname = ({ lastname }) => {
   return (
     <>
       <div className="flex flex-1 items-center justify-between">
-        <div>
-          <label className="">Last Name</label>
-          <p>{lastname}</p>
+        <div className="my-5">
+          <label className="text-lg font-medium">Last Name: {lastname}</label>
           <input
             type="text"
             className="form-control flex items-center  "

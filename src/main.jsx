@@ -12,7 +12,7 @@ import SignUp from "./Signup/SignUp.jsx";
 import Home from "./Home/Home.jsx";
 import AddActivity from "./AddActivity/AddActivity.jsx";
 import Validateref from "./ValidateRef.jsx";
-import LandingPage from "./langing-page.jsx";
+import LandingPage from "./Landing/langing-page.jsx";
 import EditActivity from "./EditActivity/EditActivity.jsx";
 import DeleteActivity from "./DeleteActivity/DeleteActivity.jsx";
 import DeleteAccount from "./DeleteAccount/DeleteAccount.jsx";
@@ -20,33 +20,33 @@ import StartActivity from "./StartActivity/StartActivity.jsx";
 import YourActivity from "./YourActivity/YourActivity.jsx";
 import History from "./History/History.jsx";
 
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 const UserRoute = ({ children }) => {
-  
+
   const [token, setToken] = useState(localStorage.getItem("token"));
 
-  useEffect(() => {},
-  [localStorage.getItem("token")]);
+  useEffect(() => { },
+    [localStorage.getItem("token")]);
 
   if (!token) {
     return <Login />;
-  }else{
+  } else {
     return children;
   }
 
 };
 
 const UserRoute2 = ({ children }) => {
-  
+
   const [token, setToken] = useState(localStorage.getItem("token"));
 
-  useEffect(() => {},
-  [localStorage.getItem("token")]);
+  useEffect(() => { },
+    [localStorage.getItem("token")]);
 
   if (token) {
     return <Home />;
-  }else{
+  } else {
     return children;
   }
 
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/home",
-    element : <UserRoute><Home /></UserRoute>,
+    element: <UserRoute><Home /></UserRoute>,
   },
   // {
   //   path: "/home",

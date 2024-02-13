@@ -1,4 +1,9 @@
 // import React from 'react'
+import { Link } from "react-router-dom";
+import { mockData } from "../mockData";
+import { useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import modalAddactivityPic from "/modal-add-activity.png"
 
 const ModalEditPersonal = () => {
   return (
@@ -13,7 +18,7 @@ const ModalEditPersonal = () => {
               <span className="material-symbols-outlined text-[#000000]">
                 add_circle
               </span>
-              Add Activity
+              Save
             </button>
           </div>
         </div>
@@ -24,12 +29,14 @@ const ModalEditPersonal = () => {
           <p className="py-4 font-poppins text-base font-normal text-center">
             Successfully edited information!
           </p>
-          <button className="flex mx-auto btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000]">
-            <span className="material-symbols-outlined text-[#000000]">
-              arrow_back
-            </span>
-            Back to Home
-          </button>
+          <Link to={`/home`}>
+            <button className="flex mx-auto btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000]">
+              <span className="material-symbols-outlined text-[#000000]">
+                arrow_back
+              </span>
+              Back to Home
+            </button>
+          </Link>
         </div>
       </dialog>
     </>
@@ -37,3 +44,6 @@ const ModalEditPersonal = () => {
 };
 
 export default ModalEditPersonal;
+
+
+
