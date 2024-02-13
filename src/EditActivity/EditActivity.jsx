@@ -40,6 +40,8 @@ const EditActivity = () => {
         });
     }
 
+    console.log(formData)
+    
     const updateData = async (_id) => {
         
         const requestData = {
