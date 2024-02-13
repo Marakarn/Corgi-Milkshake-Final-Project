@@ -7,7 +7,7 @@ const Activitiestypes = ({handleInputChange, setFormData}) => {
     handleInputChange(e); // เรียกใช้ handleInputChange เพื่ออัพเดตข้อมูลใน formData
     // เซ็ตค่า icon ตาม type ที่ถูกเลือก
     switch (selectedType) {
-      case "walking":
+      case "Walking":
         setFormData((prevFormData) => ({
           ...prevFormData,
           activityIcon: "directions_walk"
@@ -59,9 +59,9 @@ const Activitiestypes = ({handleInputChange, setFormData}) => {
             Activity Types* :
           </span>
         </label>
-        <select className="select select-bordered w-full text-base font-normal" id="activityType" onChange={handleTypeChange}>
+        <select className="select select-bordered w-full text-base font-normal" id="activityType" onChange={handleTypeChange} required>
           <option value="" disabled selected>Choose</option>
-          <option value="walking">Walking</option>
+          <option value="Walking">Walking</option>
           <option value="Running">Running</option>
           <option value="Weight-lifting">Weight-lifting</option>
           <option value="Swimming">Swimming</option>

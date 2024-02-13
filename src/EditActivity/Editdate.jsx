@@ -1,6 +1,13 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
-const Editdate = ({handleInputChange}) => {
+const Editdate = ({handleInputChange, setFormData, formData }) => {
+
+  useEffect(() => {
+    const todayDate = new Date().toISOString().split('T')[0];
+    setFormData(prevFormData => ({ ...prevFormData, editDate: todayDate }));
+  }, []);
+
   return (
     <div>
       <div className="form-control">
@@ -10,11 +17,10 @@ const Editdate = ({handleInputChange}) => {
         <input
           type="date"
           id="editDate"
-          name="trip-start"
-          min="2018-01-01"
+          name="editDate"
+          value={formData.editDate}
           className="input input-bordered"
           onChange={handleInputChange}
-          required
         />
       </div>
     </div>

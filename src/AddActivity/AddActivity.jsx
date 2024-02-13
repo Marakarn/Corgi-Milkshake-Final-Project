@@ -39,9 +39,9 @@ const AddActivity = () => {
       } else if (id === "minutes" && value === "0" && document.getElementById("hours").value === "0") {
         document.getElementById("hours").value = "";
         document.getElementById("minutes").value = "";
-      }
-    }
-  }
+      };
+    };
+  };
 
   console.log(formData)
 
@@ -79,6 +79,7 @@ const AddActivity = () => {
         user_id: id
 
       };
+
       console.log(requestData);
 
       const response = await axios.post(
@@ -94,15 +95,15 @@ const AddActivity = () => {
       } else {
           alert("Failed to send data to the backend.");
       }
-  } catch (error) {
-    console.error("Error sending data to the backend:", error);
-    alert("An error occurred while sending data to the backend.");
-  }
+    } catch (error) {
+      console.error("Error sending data to the backend:", error);
+      alert("An error occurred while sending data to the backend.");
+    }
 
-  } else{
-    alert("Invalid Data");
-    document.getElementById("my_modal_2").showModal();
-  };
+    } else{
+      alert("Invalid Data");
+      document.getElementById("my_modal_2").showModal();
+    };
   
   console.log(requestData);
 
