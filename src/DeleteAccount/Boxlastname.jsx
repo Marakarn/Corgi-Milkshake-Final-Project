@@ -1,16 +1,12 @@
 import React from "react";
 
-const Boxlastname = () => {
+const Boxlastname = ({ lastname }) => {
   return (
     <>
       <div className="flex items-center justify-between">
-        <div>
-          <label className="">Last Name</label>
-          <input
-            type="text"
-            className="form-control items-center focus:outline-none  "
-            placeholder="Last Name"
-          />
+        <div className="my-5">
+          <label className="text-xl font-medium text-[#BDBDBD]">Last Name:</label>
+          <p>{lastname}</p>
         </div>
         <div className="">
           <span className="material-symbols-outlined text-[#8bca00]">

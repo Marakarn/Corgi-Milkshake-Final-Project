@@ -9,13 +9,11 @@ const Startvideo = () => {
             <span className="label-text text-3xl font-medium">Warm Up</span>
           </label>
           <iframe
-            className="w-full aspect-video ..."
-            src="https://youtu.be/f3zOrYCwquE?si=-aBXLYmytVMtjGt9"
+            className="w-full aspect-video"
+            src="https://www.youtube.com/embed/f3zOrYCwquE"
+            allowFullScreen
+            title="YouTube video player"
           ></iframe>
-          {/* <video
-              className="aspect-video"
-              src="https://youtu.be/f3zOrYCwquE?si=-aBXLYmytVMtjGt9"
-            ></video> */}
         </div>
       </form>
     </div>

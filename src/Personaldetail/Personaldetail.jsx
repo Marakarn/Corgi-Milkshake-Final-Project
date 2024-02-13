@@ -7,6 +7,7 @@ import Bfirstname from "./Bfirstname";
 import Blastname from "./Blastname";
 import Bmail from "./Bmail";
 import Bc from "./Bc";
+import ModalEditPersonal from "../components/ModalEditPersonal";
 
 const Personaldetail = () => {
 
@@ -18,7 +19,7 @@ const Personaldetail = () => {
   return (
     <>
       <Layout>
-        <Daisytop text="Personal Detail"/>
+        <Daisytop text="Personal Detail" />
         <div className="">
           <div className="flex flex-col md:flex-row min-h-[600px]">
             <Inputpic />
@@ -26,10 +27,11 @@ const Personaldetail = () => {
               <Bfirstname firstname={firstname} />
               <Blastname lastname={lastname} />
               <Bmail email={email} />
-              <Bc />
+              {/* <Bc /> */}
             </div>
           </div>
         </div>
+        {/* <ModalEditPersonal /> */}
       </Layout>
     </>
   );
