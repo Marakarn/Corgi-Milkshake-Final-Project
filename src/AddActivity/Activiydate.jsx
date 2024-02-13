@@ -1,18 +1,23 @@
 import React from "react";
+import { useState, useEffect } from "react";
 
-const Activiydate = ({handleInputChange}) => {
+const Activiydate = ({ handleInputChange }) => {
+  // เริ่มต้นเก็บค่าวันที่ปัจจุบัน
+  const [selectedDate, setSelectedDate] = useState();
 
+  // เมื่อมีการเปลี่ยนแปลงใน input จะเรียกฟังก์ชันนี้
   const handleDateChange = (event) => {
-    const selectedDate = new Date(event.target.value);
-    const currentDate = new Date();
+    const inputDate = event.target.value;
+    const currentDate = new Date().toISOString().slice(0, 10); // วันที่ปัจจุบันในรูปแบบ YYYY-MM-DD
 
     // ตรวจสอบว่าวันที่ที่ผู้ใช้เลือกมามีค่ามากกว่าหรือเท่ากับวันปัจจุบันหรือไม่
-    if (selectedDate >= currentDate) {
+    if (inputDate >= currentDate) {
       // ถ้าเป็นเช่นนั้นให้เรียกฟังก์ชัน handleInputChange เพื่อปรับปรุงข้อมูลตามต้องการ
       handleInputChange(event);
+      setSelectedDate(inputDate); // เซ็ตค่าวันที่ใหม่
     } else {
       // ถ้าวันที่เลือกน้อยกว่าวันปัจจุบัน ให้กำหนดค่าให้กับ input เป็นวันปัจจุบัน
-      event.target.valueAsDate = currentDate;
+      setSelectedDate(currentDate); // เซ็ตค่าวันที่ปัจจุบัน
     }
   };
 
@@ -26,10 +31,10 @@ const Activiydate = ({handleInputChange}) => {
           type="date"
           id="date"
           name="trip-start"
-          min="2024-01-01"
           className="input input-bordered"
+          value={selectedDate}
           onChange={handleDateChange}
-          required
+          key={selectedDate}
         />
       </div>
     </>

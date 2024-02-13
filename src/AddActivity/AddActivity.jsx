@@ -57,15 +57,15 @@ const AddActivity = () => {
         minutes: toInt(formData.minutes),
         date: toDate(formData.date),
         actImage: formData.actImage,
+        status: "plan",
         user_id: id
-
 
       };
       console.log(requestData);
 
       const response = await axios.post(
-      // "https://greensculpt.onrender.com/add-activity",
-      `http://localhost:3000/add-activity`,
+      "https://greensculpt.onrender.com/add-activity",
+      // `http://localhost:3000/add-activity`,
       requestData
       );
 
