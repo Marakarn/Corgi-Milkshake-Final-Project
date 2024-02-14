@@ -10,10 +10,8 @@ import isStrongPassword from 'validator/lib/isStrongPassword';
 import isNumeric from 'validator/lib/isNumeric';
 import toDate from "validator/lib/toDate";
 import toInt from "validator/lib/toInt";
-import axios, { isCancel, AxiosError } from 'axios';
+import axios from 'axios';
 import { Link } from "react-router-dom";
-import randomToken from "random-token";
-import Backfunction from "../components/Backfunction";
 
 const SignUp = () => {
 
@@ -55,8 +53,6 @@ const SignUp = () => {
         setFormData({
             ...formData,
             [id]: value,
-            // [id]:id === "height" || id === "weight" ? parseInt(value, 10) : value,
-            // [id]: id === "date_of_birth" ? new Date() : id === "height" || id === "weight" ? parseInt(value, 10) : value
         });
 
         //Check Email
@@ -263,16 +259,12 @@ const SignUp = () => {
                 <form onSubmit={handleSubmit} noValidate>
                     <main className="container mx-auto font-poppins">
                         <section className="pt-20 relative">
-
-                            {/* <Backfunction /> */}
-
-                            <Link to="/login">
+                            <Link to="/">
                                 <button className="btn bg-[#d2fe71] hover:bg-[#a5cf4a]/80 drop-shadow text-xl font-normal border-none hidden md:flex absolute top-[90px] left-[10px]">
                                     <span className="material-symbols-outlined">arrow_back</span>
                                     Back
                                 </button>
                             </Link>
-
                             <div className="bg-[#8BCA00]/60 text-center rounded-t-[20px] p-[10px]">
                                 <h2 className="text-white font-semibold text-[32px]">Sign Up</h2>
                             </div>

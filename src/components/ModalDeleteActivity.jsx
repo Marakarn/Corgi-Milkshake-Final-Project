@@ -15,13 +15,27 @@ const ModalDeleteActivity = ({_id}) => {
     );
 
     if (response.status === 200) {
+      handleDeleteCard(_id);
       setReload(!reload);
     };
+
   };
 
-  // const handleClick = () => {
-
-  // }
+  const handleDeleteCard = async (_id) => {
+    try {
+      const response = await axios.delete(`https://greensculpt.onrender.com/api/delete-image`, {
+        data: {
+          imagePath: "path_to_your_image.jpg" // ใส่ path ที่ต้องการลบ
+        }
+      });
+      if (response.status === 200) {
+        // ดำเนินการหลังจากลบรูปภาพสำเร็จ
+      }
+    } catch (error) {
+      console.error("Error deleting image:", error);
+      // แสดงข้อความหรือดำเนินการเพิ่มเติมเมื่อเกิดข้อผิดพลาด
+    }
+  };
 
   return (
     <>

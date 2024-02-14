@@ -41,6 +41,8 @@ const YourActivity = () => {
 
     getData();
   }, [_id]);
+
+  console.log(activities.actImage)
   
   return (
     <>
