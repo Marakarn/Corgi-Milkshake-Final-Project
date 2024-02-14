@@ -15,6 +15,7 @@ function TimeApp({activity}) {
   
   const [showSettings, setShowSettings] = useState(false)
   const [workMinutes, setWorkMinutes] = useState(initialTimeInMinutes);
+  const [breakMinutes, setBreakMinutes] = useState(0);
 
   return (
   <main className='timerMain'>
@@ -23,7 +24,9 @@ function TimeApp({activity}) {
     showSettings,
     setShowSettings,
     workMinutes,
+    breakMinutes,
     setWorkMinutes,
+    setBreakMinutes,
   }}>
     
     {showSettings ? <Settings /> : <Timer/>}
