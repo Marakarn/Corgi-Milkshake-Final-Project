@@ -64,8 +64,8 @@ const AddActivity = () => {
       console.log(requestData);
 
       const response = await axios.post(
-      "https://greensculpt.onrender.com/add-activity",
-      // `http://localhost:3000/add-activity`,
+      // "https://greensculpt.onrender.com/add-activity",
+      `http://localhost:3000/add-activity`,
       requestData
       );
 
