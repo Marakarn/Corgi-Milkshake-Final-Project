@@ -12,6 +12,7 @@ const Home = () => {
   const [reload, setReload] = useState(false);
   const token = JSON.parse(localStorage.getItem("token"));
   const firstname = token.id.signup_firstname;
+  const avatar = token.id.signup_photo;
   const id = token.id._id;
 
   // console.log(JSON.parse(token));
@@ -34,7 +35,7 @@ const Home = () => {
       <Layout>
         <div className="md:min-h-[800px] pb-48 md:pb-40">
           <div className="flex flex-col justify-center ">
-            <Headerhome firstname={firstname}/>
+            <Headerhome firstname={firstname} avatar={avatar}/>
             {/* part 2: this button need to link to form*/}
             <div className="flex justify-center mt-10">
               <Link

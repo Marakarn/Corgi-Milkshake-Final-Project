@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 
 const SignUp = () => {
 
-    const initialFormData = { email: "", firstname: "", lastname: "", password: "", confirmpassword: "", date_of_birth: "", gender: "", height: "", weight: "", phone_Number: "", image: "" }
+    const initialFormData = { email: "", firstname: "", lastname: "", password: "", confirmpassword: "", date_of_birth: "", gender: "", height: "", weight: "", phone_Number: "", image: "https://jsd6greensculpt.s3.ap-southeast-1.amazonaws.com/pixil-frame-0 (2).png" }
     const [formData, setFormData] = useState(initialFormData);
 
     //Set Email input
@@ -183,6 +183,37 @@ const SignUp = () => {
 
     console.log(formData);
 
+    const handleInputPhoto = async (e) => {
+        const file = e.target.files[0];
+        const formData = new FormData();
+        formData.append("actImage", file);
+    
+        try {
+          const response = await axios.post(
+            "https://greensculpt.onrender.com/api/upload"
+            // "http://localhost:3000/api/upload"
+          , formData, 
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          );
+    
+          if (response.status === 200) {
+            const imagePath = `https://jsd6greensculpt.s3.ap-southeast-1.amazonaws.com/${response.data.originalname}`;
+            setFormData((prevData) => ({
+              ...prevData,
+              image: imagePath,
+            }));
+            alert('Successfully upload image');
+          }
+        } catch (error) {
+          alert('Error uploading image');
+          console.error("Error uploading image:", error);
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const validEmail = isEmail(formData.email);
@@ -214,7 +245,6 @@ const SignUp = () => {
 
                 // สร้าง object ที่มีข้อมูลทั้งหมดที่คุณต้องการส่งไปยัง backend
                 const requestData = {
-                    userId: randomToken(16),
                     login_email: formData.email,
                     signup_firstname: formData.firstname,
                     signup_lastname: formData.lastname,
@@ -250,6 +280,7 @@ const SignUp = () => {
         console.log(toDate(formData.date_of_birth));
         console.log(toInt(formData.height));
         console.log(toInt(formData.weight));
+        console.log(formData);
 
     }
 
@@ -271,12 +302,12 @@ const SignUp = () => {
                             <div className="flex flex-col md:flex-row bg-[rgb(255,255,255)]/75 ">
                                 <div className="md:w-1/5 flex justify-center" >
                                     <div className="justify-center bg-grey-lighter pt-10 md:p-24">
-                                        <label className="w-48 h-48 md:h-36 md:w-36 flex flex-col items-center justify-center bg-gray-200 text-blue rounded-[40px] shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-[#8BCA00]">
+                                        <label className={`w-48 h-48 md:h-36 md:w-36 flex flex-col items-center justify-center bg-[url('${formData.image}')] text-blue rounded-[40px] shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-[#8BCA00]`}>
                                             <span className="material-symbols-outlined">
                                                 photo_camera
                                             </span>
                                             <p className="mt-2 text-base text-center leading-normal">Select a Photo</p>
-                                            <input type='file' accept=".jpg, .png, .jpeg" className="hidden" id="signup_photo" />
+                                            <input type='file' accept=".jpg, .png, .jpeg" className="hidden" id="signup_photo" onChange={handleInputPhoto}/>
                                         </label>
                                     </div>
                                 </div>
