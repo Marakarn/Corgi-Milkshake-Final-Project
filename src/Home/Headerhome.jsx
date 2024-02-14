@@ -6,7 +6,7 @@ const Headerhome = ({firstname, avatar}) => {
     <>
       <div className="w-full mt-[50px]">
         <div className="flex items-center">
-          <img className="mt-4 w-40 rounded-xl" src={avatar} alt="" />
+          <img className="mt-4 w-40 h-40 object-cover rounded-xl" src={avatar} alt="" />
           <div className="p-5 md:p-10">
             <h1 className="text-xl md:text-3xl font-normal">Welcome back,</h1>
             <h1 className="text-2xl md:text-5xl font-semibold">

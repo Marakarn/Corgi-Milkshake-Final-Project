@@ -11,6 +11,7 @@ import isNumeric from 'validator/lib/isNumeric';
 import toDate from "validator/lib/toDate";
 import toInt from "validator/lib/toInt";
 import axios from 'axios';
+import ModalSignUp from "../components/ModalSignUp";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
@@ -265,6 +266,7 @@ const SignUp = () => {
                 if (response.status === 200) {
                     alert("Data successfully sent to the backend!");
                     // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
+                    document.getElementById("my_modal_1").showModal()
                 } else {
                     alert("Failed to send data to the backend.");
                 }
@@ -286,7 +288,7 @@ const SignUp = () => {
 
     return (
         <>
-            <div className="bg-[url('/moutain_pic.png')] bg-fixed bg-no-repeat bg-cover min-h-[1800px] md:min-h-[1100px] h-screen w-screen">
+            <div className="bg-[url('/moutain_pic.png')] bg-fixed bg-no-repeat bg-cover min-h-[1830px] md:min-h-[1100px] h-screen w-screen">
                 <form onSubmit={handleSubmit} noValidate>
                     <main className="container mx-auto font-poppins">
                         <section className="pt-20 relative">
@@ -401,6 +403,7 @@ const SignUp = () => {
                                             {/* Div เปล่า ทำให้ด้านข้างเสมอกันกับข้างล่าง */}
                                             <div className="md:w-2/5"></div>
                                         </div>
+                                        <ModalSignUp />
                                     </div>
                                 </div>
                             </div>

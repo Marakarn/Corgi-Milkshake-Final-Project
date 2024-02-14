@@ -1,5 +1,6 @@
 // import React from 'react'
 import Backfunction from "./Backfunction";
+import BackfunctionMobile from "./BackfunctionMobile";
 import modalDeleteActivityPic from "/modal-delete-activity.png"
 import { useParams } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
@@ -19,22 +20,6 @@ const ModalDeleteActivity = ({_id}) => {
       setReload(!reload);
     };
 
-  };
-
-  const handleDeleteCard = async (_id) => {
-    try {
-      const response = await axios.delete(`https://greensculpt.onrender.com/api/delete-image`, {
-        data: {
-          imagePath: "path_to_your_image.jpg" // ใส่ path ที่ต้องการลบ
-        }
-      });
-      if (response.status === 200) {
-        // ดำเนินการหลังจากลบรูปภาพสำเร็จ
-      }
-    } catch (error) {
-      console.error("Error deleting image:", error);
-      // แสดงข้อความหรือดำเนินการเพิ่มเติมเมื่อเกิดข้อผิดพลาด
-    }
   };
 
   return (
@@ -62,7 +47,8 @@ const ModalDeleteActivity = ({_id}) => {
           </p>
           <div className="modal-action flex justify-center">
             <form method="dialog">
-              <Backfunction path="/home" />
+              <Backfunction path="/home"/>
+              <BackfunctionMobile path="/home"/>
             </form>
           </div>
         </div>
