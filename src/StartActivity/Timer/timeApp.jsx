@@ -6,23 +6,23 @@ import { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+const { _id } = useParams();
 const [hour, setHour] = useState(0);
 // const [minute, setMinute] = useState();
-const { _id } = useParams();
 
 useEffect(() => {
   const getData = async () => {
-    console.log('id From Front ' + _id);
-    const response = await axios.get(
-      // `https://greensculpt.onrender.com/start-activity/${_id}`
-      `http://localhost:3000/start-activity/${_id}`
-    );
-    setHour(response.data);
-    // setMinute(response.data);
+    try {
+      const response = await axios.get(`http://localhost:3000/start-activity/${_id}`);
+      setHour(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
 
   getData();
 }, [_id]);
+
 console.log('id From Front ' + getData());
 
 //set default timer
