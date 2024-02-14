@@ -8,14 +8,11 @@ import axios from "axios";
 
 
 function TimeApp({activity}) {
-  const { _id } = useParams();
-  const [timerData, setTimer] = useState([]);
 
-const initialHours = activity.hours; 
-const initialMinutes = activity.minutes ;
-
-const initialTimeInMinutes = initialHours * 60 + initialMinutes;
-console.log(initialTimeInMinutes +"sadsadsad");
+  const initialHours = activity.hours; 
+  const initialMinutes = activity.minutes ;
+  const initialTimeInMinutes = initialHours * 60 + initialMinutes;
+  
   const [showSettings, setShowSettings] = useState(false)
   const [workMinutes, setWorkMinutes] = useState(initialTimeInMinutes);
 
