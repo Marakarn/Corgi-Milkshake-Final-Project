@@ -32,15 +32,15 @@ import axios from "axios";
 
 function TimeApp() {
   const { _id } = useParams();
-const [hour, setHour] = useState(0);
+  const [timerData, setTimer] = useState(0);
 // const [minute, setMinute] = useState();
 
 useEffect(() => {
   const getData = async () => {
     try {
       const response = await axios.get(`http://localhost:3000/start-activity/${_id}`);
-      setHour(response.data);
-      console.log('Activity Data:', response.data); // Add this line to log the data
+      setTimer(response.data);
+      console.log('Activity Data:', response.data);                 // Add this line to log the data
 
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -50,11 +50,9 @@ useEffect(() => {
   getData();
 }, [_id]);
 
-console.log('id From Front ' + _id);
-
 //set default timer
-const initialHours = hour.hours;
-const initialMinutes = 30;
+const initialHours = timerData.hours;
+const initialMinutes = timerData.minutes;
 const initialTimeInMinutes = initialHours * 60 + initialMinutes;
 
   const [showSettings, setShowSettings] = useState(false)
