@@ -40,6 +40,8 @@ useEffect(() => {
     try {
       const response = await axios.get(`http://localhost:3000/start-activity/${_id}`);
       setHour(response.data);
+      console.log('Activity Data:', response.data); // Add this line to log the data
+
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -51,7 +53,7 @@ useEffect(() => {
 console.log('id From Front ' + _id);
 
 //set default timer
-const initialHours = hour;
+const initialHours = hour.hours;
 const initialMinutes = 30;
 const initialTimeInMinutes = initialHours * 60 + initialMinutes;
 
