@@ -1,8 +1,9 @@
 import React from "react";
+import './timeApp.css';
 
 function Pausebutton(props) {
   return (
-    <button {...props}>
+    <button className="timerButton" {...props}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

@@ -14,7 +14,7 @@ function timeApp() {
   const [workMinutes, setWorkMinutes] = useState(initialTimeInMinutes);
 
   return (
-  <main>
+  <main className='timerMain'>
     
   <SettingsContext.Provider value={{
     showSettings,

@@ -1,23 +1,21 @@
-root{
+/* root{
   --red: #f54e4e;
   --green: #8bca8a;
-}
+} */
 
-body{
-  /* background-color: white; */
+/* body{
+ background-color: white;
   color: #eee;
-}
+} */
 
-main {
+.timerMain {
   padding-top:  50px;
   max-width: 340px;
   margin: 0 auto;
   text-align: center;
- 
-
 }
 
-button{
+.timerButton{
   background-color: transparent ;
   color: rgba(255, 255, 255, 0.8);
   border:0 ;
@@ -27,7 +25,7 @@ button{
 
 }
 
-button.with-text {
+.timerButton.with-text {
   width:auto;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
@@ -36,13 +34,13 @@ button.with-text {
   line-height: 36px;
 }
 
-button.with-text svg {
+.timerButton.with-text svg {
  width: 36px;
  float: left;
  margin-right: 5px;
 }
 
-label{
+.timerLabel{
   display: block;
   margin-bottom: 10px;
   margin-top: 20px;

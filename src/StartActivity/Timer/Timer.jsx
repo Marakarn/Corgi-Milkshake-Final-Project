@@ -85,7 +85,7 @@ function Timer() {
         </div> */}
 
         <div style={{textAlign:'left'}}>
-          <label>work time: {Math.floor(settingsInfo.workMinutes / 60)}:{settingsInfo.workMinutes % 60}:00</label>
+          <label className="timerLabel">work time: {Math.floor(settingsInfo.workMinutes / 60)}:{settingsInfo.workMinutes % 60}:00</label>
           <ReactSlider
             className={'slider'}
             thumbClassName={'thumb'}
