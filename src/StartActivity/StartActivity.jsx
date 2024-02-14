@@ -4,6 +4,7 @@ import Daisytop from "../components/Daisytop";
 import Startvideo from "./Startvideo";
 import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import timeApp from "./Timer/timeApp";
 
 const StartActivity = () => {
   // const [name, setName] = useState();
@@ -48,7 +49,7 @@ const StartActivity = () => {
 
                       <p className="text-2xl text-normal mt-4">{activity.activityType}</p>
                     </div>
-
+                    <timeApp />
                     {/* ห้ามลบ running */}
                     {/* <div className="flex flex-col form-control mt-6 w-full items-center ">
                                         <span className="material-symbols-outlined text-[#000000] text-7xl">
