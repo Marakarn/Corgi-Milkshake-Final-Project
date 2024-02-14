@@ -1,5 +1,5 @@
 // import React from 'react'
-
+import Backfunction from "./Backfunction";
 import { Link } from "react-router-dom";
 import { mockData } from "../mockData";
 import { useParams } from "react-router-dom";
@@ -10,7 +10,6 @@ const ModalEditActivity = ({_id, updateData}) => {
 
   const handleSubmit = () => {
     updateData(_id);
-    document.getElementById("my_modal_1").showModal();
   };
 
   return (
@@ -33,19 +32,28 @@ const ModalEditActivity = ({_id, updateData}) => {
       <dialog id="my_modal_1" className="modal justify-center">
         <div className="modal-box p-[40px]">
           <img className="mx-auto" src={modalAddactivityPic} alt="" />
-          <p className="py-4 font-poppins text-base font-normal text-center">
-            Successfully edited activity!
+          <p className="py-4 font-poppins text-base font-normal text-center ">
+            Successfully edit activity!
           </p>
           <div className="modal-action flex justify-center">
-            <form method="dialog">
-              <Link to={`/home`}>
-                <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] items-center ">
-                  <span className="material-symbols-outlined text-[#000000] ">
-                    arrow_back
-                  </span>
-                  Back
-                </button>
-              </Link>
+            <Backfunction path={"/home"} />
+          </div>
+        </div>
+      </dialog>
+      <dialog id="my_modal_2" className="modal justify-center">
+        <div className="modal-box p-[40px]">
+          {/* <img className="mx-auto" src="./modal-add-activity.png" alt="" /> */}
+          <p className="py-4 font-poppins text-base font-normal text-center ">
+            You must correct all required form field (with "*") and Date must present or future!
+          </p>
+          <div className="modal-action flex justify-center">
+          <form method="dialog">
+            <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] items-center ">
+              <span className="material-symbols-outlined text-[#000000] ">
+                arrow_back
+              </span>
+                Back
+              </button>
             </form>
           </div>
         </div>

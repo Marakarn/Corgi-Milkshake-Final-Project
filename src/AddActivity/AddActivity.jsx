@@ -16,7 +16,9 @@ import { useState } from "react";
 
 const AddActivity = () => {
 
-  const initialFormData = { activityName: "", activityDes: "", activityType: "", activityIcon: "", hours: "", minutes: "", date: "", actImage: ""}
+  const today = new Date().toISOString().split("T")[0];
+
+  const initialFormData = { activityName: "", activityDes: "", activityType: "", activityIcon: "", hours: "", minutes: "",status: "", date: "", actImage: "https://images.pexels.com/photos/878151/pexels-photo-878151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"}
   const [formData, setFormData] = useState(initialFormData);
 
   const token = JSON.parse(localStorage.getItem("token"));
@@ -28,21 +30,37 @@ const AddActivity = () => {
         ...formData,
         [id]:value,
     });
-  }
+
+    if (id === "hours" || id === "minutes") {
+      // หากค่าทั้งสองเป็น 0 กำหนดค่าทั้งหมดเป็นค่าเปล่า
+      if (id === "hours" && value === "0" && document.getElementById("minutes").value === "0") {
+        document.getElementById("hours").value = "";
+        document.getElementById("minutes").value = "";
+      } else if (id === "minutes" && value === "0" && document.getElementById("hours").value === "0") {
+        document.getElementById("hours").value = "";
+        document.getElementById("minutes").value = "";
+      };
+    };
+  };
+
+  console.log(formData)
 
   const createData = async (e) => {
     e.preventDefault();
+
     const isEmptyActivityName = isEmpty(formData.activityName);
     const isEmptyActivityType = isEmpty(formData.activityType);
     const isEmptyActivityHours = isEmpty(formData.hours);
     const isEmptyActivityMinutes = isEmpty(formData.minutes);
     const isEmptyActivityDate = isEmpty(formData.date);
+    const isDateNotPresent = formData.date >= today;
 
     if(  !isEmptyActivityName
       && !isEmptyActivityType
       && !isEmptyActivityHours
       && !isEmptyActivityMinutes
       && !isEmptyActivityDate
+      && isDateNotPresent
     ){
       alert("Valid Data");
     
@@ -61,6 +79,7 @@ const AddActivity = () => {
         user_id: id
 
       };
+
       console.log(requestData);
 
       const response = await axios.post(
@@ -76,15 +95,15 @@ const AddActivity = () => {
       } else {
           alert("Failed to send data to the backend.");
       }
-  } catch (error) {
-    console.error("Error sending data to the backend:", error);
-    alert("An error occurred while sending data to the backend.");
-  }
+    } catch (error) {
+      console.error("Error sending data to the backend:", error);
+      alert("An error occurred while sending data to the backend.");
+    }
 
-  } else{
-    alert("Invalid Data");
-    document.getElementById("my_modal_2").showModal();
-  };
+    } else{
+      alert("Invalid Data");
+      document.getElementById("my_modal_2").showModal();
+    };
   
   console.log(requestData);
 
@@ -108,7 +127,7 @@ const AddActivity = () => {
               <div className="w-full md:w-1/2">
                 <form className="p-[32px] pt-0 md:pt-[32px]">
                   <Activityduration handleInputChange={handleInputChange} />
-                  <Activiydate handleInputChange={handleInputChange} />
+                  <Activiydate handleInputChange={handleInputChange} setFormData={setFormData} formData={formData}/>
                   <Activityimage handleInputChange={handleInputChange} />
                 </form>
               </div>
