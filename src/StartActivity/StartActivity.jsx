@@ -4,7 +4,7 @@ import Daisytop from "../components/Daisytop";
 import Startvideo from "./Startvideo";
 import { useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import timeApp from "./Timer/timeApp";
+import TimeApp from "./Timer/timeApp";
 
 const StartActivity = () => {
   // const [name, setName] = useState();
@@ -15,6 +15,7 @@ const StartActivity = () => {
   // const [image, setImage] = useState();
 
   // const { _id } = useParams();
+
   let { state } = useLocation();
   const activity = state.activities
 
@@ -49,7 +50,7 @@ const StartActivity = () => {
 
                       <p className="text-2xl text-normal mt-4">{activity.activityType}</p>
                     </div>
-                    <timeApp />
+                    <TimeApp />
                     {/* ห้ามลบ running */}
                     {/* <div className="flex flex-col form-control mt-6 w-full items-center ">
                                         <span className="material-symbols-outlined text-[#000000] text-7xl">
@@ -95,44 +96,9 @@ const StartActivity = () => {
                                         <p className="text-2xl text-normal mt-4">Aerobics</p>
                                     </div> */}
 
-                    <div className="grid grid-flow-col gap-5 text-center auto-cols-max justify-center mt-6">
-                      <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                        <span className="countdown font-mono text-5xl">
-                          <span style={{ "--value": 10 }}></span>
-                        </span>
-                        hours
-                      </div>
-                      <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                        <span className="countdown font-mono text-5xl">
-                          <span style={{ "--value": 24 }}></span>
-                        </span>
-                        min
-                      </div>
-                      <div className="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
-                        <span className="countdown font-mono text-5xl">
-                          <span style={{ "--value": 39 }}></span>
-                        </span>
-                        sec
-                      </div>
-                    </div>
-                    <div className="flex flex-col form-control w-full items-center mt-16">
-                      <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000]">
-                        <span className="material-symbols-outlined text-[#000000]">
-                          play_circle
-                        </span>
-                        Start
-                      </button>
-                    </div>
+                   
 
-                    {/* ห้ามลบ stop button */}
-                    {/* <div className="flex flex-col form-control mt-6 w-full items-center ">
-                                        <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000]">
-                                            <span className="material-symbols-outlined text-[#000000]">
-                                                pause_circle
-                                            </span>
-                                            Pause
-                                        </button>
-                                    </div> */}
+              
                   </div>
                 </form>
               </div>

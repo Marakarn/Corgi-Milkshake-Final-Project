@@ -8,7 +8,7 @@ import SettingsContext from "./SettingsContext";
 import ReactSlider from 'react-slider';
 import './slider.css'
 
-const red = "#f54e4e";
+const red = "#8BCA00";
 const green = "#8BCA00";
 
 function Timer() {
@@ -70,12 +70,13 @@ function Timer() {
         value={percentage}
         text={`${hours}:${minutes}:${seconds}`}
         styles={buildStyles({
-          textColor: '#fff',
+          textColor: 'black',
           pathColor: mode === 'work' ? red : green,
           tailColor: 'rgba(255,255,255,.2)',
         })}
       />
         <div style={{marginTop:'20px'}}>
+          
           {isPaused
             ? <Playbutton onClick={() => { setIsPaused(false); isPausedRef.current = false; }} />
             : <Pausebutton onClick={() => { setIsPaused(true); isPausedRef.current = true; }} />}
@@ -84,7 +85,7 @@ function Timer() {
           <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
         </div> */}
 
-        <div style={{textAlign:'left'}}>
+        {/* <div style={{textAlign:'left'}}>
           <label className="timerLabel">work time: {Math.floor(settingsInfo.workMinutes / 60)}:{settingsInfo.workMinutes % 60}:00</label>
           <ReactSlider
             className={'slider'}
@@ -94,7 +95,7 @@ function Timer() {
             onChange={newValue => settingsInfo.setWorkMinutes(newValue)}
             min={0}
             />
-        </div>
+        </div> */}
 
       </div>
     );
