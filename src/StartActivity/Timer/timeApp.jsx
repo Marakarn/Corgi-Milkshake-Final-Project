@@ -6,55 +6,16 @@ import { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-// const { _id } = useParams();
-// const [hour, setHour] = useState(0);
-// // const [minute, setMinute] = useState();
 
-// useEffect(() => {
-//   const getData = async () => {
-//     try {
-//       const response = await axios.get(`http://localhost:3000/start-activity/${_id}`);
-//       setHour(response.data);
-//     } catch (error) {
-//       console.error("Error fetching data:", error);
-//     }
-//   };
-
-//   getData();
-// }, [_id]);
-
-// console.log('id From Front ' + getData());
-
-// //set default timer
-// const initialHours = hour;
-// const initialMinutes = 30;
-// const initialTimeInMinutes = initialHours * 60 + initialMinutes;
-
-function TimeApp() {
+function TimeApp({activity}) {
   const { _id } = useParams();
-  const [timerData, setTimer] = useState(0);
-// const [minute, setMinute] = useState();
+  const [timerData, setTimer] = useState([]);
 
-useEffect(() => {
-  const getData = async () => {
-    try {
-      const response = await axios.get(`http://localhost:3000/start-activity/${_id}`);
-      setTimer(response.data);
-      console.log('Activity Data:', response.data);                 // Add this line to log the data
+const initialHours = activity.hours; 
+const initialMinutes = activity.minutes ;
 
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  getData();
-}, [_id]);
-
-//set default timer
-const initialHours = timerData.hours;
-const initialMinutes = timerData.minutes;
 const initialTimeInMinutes = initialHours * 60 + initialMinutes;
-
+console.log(initialTimeInMinutes +"sadsadsad");
   const [showSettings, setShowSettings] = useState(false)
   const [workMinutes, setWorkMinutes] = useState(initialTimeInMinutes);
 
