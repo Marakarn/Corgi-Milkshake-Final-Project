@@ -19,8 +19,8 @@ const Inputpic = ({avatar}) => {
 
     try {
       const response = await axios.post(
-        // "https://greensculpt.onrender.com/api/upload"
-        "http://localhost:3000/api/upload"
+        "https://greensculpt.onrender.com/api/upload"
+        // "http://localhost:3000/api/upload"
       , formData, 
         {
           headers: {

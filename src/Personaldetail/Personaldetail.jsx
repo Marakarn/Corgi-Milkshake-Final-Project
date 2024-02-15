@@ -51,8 +51,8 @@ const Personaldetail = () => {
   };
 
     const response = await axios.put(
-      // `https://greensculpt.onrender.com/Personaldetail/${id}`,
-      `http://localhost:3000/Personaldetail/${id}`,
+      `https://greensculpt.onrender.com/Personaldetail/${id}`,
+      // `http://localhost:3000/Personaldetail/${id}`,
       requestData
   );
 

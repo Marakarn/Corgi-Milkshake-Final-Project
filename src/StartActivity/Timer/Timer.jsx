@@ -131,8 +131,8 @@ function Timer({activity}) {
       }
 
       const response = await axios.put(
-        // `https://greensculpt.onrender.com/start-activity/${activityId}`,
-        `http://localhost:3000/start-activity/${activityId}`,
+        `https://greensculpt.onrender.com/start-activity/${activityId}`,
+        // `http://localhost:3000/start-activity/${activityId}`,
         requestData
         );
   

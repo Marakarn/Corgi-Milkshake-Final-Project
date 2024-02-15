@@ -242,8 +242,8 @@ const SignUp = () => {
             // ทำอย่างอื่นต่อ เช่น ส่งข้่อมูลไป Back-end
             try {
                 // Endpoint ของ backend API ที่คุณต้องการส่งข้อมูลไป
-                //const backendEndpoint = 'https://greensculpt.onrender.com/signup';
-                const backendEndpoint = `http://localhost:3000/signup`;
+                const backendEndpoint = 'https://greensculpt.onrender.com/signup';
+                // const backendEndpoint = `http://localhost:3000/signup`;
 
                 // สร้าง object ที่มีข้อมูลทั้งหมดที่คุณต้องการส่งไปยัง backend
                 const requestData = {
