@@ -10,12 +10,17 @@ import axios from "axios";
 function TimeApp({activity}) {
 
   const initialHours = activity.hours; 
-  const initialMinutes = activity.minutes ;
-  const initialTimeInMinutes = initialHours * 60 + initialMinutes;
-  
+  const initialMinutes = activity.minutes;
+  const initialSeconds = activity.seconds;
+  const initialTimeInSeconds = initialHours * 3600 + initialMinutes * 60 + initialSeconds;  //convert all to seconds
+
+  const initialTimeInMinutes = initialTimeInSeconds / 60;                 //convert seconds to miniute
+
   const [showSettings, setShowSettings] = useState(false)
   const [workMinutes, setWorkMinutes] = useState(initialTimeInMinutes);
   const [breakMinutes, setBreakMinutes] = useState(0);
+
+  console.log(workMinutes);
 
   return (
   <main className='timerMain'>
@@ -29,7 +34,7 @@ function TimeApp({activity}) {
     setBreakMinutes,
   }}>
     
-    {showSettings ? <Settings /> : <Timer/>}
+    {showSettings ? <Settings /> : <Timer activity={activity}/>}
     
     </SettingsContext.Provider>
    </main>
