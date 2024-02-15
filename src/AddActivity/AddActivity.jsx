@@ -128,7 +128,7 @@ const AddActivity = () => {
                 <form className="p-[32px] pt-0 md:pt-[32px]">
                   <Activityduration handleInputChange={handleInputChange} />
                   <Activiydate handleInputChange={handleInputChange} setFormData={setFormData} formData={formData}/>
-                  <Activityimage handleInputChange={handleInputChange} />
+                  <Activityimage handleInputChange={handleInputChange} setFormData={setFormData}/>
                 </form>
               </div>
             </div>

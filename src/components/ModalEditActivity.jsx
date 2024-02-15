@@ -1,5 +1,6 @@
 // import React from 'react'
 import Backfunction from "./Backfunction";
+import BackfunctionMobile from "./BackfunctionMobile";
 import { Link } from "react-router-dom";
 import { mockData } from "../mockData";
 import { useParams } from "react-router-dom";
@@ -37,6 +38,7 @@ const ModalEditActivity = ({_id, updateData}) => {
           </p>
           <div className="modal-action flex justify-center">
             <Backfunction path={"/home"} />
+            <BackfunctionMobile path="/home"/>
           </div>
         </div>
       </dialog>

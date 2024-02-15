@@ -1,16 +1,12 @@
 import "../App.css";
-// import Layout from "./Layout";
 import Backfunction from "../components/Backfunction";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
-// import jwtDecode from "jwt-decode";
 
 const Login = () => {
-
-  // useEffect(() => {}, [localStorage.getItem("token")])
 
   const navigate = useNavigate();
 
@@ -47,17 +43,10 @@ const Login = () => {
       if (response.status === 200) {
           alert("Login successfully");
 
-          // const { token } = response.data;
-          // localStorage.setItem("token", token);
-          // const decodedToken = jwtDecode(token);
-
           const { token } = response.data;
           const decodedToken = jwtDecode(token);
           localStorage.setItem("token", JSON.stringify(decodedToken));
 
-          // const emailDecode = decodedToken.id;
-          // const reponse2 = await axios.post(backendEndpoint, emailDecode);
-          
           // ใช้ decodedToken ตามต้องการ
           console.log(decodedToken); // เพื่อดูข้อมูลใน decodedToken ใน console
 
@@ -74,9 +63,7 @@ const Login = () => {
       console.error("Error sending data to the backend:", error);
       alert("An error occurred while sending data to the backend.");
       }
-  }
-  // console.log(formData)
-  // console.log(error.message)
+  };
 
   return (
     <>
