@@ -2,13 +2,10 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import Playbutton from "./playbutton";
 import Pausebutton from "./Pausebutton";
-//import SettingsButton from "../src/SettingsButton";
 import { useContext, useState, useEffect, useRef } from "react";
 import SettingsContext from "./SettingsContext";
-import ReactSlider from 'react-slider';
 import './slider.css'
 import Modal from "./Modal";
-import toInt from "validator/lib/toInt";
 import axios from "axios";
 
 const red = "#8BCA00";
@@ -66,7 +63,7 @@ function Timer({activity}) {
       }
 
       tick();
-    }, 10);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [settingsInfo]);
@@ -103,41 +100,6 @@ function Timer({activity}) {
     }
   }
 
-  // Function to save timer data to MongoDB
-  const saveTimerDataToMongoDB = async (remainingHours, remainingMinutes, remainingSeconds, {activity}) => {
-
-    // const requestData = {
-    //   hours: toInt(remainingHours),
-    //   minutes: toInt(remainingMinutes),
-    //   seconds: toInt(remainingSeconds)
-    // };
-
-    const requestData = {
-      hours: remainingHours,
-      minutes: remainingMinutes,
-      seconds: remainingSeconds
-    };
-    
-    console.log(`Save to MongoDB: ${remainingHours}:${remainingMinutes}:${remainingSeconds}`);
-
-    const activityId = activity._id;
-    const response = await axios.put(
-      // "https://greensculpt.onrender.com/add-activity",
-      `http://localhost:3000/start-activity/${activityId}`,
-      requestData
-      );
-
-  console.log(activityId);
-
-      if (response.status === 200) {
-        alert("Data successfully sent to the backend!");
-        document.getElementById("my_modal_1").showModal();
-        // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
-      } else {
-          alert("Failed to send data to the backend.");
-      }
-  };
-
   const handlePauseButtonClick = () => {
     // Pause the timer
     setIsPaused(true);
@@ -151,8 +113,47 @@ function Timer({activity}) {
     console.log(`Paused at: ${remainingHours} hours : ${remainingMinutes} minutes : ${remainingSeconds} seconds`);
 
     // Call the function to save timer data to MongoDB
-    saveTimerDataToMongoDB(remainingHours, remainingMinutes, remainingSeconds);
-  };
+    saveTimerDataToMongoDB({ remainingHours, remainingMinutes, remainingSeconds, activity });
+    };
+
+    // Function to save timer data to MongoDB
+    const saveTimerDataToMongoDB = async ({remainingHours, remainingMinutes, remainingSeconds, activity}) => {
+
+    // useEffect(() => {
+    //   if (activity && secondsLeft !== undefined) {
+    //     const remainingHours = Math.floor(secondsLeft / 3600);
+    //     const remainingMinutes = Math.floor((secondsLeft % 3600) / 60);
+    //     const remainingSeconds = secondsLeft % 60;
+        
+    //     saveTimerDataToMongoDB({remainingHours, remainingMinutes, remainingSeconds, activity});
+    //   }
+    // }, [activity, secondsLeft]);
+  
+      const requestData = {
+        hours: remainingHours,
+        minutes: remainingMinutes,
+        seconds: remainingSeconds,
+        status: "In_progress"
+      };
+  
+      const activityId = activity._id;
+      const response = await axios.put(
+        // "https://greensculpt.onrender.com/add-activity",
+        `http://localhost:3000/start-activity/${activityId}`,
+        requestData
+        );
+  
+    console.log(activityId);
+  
+        if (response.status === 200) {
+          console.log(`Save to MongoDB: ${remainingHours}:${remainingMinutes}:${remainingSeconds}`);
+          alert("Your activity time is save!");
+          document.getElementById("my_modal_1").showModal();
+          // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
+        } else {
+            alert("Failed to send data to the backend.");
+        }
+    };
 
   return (
     <>
