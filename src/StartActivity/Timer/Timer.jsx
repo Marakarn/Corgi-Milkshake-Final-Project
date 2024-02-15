@@ -50,9 +50,9 @@ function Timer() {
       if (isPausedRef.current) {
         return;
       }
-      if (secondsLeftRef.current === 0) {
-        return switchMode();
-      }
+      // if (secondsLeftRef.current === 0) {
+      //   return switchMode();
+      // }
 
       //if the timer is stop
       if (secondsLeftRef.current === 0) {
