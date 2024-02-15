@@ -8,11 +8,13 @@ import SettingsContext from "./SettingsContext";
 import ReactSlider from 'react-slider';
 import './slider.css'
 import Modal from "./Modal";
+import toInt from "validator/lib/toInt";
+import axios from "axios";
 
 const red = "#8BCA00";
 const green = "#8BCA00";
 
-function Timer() {
+function Timer({activity}) {
   const settingsInfo = useContext(SettingsContext);
 
   const [isPaused, setIsPaused] = useState(true);
@@ -30,7 +32,7 @@ function Timer() {
     secondsLeftRef.current--;
     setSecondsLeft(secondsLeftRef.current);
   }
-
+  
   useEffect(() => {
     // function switchMode() {
     //   const nextMode = modeRef.current === 'work' ? 'break' : 'work';
@@ -64,7 +66,7 @@ function Timer() {
       }
 
       tick();
-    }, 1000);
+    }, 10);
 
     return () => clearInterval(interval);
   }, [settingsInfo]);
@@ -101,6 +103,57 @@ function Timer() {
     }
   }
 
+  // Function to save timer data to MongoDB
+  const saveTimerDataToMongoDB = async (remainingHours, remainingMinutes, remainingSeconds, {activity}) => {
+
+    // const requestData = {
+    //   hours: toInt(remainingHours),
+    //   minutes: toInt(remainingMinutes),
+    //   seconds: toInt(remainingSeconds)
+    // };
+
+    const requestData = {
+      hours: remainingHours,
+      minutes: remainingMinutes,
+      seconds: remainingSeconds
+    };
+    
+    console.log(`Save to MongoDB: ${remainingHours}:${remainingMinutes}:${remainingSeconds}`);
+
+    const activityId = activity._id;
+    const response = await axios.put(
+      // "https://greensculpt.onrender.com/add-activity",
+      `http://localhost:3000/start-activity/${activityId}`,
+      requestData
+      );
+
+  console.log(activityId);
+
+      if (response.status === 200) {
+        alert("Data successfully sent to the backend!");
+        document.getElementById("my_modal_1").showModal();
+        // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
+      } else {
+          alert("Failed to send data to the backend.");
+      }
+  };
+
+  const handlePauseButtonClick = () => {
+    // Pause the timer
+    setIsPaused(true);
+    isPausedRef.current = true;
+
+    // Extract hours, minutes, and seconds from the current timer state
+    const remainingHours = Math.floor(secondsLeftRef.current / 3600);
+    const remainingMinutes = Math.floor((secondsLeftRef.current % 3600) / 60);
+    const remainingSeconds = secondsLeftRef.current % 60;
+
+    console.log(`Paused at: ${remainingHours} hours : ${remainingMinutes} minutes : ${remainingSeconds} seconds`);
+
+    // Call the function to save timer data to MongoDB
+    saveTimerDataToMongoDB(remainingHours, remainingMinutes, remainingSeconds);
+  };
+
   return (
     <>
     <div>
@@ -118,7 +171,9 @@ function Timer() {
           
           {isPaused
             ? <Playbutton onClick={() => { setIsPaused(false); isPausedRef.current = false; }} />
-            : <Pausebutton onClick={() => { setIsPaused(true); isPausedRef.current = true; }} />}
+            // : <Pausebutton onClick={() => { setIsPaused(true); isPausedRef.current = true; }} />
+            : <Pausebutton onClick={handlePauseButtonClick} />
+          }
         </div>
         {/* <div style={{marginTop:'20px'}}>
           <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />

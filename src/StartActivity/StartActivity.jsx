@@ -16,7 +16,7 @@ const StartActivity = () => {
   return (
     <>
       <Layout>
-        <div className="min-h-[1300px] md:min-h-[800px]">
+        <div className="min-h-[1300px] md:min-h-[1000px]">
           <div className="flex flex-col justify-center">
             {/* {data.map((mockData) => ( */}
             <Daisytop
