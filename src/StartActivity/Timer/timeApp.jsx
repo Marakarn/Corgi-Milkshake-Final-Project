@@ -11,7 +11,7 @@ function TimeApp({activity}) {
 
   const initialHours = activity.hours; 
   const initialMinutes = activity.minutes;
-  const initialSeconds = activity.seconds;
+  const initialSeconds = activity.seconds || 0;
   const initialTimeInSeconds = initialHours * 3600 + initialMinutes * 60 + initialSeconds;  //convert all to seconds
 
   const initialTimeInMinutes = initialTimeInSeconds / 60;                 //convert seconds to miniute
