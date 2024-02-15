@@ -5,7 +5,7 @@ import Pausebutton from "./Pausebutton";
 import { useContext, useState, useEffect, useRef } from "react";
 import SettingsContext from "./SettingsContext";
 import './slider.css'
-import Modal from "./Modal";
+import ModalTimeUp from "../../components/ModalTimeUp";
 import axios from "axios";
 
 const red = "#8BCA00";
@@ -56,8 +56,7 @@ function Timer({activity}) {
       if (secondsLeftRef.current === 0) {
         clearInterval(interval);
         saveTimerDataToMongoDB({ remainingHours, remainingMinutes, remainingSeconds, activityId });
-        setShowModal(true);
-        setModalMessage("Time's up!");
+        alert("Finish workout")
       }
 
       tick();
@@ -132,7 +131,7 @@ function Timer({activity}) {
       }
 
       const response = await axios.put(
-        // "https://greensculpt.onrender.com/add-activity",
+        // `https://greensculpt.onrender.com/start-activity/${activityId}`,
         `http://localhost:3000/start-activity/${activityId}`,
         requestData
         );
@@ -142,7 +141,7 @@ function Timer({activity}) {
       if (response.status === 200) {
         console.log(`Save to MongoDB: ${remainingHours}:${remainingMinutes}:${remainingSeconds}`);
         alert("Your activity time is save!");
-        //setShowModal(true);  // Update state to show the modal
+        document.getElementById("my_modal_1").showModal();
         // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
       } else {
           alert("Failed to send data to the backend.");
@@ -168,7 +167,8 @@ function Timer({activity}) {
                   <Pausebutton onClick={handlePauseButtonClick} />
                 )}
           </div>
-          <Modal show={showModal} message={modalMessage} />
+          {/* <Modal show={showModal} message={modalMessage} /> */}
+          <ModalTimeUp />
         </div>
       </>
     );

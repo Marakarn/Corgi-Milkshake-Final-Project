@@ -23,8 +23,8 @@ const History = () => {
   useEffect(()=> {
     const getData = async () => {
       const response = await axios.get(
-        `https://greensculpt.onrender.com/add-activity/${id}`
-        // `http://localhost:3000/add-activity/${id}`
+        // `https://greensculpt.onrender.com/add-activity/${id}`
+        `http://localhost:3000/add-activity/${id}`
       );
       setActivities(response.data);
     };

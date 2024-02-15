@@ -12,8 +12,8 @@ const ModalDeleteAccount = () => {
 
   const removeData = async (_id) => {
     const response = await axios.delete(
-      `https://greensculpt.onrender.com/delete-account/${_id}`
-      // `http://localhost:3000/delete-account/${_id}`
+      // `https://greensculpt.onrender.com/delete-account/${_id}`
+      `http://localhost:3000/delete-account/${_id}`
     );
 
     if (response.status === 200) {
