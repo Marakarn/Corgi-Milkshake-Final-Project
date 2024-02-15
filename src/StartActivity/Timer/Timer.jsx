@@ -90,13 +90,22 @@ function Timer({activity}) {
     }
   }
 
-  const handlePauseButtonClick = () => {
-    // Pause the timer
-    setIsPaused(true);
-    isPausedRef.current = true;
+  // const handlePauseButtonClick = () => {
+  //   // Pause the timer
+  //   setIsPaused(true);
+  //   isPausedRef.current = true;
 
-    // Call the function to save timer data to MongoDB
-    saveTimerDataToMongoDB({ remainingHours, remainingMinutes, remainingSeconds, activityId });
+  //   // Call the function to save timer data to MongoDB
+  //   saveTimerDataToMongoDB({ remainingHours, remainingMinutes, remainingSeconds, activityId });
+  //   };
+
+    const handlePauseButtonClick = () => {
+      // Pause the timer
+      isPausedRef.current = true;
+      setIsPaused(true);
+      
+      // Call the function to save timer data to MongoDB
+      saveTimerDataToMongoDB({ remainingHours, remainingMinutes, remainingSeconds, activityId });
     };
 
     // Function to save timer data to MongoDB
@@ -132,8 +141,8 @@ function Timer({activity}) {
   
       if (response.status === 200) {
         console.log(`Save to MongoDB: ${remainingHours}:${remainingMinutes}:${remainingSeconds}`);
-        //alert("Your activity time is save!");
-        setShowModal(true);  // Update state to show the modal
+        alert("Your activity time is save!");
+        //setShowModal(true);  // Update state to show the modal
         // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
       } else {
           alert("Failed to send data to the backend.");

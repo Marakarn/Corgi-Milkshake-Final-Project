@@ -20,4 +20,5 @@ const Modal = ({ show, message }) => {
   );
 };
 
+
 export default Modal;
