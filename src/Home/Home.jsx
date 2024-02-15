@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "../components/Layout";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Headerhome from "./headerhome";
+import Headerhome from "./Headerhome";
 import Tiltebutton from "./Tiltebutton";
 import Cardactivity from "./Cardactivity";
 import axios from "axios";

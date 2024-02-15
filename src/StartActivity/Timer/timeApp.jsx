@@ -11,6 +11,11 @@ function TimeApp({activity}) {
   const initialSeconds = activity.seconds || 0;
   const initialTimeInSeconds = initialHours * 3600 + initialMinutes * 60 + initialSeconds;  //convert all to seconds
 
+  console.log("initialHours" + initialHours);
+  console.log("initialMinutes" + initialMinutes);
+  console.log("initialSeconds" + initialSeconds);
+  console.log("initialTimeInSeconds" + initialTimeInSeconds);
+
   const initialTimeInMinutes = initialTimeInSeconds / 60;                 //convert seconds to miniute
 
   const [showSettings, setShowSettings] = useState(false)
