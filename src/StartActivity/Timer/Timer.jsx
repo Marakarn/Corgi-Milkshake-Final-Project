@@ -18,6 +18,8 @@ function Timer() {
   const [isPaused, setIsPaused] = useState(true);
   const [mode, setMode] = useState('work'); // work/break/null
   const [secondsLeft, setSecondsLeft] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
 
   const secondsLeftRef = useRef(secondsLeft);
   const isPausedRef = useRef(isPaused);
@@ -47,9 +49,9 @@ function Timer() {
       if (isPausedRef.current) {
         return;
       }
-      if (secondsLeftRef.current === 0) {
-        return switchMode();
-      }
+      // if (secondsLeftRef.current === 0) {
+      //   return switchMode();
+      // }
 
       if (secondsLeftRef.current === 0) {
         clearInterval(interval);
