@@ -3,9 +3,6 @@ import './timeApp.css'
 import SettingsContext from './SettingsContext'
 import Timer from './Timer'
 import { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
-import axios from "axios";
-
 
 function TimeApp({activity}) {
 
