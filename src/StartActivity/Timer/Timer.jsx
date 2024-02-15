@@ -18,6 +18,9 @@ function Timer() {
   const [isPaused, setIsPaused] = useState(true);
   const [mode, setMode] = useState('work'); // work/break/null
   const [secondsLeft, setSecondsLeft] = useState(0);
+  
+  const [showModal, setShowModal] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
 
   const secondsLeftRef = useRef(secondsLeft);
   const isPausedRef = useRef(isPaused);
@@ -29,16 +32,16 @@ function Timer() {
   }
 
   useEffect(() => {
-    function switchMode() {
-      const nextMode = modeRef.current === 'work' ? 'break' : 'work';
-      const nextSeconds = (nextMode === 'work' ? settingsInfo.workMinutes : settingsInfo.breakMinutes) * 60;
+    // function switchMode() {
+    //   const nextMode = modeRef.current === 'work' ? 'break' : 'work';
+    //   const nextSeconds = (nextMode === 'work' ? settingsInfo.workMinutes : settingsInfo.breakMinutes) * 60;
 
-      setMode(nextMode);
-      modeRef.current = nextMode;
+    //   setMode(nextMode);
+    //   modeRef.current = nextMode;
 
-      setSecondsLeft(nextSeconds);
-      secondsLeftRef.current = nextSeconds;
-    }
+    //   setSecondsLeft(nextSeconds);
+    //   secondsLeftRef.current = nextSeconds;
+    // }
 
     secondsLeftRef.current = settingsInfo.workMinutes * 60;
     setSecondsLeft(secondsLeftRef.current);
@@ -51,6 +54,7 @@ function Timer() {
         return switchMode();
       }
 
+      //if the timer is stop
       if (secondsLeftRef.current === 0) {
         clearInterval(interval);
   
@@ -78,24 +82,24 @@ function Timer() {
   const percentage = Math.round(secondsLeft / (settingsInfo.workMinutes * 60 + settingsInfo.breakMinutes * 60) * 100);
 
   const hours = Math.floor(secondsLeft / 3600);
-    const minutes = Math.floor((secondsLeft % 3600) / 60);
-    let seconds = secondsLeft % 60;
-    
-    // Add zero padding to hours, minutes, and seconds when their values are less than 10
-    const formattedHours = ('0' + hours).slice(-2);
-    const formattedMinutes = ('0' + minutes).slice(-2);
-    const formattedSeconds = ('0' + seconds).slice(-2);
-    
-    let formattedTime = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+  const minutes = Math.floor((secondsLeft % 3600) / 60);
+  let seconds = secondsLeft % 60;
+  
+  // Add zero padding to hours, minutes, and seconds when their values are less than 10
+  const formattedHours = ('0' + hours).slice(-2);
+  const formattedMinutes = ('0' + minutes).slice(-2);
+  const formattedSeconds = ('0' + seconds).slice(-2);
+  
+  let formattedTime = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 
-    //fix an error when the stopwatch has stopped and get -1:-1:-1 or NaN:NaN:NaN
-    if (formattedTime == "-1:-1:-1") {
+  //fix an error when the stopwatch has stopped and get -1:-1:-1 or NaN:NaN:NaN
+  if (formattedTime == "-1:-1:-1") {
+    formattedTime = "00:00:00"
+  } else {
+    if (isNaN(secondsLeft) || isNaN(settingsInfo.workMinutes) || isNaN(settingsInfo.breakMinutes)) {
       formattedTime = "00:00:00"
-    } else {
-      if (isNaN(secondsLeft) || isNaN(settingsInfo.workMinutes) || isNaN(settingsInfo.breakMinutes)) {
-        formattedTime = "00:00:00"
-      }
     }
+  }
 
   return (
     <>
