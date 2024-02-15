@@ -1,6 +1,6 @@
 import React from "react";
 
-const Bfirstname = ({ firstname }) => {
+const Bfirstname = ({ firstname, handleInputChange }) => {
   return (
     <>
       <div className="flex flex-1 items-center justify-between">
@@ -10,6 +10,9 @@ const Bfirstname = ({ firstname }) => {
             type="text"
             className="form-control items-center"
             placeholder="First Name"
+            id="firstName"
+            onChange={handleInputChange}
+            maxLength="30"
           />
         </div>
         <span className="material-symbols-outlined text-[#8bca00]">

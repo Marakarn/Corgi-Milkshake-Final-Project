@@ -133,7 +133,7 @@ const EditActivity = () => {
                             <form className="p-[32px] pt-0 md:pt-[32px]">
                                 <Editduration handleInputChange={handleInputChange}/>
                                 <Editdate handleInputChange={handleInputChange} setFormData={setFormData} formData={formData}/>
-                                <Editinputimg handleInputChange={handleInputChange}/>
+                                <Editinputimg handleInputChange={handleInputChange} setFormData={setFormData}/>
                             </form>
                         </div>
                     </div>
