@@ -268,6 +268,8 @@ const SignUp = () => {
                     // alert("Data successfully sent to the backend!");
                     // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
                     document.getElementById("my_modal_1").showModal()
+                } else if (response.status === 404){
+                    alert("This email has been used.");
                 } else {
                     alert("Failed to send data.");
                 }
