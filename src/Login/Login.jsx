@@ -8,6 +8,16 @@ import { jwtDecode } from "jwt-decode";
 
 const Login = () => {
 
+  useEffect(() => {
+    fetch('https://greensculpt.onrender.com/')
+      .then(response => {
+        console.log('Backend is up');
+      })
+      .catch(error => {
+        console.error('Error pinging backend:', error);
+      });
+  }, []);
+
   const navigate = useNavigate();
 
   const initialFormData = { email: "", password: ""}
@@ -61,7 +71,7 @@ const Login = () => {
       
       } catch (error) {
       console.error("Error sending data to the backend:", error);
-      alert("An error occurred while sending data to the backend.");
+      alert("An error occurred while sending data");
       }
   };
 

@@ -82,16 +82,32 @@ const History = () => {
 };
 
 function Display({ section, activities }) {
-  let show;
+  let filteredActivities = [];
+
   if (section === "Plan") {
-    show = <DisplayPlan activities={activities} />;
+    filteredActivities = activities.filter(activities => activities.status === "plan");
   } else if (section === "InProgress") {
-    show = <DisplayInProgress activities={activities} />;
+    filteredActivities = activities.filter(activities => activities.status === "In_progress");
   } else if (section === "Finish") {
-    show = <DisplayFinish activities={activities} />;
+    filteredActivities = activities.filter(activities => activities.status === "finish");
   }
 
-  return <div>{show}</div>;
+  return (
+    <div>
+      {filteredActivities.map(activities => {
+        switch (section) {
+          case "Plan":
+            return <DisplayPlan key={activities._id} activities={activities} />;
+          case "InProgress":
+            return <DisplayInProgress key={activities._id} activities={activities} />;
+          case "Finish":
+            return <DisplayFinish key={activities._id} activities={activities} />;
+          default:
+            return null;
+        }
+      })}
+    </div>
+  );
 }
 
 export default History;

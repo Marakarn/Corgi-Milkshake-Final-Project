@@ -89,11 +89,11 @@ const AddActivity = () => {
       );
 
       if (response.status === 200) {
-        alert("Data successfully sent to the backend!");
+        // alert("Data successfully sent to the backend!");
         document.getElementById("my_modal_1").showModal();
         // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
       } else {
-          alert("Failed to send data to the backend.");
+          alert("Failed to send data.");
       }
     } catch (error) {
       console.error("Error sending data to the backend:", error);
@@ -101,7 +101,7 @@ const AddActivity = () => {
     }
 
     } else{
-      alert("Invalid Data");
+      // alert("Invalid Data");
       document.getElementById("my_modal_2").showModal();
     };
   

@@ -60,13 +60,13 @@ const Inputpic = ({avatar}) => {
       console.log("id form update" + id);
   
       const response = await axios.put(
-        // `https://greensculpt.onrender.com/PersonaldetailImage/${id}`,
-        `http://localhost:3000/PersonaldetailImage/${id}`,
+        `https://greensculpt.onrender.com/PersonaldetailImage/${id}`,
+        // `http://localhost:3000/PersonaldetailImage/${id}`,
         requestData
       );
   
       if (response.status === 200) {
-        alert("Data successfully sent to the backend!");
+        // alert("Data successfully sent to the backend!");
         document.getElementById("my_modal_1").showModal();
         // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
       } else {
@@ -74,7 +74,7 @@ const Inputpic = ({avatar}) => {
       }
     } catch (error) {
       console.error("Error sending data to the backend:", error);
-      alert("An error occurred while sending data to the backend.");
+      alert("An error occurred while sending data.");
     }
     }
   };
@@ -83,7 +83,7 @@ const Inputpic = ({avatar}) => {
     <>
       <div className="w-full md:w-1/2">
         <div className="form-control mt-10 md:mt-16 items-center">
-          <img className="w-40 mb-10" src={avatar} alt="avatar" />
+          <img className="w-40 mb-10 rounded-xl" src={avatar} alt="avatar" />
           <label className="label">
             <span className="label-text text-base font-medium"></span>
           </label>
