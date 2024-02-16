@@ -141,7 +141,7 @@ function Timer({activity}) {
       if (response.status === 200) {
         console.log(`Save to MongoDB: ${remainingHours}:${remainingMinutes}:${remainingSeconds}`);
         alert("Your activity time is save!");
-        document.getElementById("my_modal_1").showModal();
+        // document.getElementById("my_modal_1").showModal();
         // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
       } else {
           alert("Failed to send data to the backend.");
