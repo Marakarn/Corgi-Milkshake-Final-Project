@@ -240,7 +240,7 @@ const SignUp = () => {
         ) {
             alert("Valid Data");
             // ทำอย่างอื่นต่อ เช่น ส่งข้่อมูลไป Back-end
-            try {
+            // try {
                 // Endpoint ของ backend API ที่คุณต้องการส่งข้อมูลไป
                 const backendEndpoint = 'https://greensculpt.onrender.com/signup';
                 // const backendEndpoint = `http://localhost:3000/signup`;
@@ -273,14 +273,14 @@ const SignUp = () => {
                 } else {
                     alert("Failed to send data.");
                 }
-            } catch (error) {
-                console.error("Error sending data to the backend:", error);
-                alert("An error occurred while sending data.");
-            }
+            // } catch (error) {
+            //     console.error("Error sending data to the backend:", error);
+            //     alert("An error occurred while sending data.");
+            // }
 
-        } else {
-            alert("Invalid Data");
-        }
+            } else {
+                alert("Invalid Data");
+            };
 
         console.log(toDate(formData.date_of_birth));
         console.log(toInt(formData.height));
