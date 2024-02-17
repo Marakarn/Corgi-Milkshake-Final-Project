@@ -9,7 +9,7 @@ const Blastname = ({ lastname, handleInputChange }) => {
           <input
             type="text"
             className="form-control flex items-center  "
-            placeholder="Last Name"
+            placeholder="Set new last name"
             id="lastName"
             onChange={handleInputChange}
             maxLength="30"

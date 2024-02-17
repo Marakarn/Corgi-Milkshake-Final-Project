@@ -1,11 +1,11 @@
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import Playbutton from "./playbutton";
+import Playbutton from "./Playbutton";
 import Pausebutton from "./Pausebutton";
 import { useContext, useState, useEffect, useRef } from "react";
 import SettingsContext from "./SettingsContext";
 import './slider.css'
-import Modal from "./Modal";
+import ModalTimeUp from "../../components/ModalTimeUp";
 import axios from "axios";
 
 const red = "#8BCA00";
@@ -25,22 +25,25 @@ function Timer({activity}) {
   const isPausedRef = useRef(isPaused);
   const modeRef = useRef(mode);
 
+  // Extract hours, minutes, and seconds from the current timer state
+  const remainingHours = Math.floor(secondsLeftRef.current / 3600);
+  const remainingMinutes = Math.floor((secondsLeftRef.current % 3600) / 60);
+  const remainingSeconds = secondsLeftRef.current % 60;
+
+  console.log(`Paused at: ${remainingHours} hours : ${remainingMinutes} minutes : ${remainingSeconds} seconds`);
+
+  const stringconvert = JSON.stringify(activity)
+  const activityObject = JSON.parse(stringconvert);
+
+  // Access the value of the _id property
+  const activityId = activityObject._id;
+
   function tick() {
     secondsLeftRef.current--;
     setSecondsLeft(secondsLeftRef.current);
   }
   
   useEffect(() => {
-    // function switchMode() {
-    //   const nextMode = modeRef.current === 'work' ? 'break' : 'work';
-    //   const nextSeconds = (nextMode === 'work' ? settingsInfo.workMinutes : settingsInfo.breakMinutes) * 60;
-
-    //   setMode(nextMode);
-    //   modeRef.current = nextMode;
-
-    //   setSecondsLeft(nextSeconds);
-    //   secondsLeftRef.current = nextSeconds;
-    // }
 
     secondsLeftRef.current = settingsInfo.workMinutes * 60;
     setSecondsLeft(secondsLeftRef.current);
@@ -49,17 +52,11 @@ function Timer({activity}) {
       if (isPausedRef.current) {
         return;
       }
-      // if (secondsLeftRef.current === 0) {
-      //   return switchMode();
-      // }
-
       //if the timer is stop
       if (secondsLeftRef.current === 0) {
         clearInterval(interval);
-  
-        // Show the modal with a congratulations message
-        setShowModal(true);
-        setModalMessage('You have done a great job!!');
+        saveTimerDataToMongoDB({ remainingHours, remainingMinutes, remainingSeconds, activityId });
+        alert("Finish workout")
       }
 
       tick();
@@ -67,14 +64,6 @@ function Timer({activity}) {
 
     return () => clearInterval(interval);
   }, [settingsInfo]);
-
-  // const totalSeconds = mode === 'work' ? settingsInfo.workMinutes * 60 : settingsInfo.breakMinutes * 60;
-  // const percentage = Math.round(secondsLeft / totalSeconds * 100);
-
-  // const hours = Math.floor(secondsLeft / 3600);
-  // const minutes = Math.floor((secondsLeft % 3600) / 60);
-  // let seconds = secondsLeft % 60;
-  // if (seconds < 10) seconds = '0' + seconds;
 
   secondsLeftRef.current = secondsLeft;
 
@@ -100,102 +89,88 @@ function Timer({activity}) {
     }
   }
 
-  const handlePauseButtonClick = () => {
-    // Pause the timer
-    setIsPaused(true);
-    isPausedRef.current = true;
+  // const handlePauseButtonClick = () => {
+  //   // Pause the timer
+  //   setIsPaused(true);
+  //   isPausedRef.current = true;
 
-    // Extract hours, minutes, and seconds from the current timer state
-    const remainingHours = Math.floor(secondsLeftRef.current / 3600);
-    const remainingMinutes = Math.floor((secondsLeftRef.current % 3600) / 60);
-    const remainingSeconds = secondsLeftRef.current % 60;
+  //   // Call the function to save timer data to MongoDB
+  //   saveTimerDataToMongoDB({ remainingHours, remainingMinutes, remainingSeconds, activityId });
+  //   };
 
-    console.log(`Paused at: ${remainingHours} hours : ${remainingMinutes} minutes : ${remainingSeconds} seconds`);
-
-    // Call the function to save timer data to MongoDB
-    saveTimerDataToMongoDB({ remainingHours, remainingMinutes, remainingSeconds, activity });
+    const handlePauseButtonClick = () => {
+      // Pause the timer
+      isPausedRef.current = true;
+      setIsPaused(true);
+      
+      // Call the function to save timer data to MongoDB
+      saveTimerDataToMongoDB({ remainingHours, remainingMinutes, remainingSeconds, activityId });
     };
 
     // Function to save timer data to MongoDB
-    const saveTimerDataToMongoDB = async ({remainingHours, remainingMinutes, remainingSeconds, activity}) => {
+    const saveTimerDataToMongoDB = async ({remainingHours, remainingMinutes, remainingSeconds, activityId}) => {
 
-    // useEffect(() => {
-    //   if (activity && secondsLeft !== undefined) {
-    //     const remainingHours = Math.floor(secondsLeft / 3600);
-    //     const remainingMinutes = Math.floor((secondsLeft % 3600) / 60);
-    //     const remainingSeconds = secondsLeft % 60;
-        
-    //     saveTimerDataToMongoDB({remainingHours, remainingMinutes, remainingSeconds, activity});
-    //   }
-    // }, [activity, secondsLeft]);
-  
-      const requestData = {
-        hours: remainingHours,
-        minutes: remainingMinutes,
-        seconds: remainingSeconds,
-        status: "In_progress"
-      };
-  
-      const activityId = activity._id;
+      console.log("activityId" + activityId);
+
+      let requestData;  // Declare requestData outside the if-else blocks
+
+      if (secondsLeftRef.current !== 0) {
+        requestData = {
+          hours: remainingHours,
+          minutes: remainingMinutes,
+          seconds: remainingSeconds,
+          status: "In_progress"
+        };
+      } else {
+        requestData = {
+          hours: remainingHours,
+          minutes: remainingMinutes,
+          seconds: remainingSeconds,
+          status: "finish"
+        };
+      }
+
       const response = await axios.put(
-        // "https://greensculpt.onrender.com/add-activity",
-        `http://localhost:3000/start-activity/${activityId}`,
+        `https://greensculpt.onrender.com/start-activity/${activityId}`,
+        // `http://localhost:3000/start-activity/${activityId}`,
         requestData
         );
   
     console.log(activityId);
   
-        if (response.status === 200) {
-          console.log(`Save to MongoDB: ${remainingHours}:${remainingMinutes}:${remainingSeconds}`);
-          alert("Your activity time is save!");
-          document.getElementById("my_modal_1").showModal();
-          // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
-        } else {
-            alert("Failed to send data to the backend.");
-        }
+      if (response.status === 200) {
+        console.log(`Save to MongoDB: ${remainingHours}:${remainingMinutes}:${remainingSeconds}`);
+        alert("Your activity time is save!");
+        // document.getElementById("my_modal_1").showModal();
+        // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
+      } else {
+          alert("Failed to send data to the backend.");
+      }
     };
 
-  return (
-    <>
-    <div>
-      <CircularProgressbar
-        value={percentage}
-        // text={`${hours}:${minutes}:${seconds}`}
-        text={formattedTime}
-        styles={buildStyles({
-          textColor: 'black',
-          pathColor: mode === 'work' ? red : green,
-          tailColor: 'rgba(255,255,255,.2)',
-        })}
-      />
-        <div style={{marginTop:'20px'}}>
-          
-          {isPaused
-            ? <Playbutton onClick={() => { setIsPaused(false); isPausedRef.current = false; }} />
-            // : <Pausebutton onClick={() => { setIsPaused(true); isPausedRef.current = true; }} />
-            : <Pausebutton onClick={handlePauseButtonClick} />
-          }
+    return (
+      <>
+        <div>
+          <CircularProgressbar
+            value={percentage}
+            text={formattedTime}
+            styles={buildStyles({
+              textColor: 'black',
+              pathColor: mode === 'work' ? red : green,
+              tailColor: 'rgba(255,255,255,.2)',
+            })}
+          />
+          <div style={{ marginTop: '20px' }}>
+                {isPaused ? (
+                  <Playbutton onClick={() => { setIsPaused(false); isPausedRef.current = false; }} />
+                ) : (
+                  <Pausebutton onClick={handlePauseButtonClick} />
+                )}
+          </div>
+          {/* <Modal show={showModal} message={modalMessage} /> */}
+          <ModalTimeUp />
         </div>
-        {/* <div style={{marginTop:'20px'}}>
-          <SettingsButton onClick={() => settingsInfo.setShowSettings(true)} />
-        </div> */}
-
-        {/* <div style={{textAlign:'left'}}>
-          <label className="timerLabel">work time: {Math.floor(settingsInfo.workMinutes / 60)}:{settingsInfo.workMinutes % 60}:00</label>
-          <ReactSlider
-            className={'slider'}
-            thumbClassName={'thumb'}
-            trackClassName={'track'}
-            value={settingsInfo.workMinutes}
-            onChange={newValue => settingsInfo.setWorkMinutes(newValue)}
-            min={0}
-            />
-        </div> */}
-
-      </div>
-      
-      <Modal isOpen={showModal} message={modalMessage} onClose={() => setShowModal(false)} />
       </>
-    ); 
+    );
   }
  export default Timer;

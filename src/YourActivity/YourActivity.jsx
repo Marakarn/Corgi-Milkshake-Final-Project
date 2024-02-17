@@ -19,6 +19,7 @@ const YourActivity = () => {
       console.log('id From Front ' + _id);
       const response = await axios.get(
         `https://greensculpt.onrender.com/your-activity/${_id}`
+        // `http://localhost:3000/your-activity/${_id}`
       );
       setActivities(response.data);
     };
