@@ -9,14 +9,17 @@ import axios from "axios";
 
 const Home = () => {
   const [activities, setActivities] = useState([]);
+  const [userData, setUserData] = useState([]);
   const [reload, setReload] = useState(false);
   const token = JSON.parse(localStorage.getItem("token"));
-  const firstname = token.id.signup_firstname;
-  const avatar = token.id.signup_photo;
+  // const firstname = token.id.signup_firstname;
+  const firstname = userData.signup_firstname;
+  const avatar = userData.signup_photo;
   const id = token.id._id;
 
   // console.log(JSON.parse(token));
   // console.log(firstname);
+  console.log(userData)
 
   useEffect(() => {
     fetch('https://greensculpt.onrender.com/')
@@ -38,6 +41,17 @@ const Home = () => {
     };
 
     getData();
+
+    const getUserData = async () => {
+      const response = await axios.get(
+        `https://greensculpt.onrender.com/user-data/${id}`
+        // `http://localhost:3000/user-data/${id}`
+      );
+      setUserData(response.data);
+    };
+
+    getUserData();
+
   }, [reload]);
 
   return (

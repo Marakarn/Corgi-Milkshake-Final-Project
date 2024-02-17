@@ -9,17 +9,34 @@ import Bmail from "./Bmail";
 import axios from "axios";
 import isEmpty from "validator/lib/isEmpty";
 import isAlpha from "validator/lib/isAlpha";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Bc from "./Bc";
 
 const Personaldetail = () => {
 
+  const [userData, setUserData] = useState([]);
+  const [reload, setReload] = useState(false);
+
   const token = JSON.parse(localStorage.getItem("token"));
-  const firstname = token.id.signup_firstname;
-  const lastname = token.id.signup_lastname;
-  const email = token.id.login_email;
-  const avatar = token.id.signup_photo;
+  const firstname = userData.signup_firstname;
+  const lastname = userData.signup_lastname;
+  const email = userData.login_email;
+  const avatar = userData.signup_photo;
   const id = token.id._id;
+
+  useEffect(()=> {
+
+    const getUserData = async () => {
+      const response = await axios.get(
+        `https://greensculpt.onrender.com/user-data/${id}`
+        // `http://localhost:3000/user-data/${id}`
+      );
+      setUserData(response.data);
+    };
+
+    getUserData();
+
+  }, [reload]);
 
   const initialFormData = { firstName: "" , lastName: "" }
   const [formData, setFormData] = useState(initialFormData);
@@ -59,6 +76,9 @@ const Personaldetail = () => {
   if (response.status === 200) {
       // alert("Data successfully sent to the backend!");
       document.getElementById("my_modal_2").showModal();
+      setTimeout(() => {
+        window.location.reload()
+      }, 1000);
       // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
   } else {
       alert("Failed to send data.");
@@ -100,18 +120,8 @@ const Personaldetail = () => {
         <div className="modal-box p-[40px]">
           <img className="mx-auto" src="./modal-edit-personal.png" alt="" />
           <p className="py-4 font-poppins text-base font-normal text-center">
-            Successful update Personal Detail, re-login to update!
+            Successful update Personal Detail!
           </p>
-          <div className="modal-action flex justify-center">
-            <form method="dialog">
-            <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] items-center ">
-              <span className="material-symbols-outlined text-[#000000] ">
-                arrow_back
-              </span>
-                Back
-              </button>
-            </form>
-          </div>
         </div>
       </dialog>
 

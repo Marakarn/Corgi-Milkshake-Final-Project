@@ -67,7 +67,11 @@ const Inputpic = ({avatar}) => {
   
       if (response.status === 200) {
         // alert("Data successfully sent to the backend!");
+
         document.getElementById("my_modal_1").showModal();
+        setTimeout(() => {
+          window.location.reload()
+        }, 1000);
         // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
       } else {
         alert("Failed to send data to the backend.");
@@ -99,9 +103,9 @@ const Inputpic = ({avatar}) => {
         <div className="modal-box p-[40px]">
           <img className="mx-auto" src="./modal-edit-personal.png" alt="" />
           <p className="py-4 font-poppins text-base font-normal text-center">
-            Successful upload image, re-login to update!
+            Successful upload image!
           </p>
-          <div className="modal-action flex justify-center">
+          {/* <div className="modal-action flex justify-center">
             <form method="dialog">
             <button className="btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] items-center ">
               <span className="material-symbols-outlined text-[#000000] ">
@@ -110,7 +114,7 @@ const Inputpic = ({avatar}) => {
                 Back
               </button>
             </form>
-          </div>
+          </div> */}
         </div>
       </dialog>
     </>
