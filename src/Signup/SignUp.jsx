@@ -180,7 +180,7 @@ const SignUp = () => {
                 setPhoneColorMsg("text-[#8BCA00]");
                 setPhoneColorfield("border-[#8BCA00]");
             } else if (!isPhoneNumeric || !phoneLength) {
-                setPhoneMsg("Your phone number is Invalid");
+                setPhoneMsg("Your phone number is Invalid, must contain 10 Numbers");
                 setPhoneColorMsg("text-red-500");
                 setPhoneColorfield("border-red-500");
             } if (isEmptyPhone) {
