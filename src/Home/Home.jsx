@@ -2,32 +2,56 @@ import React from "react";
 import Layout from "../components/Layout";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Headerhome from "./headerhome";
+import Headerhome from "./Headerhome";
 import Tiltebutton from "./Tiltebutton";
 import Cardactivity from "./Cardactivity";
 import axios from "axios";
 
 const Home = () => {
   const [activities, setActivities] = useState([]);
+  const [userData, setUserData] = useState([]);
   const [reload, setReload] = useState(false);
   const token = JSON.parse(localStorage.getItem("token"));
-  const firstname = token.id.signup_firstname;
-  const avatar = token.id.signup_photo;
+  // const firstname = token.id.signup_firstname;
+  const firstname = userData.signup_firstname;
+  const avatar = userData.signup_photo;
   const id = token.id._id;
 
   // console.log(JSON.parse(token));
   // console.log(firstname);
+  console.log(userData)
+
+  useEffect(() => {
+    fetch('https://greensculpt.onrender.com/')
+      .then(response => {
+        console.log('Backend is up');
+      })
+      .catch(error => {
+        console.error('Error pinging backend:', error);
+      });
+  }, []);
 
   useEffect(()=> {
     const getData = async () => {
       const response = await axios.get(
-        // `https://greensculpt.onrender.com/add-activity/${id}`
-        `http://localhost:3000/add-activity/${id}`
+        `https://greensculpt.onrender.com/add-activity/${id}`
+        // `http://localhost:3000/add-activity/${id}`
       );
       setActivities(response.data);
     };
 
     getData();
+
+    const getUserData = async () => {
+      const response = await axios.get(
+        `https://greensculpt.onrender.com/user-data/${id}`
+        // `http://localhost:3000/user-data/${id}`
+      );
+      setUserData(response.data);
+    };
+
+    getUserData();
+
   }, [reload]);
 
   return (

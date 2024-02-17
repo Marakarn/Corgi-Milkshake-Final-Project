@@ -8,8 +8,20 @@ import Setpersonal from "./Setpersonal";
 import Setcontact from "./Setcontact";
 import Setdelete from "./Setdelete";
 import Setlogout from "./Setlogout";
+import { useEffect } from "react";
 
 const Setting = () => {
+
+useEffect(() => {
+    fetch('https://greensculpt.onrender.com/')
+      .then(response => {
+        console.log('Backend is up');
+      })
+      .catch(error => {
+        console.error('Error pinging backend:', error);
+      });
+  }, []);
+
   return (
     <>
       <Layout>

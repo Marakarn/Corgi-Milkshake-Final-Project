@@ -8,7 +8,7 @@ const DeleteAccount = () => {
   return (
     <>
       <Layout>
-        <div className="container mx-auto font-poppins min-h-[980px]">
+        <div className="container mx-auto font-poppins h-[1080px] md:min-h-[980px]">
           <Daisytop text="Delete Account" path="/delete-acc" />
           <div className="flex flex-col form-control mt-6 w-full items-center ">
             <form className="card-body">

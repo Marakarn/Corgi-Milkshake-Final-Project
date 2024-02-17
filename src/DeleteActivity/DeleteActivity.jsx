@@ -18,7 +18,7 @@ const DeleteActivity = () => {
   return (
     <>
       <Layout>
-        <div className="min-h-[980px]">
+        <div className="h-[1080px] md:min-h-[980px]">
           <div className="flex flex-col justify-center ">
             <Daisytop text="Delete Activity" />
             <div className="flex flex-col form-control mt-6 w-full items-center ">

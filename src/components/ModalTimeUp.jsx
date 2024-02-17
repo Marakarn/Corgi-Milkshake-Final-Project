@@ -2,7 +2,7 @@
 
 import { Link } from "react-router-dom";
 
-const ModalSignUp = () => {
+const ModalTimeUp = () => {
   return (
     <>
       <div className="container mx-auto font-poppins">
@@ -11,17 +11,17 @@ const ModalSignUp = () => {
           </div>
         </div>
       </div>
-      <dialog id="my_modal_2" className="modal justify-center">
+      <dialog id="my_modal_1" className="modal justify-center">
         <div className="modal-box p-[40px]">
-          <img className="mx-auto" src="./modal-signup.png" alt="" />
+          <img className="mx-auto" src="/modal-add-activity.png" alt="" />
           <p className="py-4 font-poppins text-base font-normal text-center">
-            Successfully created an account!
+          Congratulations, you have finished workout!
           </p>
-          <Link to={"/login"} className="flex btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] mx-auto">
+          <Link to={"/home"} className="flex btn bg-[#D2FE71] font-poppins text-xl font-normal text-[#000000] mx-auto">
             <span className="material-symbols-outlined text-[#000000]">
               arrow_back
             </span>
-              Back to Login
+              Back
           </Link>
         </div>
       </dialog>
@@ -29,4 +29,4 @@ const ModalSignUp = () => {
   );
 };
 
-export default ModalSignUp;
+export default ModalTimeUp;

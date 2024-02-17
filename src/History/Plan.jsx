@@ -8,7 +8,7 @@ const Plan = ({activities}) => {
   return (
     <>
     <div className="">
-      {activities.reverse().map((activities) => (
+      {/* {activities.reverse().map((activities) => ( */}
         <div key={activities._id} className="flex justify-center">
           <Link
             to={`/your-activity/${activities._id}`}
@@ -44,7 +44,7 @@ const Plan = ({activities}) => {
             </div>
           </Link>
         </div>
-      ))}
+      {/* ))} */}
       </div>
     </>
   );

@@ -3,16 +3,18 @@ import './timeApp.css'
 import SettingsContext from './SettingsContext'
 import Timer from './Timer'
 import { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom";
-import axios from "axios";
-
 
 function TimeApp({activity}) {
 
-  const initialHours = activity.hours; 
-  const initialMinutes = activity.minutes;
+  const initialHours = activity.hours || 0; 
+  const initialMinutes = activity.minutes || 0;
   const initialSeconds = activity.seconds || 0;
   const initialTimeInSeconds = initialHours * 3600 + initialMinutes * 60 + initialSeconds;  //convert all to seconds
+
+  console.log("initialHours" + initialHours);
+  console.log("initialMinutes" + initialMinutes);
+  console.log("initialSeconds" + initialSeconds);
+  console.log("initialTimeInSeconds" + initialTimeInSeconds);
 
   const initialTimeInMinutes = initialTimeInSeconds / 60;                 //convert seconds to miniute
 
