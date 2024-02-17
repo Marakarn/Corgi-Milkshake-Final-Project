@@ -12,6 +12,7 @@ import toDate from "validator/lib/toDate";
 import toInt from "validator/lib/toInt";
 import axios from 'axios';
 import ModalSignUp from "../components/ModalSignUp";
+import Modal from "../components/Modal";
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
@@ -48,6 +49,15 @@ const SignUp = () => {
     const [phoneMsg, setPhoneMsg] = useState("");
     const [phoneColorMsg, setPhoneColorMsg] = useState("");
     const [phoneColorfield, setPhoneColorfield] = useState("border-gray-800");
+
+    //Set Photo upload
+    const [photoUploadMsg, setphotoUploadMsg] = useState("SELECT PHOTO");
+    const [photoUploadMsgColor, setphotoUploadMsgColor] = useState("")
+
+    //Set invalid msg
+    const [invalidMsg, setInvalidMsg] = useState("");
+    const [invalidMsgColor, setInvalidMsgColor] = useState("");
+
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
@@ -169,7 +179,7 @@ const SignUp = () => {
                 setPhoneMsg("Your phone number is valid");
                 setPhoneColorMsg("text-[#8BCA00]");
                 setPhoneColorfield("border-[#8BCA00]");
-            } else if (!isPhoneNumeric && !phoneLength) {
+            } else if (!isPhoneNumeric || !phoneLength) {
                 setPhoneMsg("Your phone number is Invalid");
                 setPhoneColorMsg("text-red-500");
                 setPhoneColorfield("border-red-500");
@@ -180,7 +190,8 @@ const SignUp = () => {
             };
         };
 
-    };
+
+    }
 
     console.log(formData);
 
@@ -207,7 +218,9 @@ const SignUp = () => {
               ...prevData,
               image: imagePath,
             }));
-            alert('Successfully upload image');
+            // alert('Successfully upload image');
+            setphotoUploadMsg("Successfully upload image")
+            setphotoUploadMsgColor("text-[#8BCA00]")
           }
         } catch (error) {
           alert('Error uploading image');
@@ -238,7 +251,8 @@ const SignUp = () => {
             && !isEmptyDate
             && isPhoneNumLength
         ) {
-            alert("Valid Data");
+            // setInvalidMsg("Valid Data");
+            // setInvalidMsgColor("text-[#8BCA00]")
             // ทำอย่างอื่นต่อ เช่น ส่งข้่อมูลไป Back-end
             try {
                 // Endpoint ของ backend API ที่คุณต้องการส่งข้อมูลไป
@@ -267,7 +281,7 @@ const SignUp = () => {
                 if (response.status === 200) {
                     // alert("Data successfully sent to the backend!");
                     // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
-                    document.getElementById("my_modal_1").showModal()
+                    document.getElementById("my_modal_2").showModal()
                 } else if (response.status === 404){
                     alert("This email has been used.");
                 } else {
@@ -279,7 +293,8 @@ const SignUp = () => {
             }
 
             } else {
-                alert("Invalid Data");
+                setInvalidMsg("Invalid data, you must correct all form")
+                setInvalidMsgColor("text-red-500")
             };
 
         console.log(toDate(formData.date_of_birth));
@@ -307,13 +322,11 @@ const SignUp = () => {
                             <div className="flex flex-col md:flex-row bg-[rgb(255,255,255)]/75 ">
                                 <div className="md:w-1/5 flex justify-center" >
                                     <div className="justify-center bg-grey-lighter pt-10 md:p-24">
-                                        <label className={`w-48 h-48 md:h-36 md:w-36 flex flex-col items-center justify-center bg-[url('${formData.image}')] text-blue rounded-[40px] shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-[#8BCA00]`}>
-                                            <span className="material-symbols-outlined">
-                                                photo_camera
-                                            </span>
-                                            <p className="mt-2 text-base text-center leading-normal">Select a Photo</p>
+                                        <label className={`w-48 h-48 md:h-36 md:w-36 flex flex-col items-center justify-center text-blue rounded-[40px] shadow-lg  tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-[#8BCA00]`}>
+                                            <p className={`mt-2 text-base text-center ${photoUploadMsgColor} leading-normal`}>{photoUploadMsg}</p>
                                             <input type='file' accept=".jpg, .png, .jpeg" className="hidden" id="signup_photo" onChange={handleInputPhoto}/>
                                         </label>
+                                        <p className="text-center text-[#8BCA00]"></p>
                                     </div>
                                 </div>
                                 <div className="md:w-4/5 flex flex-col md:flex-row">
@@ -356,7 +369,7 @@ const SignUp = () => {
                                         <div className="md:flex md:justify-evenly">
                                             <div className="md:w-2/5">
                                                 <label className="font-medium text-xl text-gray-800" htmlFor="Date of Birth">Date of Birth</label>
-                                                <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="date" id="date_of_birth" onChange={handleInputChange} />
+                                                <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="date" id="date_of_birth" min="1964-01-01" max="2009-01-01" onChange={handleInputChange} />
                                             </div>
 
                                             <div className="md:w-2/5 md:flex md:justify-between">
@@ -404,8 +417,10 @@ const SignUp = () => {
                                                 <button className="btn bg-[#d2fe71] hover:bg-[#a5cf4a]/80 w-full drop-shadow text-xl font-normal border-none">Sign Up</button>
                                             </div>
                                             {/* Div เปล่า ทำให้ด้านข้างเสมอกันกับข้างล่าง */}
-                                            <div className="md:w-2/5"></div>
+                                            <div className="md:w-2/5">
+                                            <p className={`${invalidMsgColor} text-center`}>{invalidMsg}</p></div>
                                         </div>
+                                        <Modal />
                                         <ModalSignUp />
                                     </div>
                                 </div>

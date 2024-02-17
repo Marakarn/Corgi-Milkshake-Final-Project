@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
+import Modal from "../components/Modal"
 
 const Login = () => {
 
@@ -51,7 +52,7 @@ const Login = () => {
 
       // ตรวจสอบ response จาก backend
       if (response.status === 200) {
-          alert("Login successfully");
+          // alert("Login successfully");
 
           const { token } = response.data;
           const decodedToken = jwtDecode(token);
@@ -66,12 +67,14 @@ const Login = () => {
           return response;
 
       } else {
-          alert("Login Failed");
+          // alert("Login Failed");
+          document.getElementById("my_modal_1").showModal()
       }
       
       } catch (error) {
-      console.error("Error sending data to the backend:", error);
-      alert("An error occurred while sending data");
+      // console.error("Error sending data to the backend:", error);
+      // alert("An error occurred while sending data");
+      document.getElementById("my_modal_1").showModal()
       }
   };
 
@@ -140,6 +143,7 @@ const Login = () => {
             </article>
           </section>
         </main>
+        <Modal text="Login Failed" picture="/modal-error-login.svg" />
       </div>
     </>
   );

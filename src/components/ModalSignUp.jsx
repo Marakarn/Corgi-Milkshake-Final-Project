@@ -11,7 +11,7 @@ const ModalSignUp = () => {
           </div>
         </div>
       </div>
-      <dialog id="my_modal_1" className="modal justify-center">
+      <dialog id="my_modal_2" className="modal justify-center">
         <div className="modal-box p-[40px]">
           <img className="mx-auto" src="./modal-signup.png" alt="" />
           <p className="py-4 font-poppins text-base font-normal text-center">

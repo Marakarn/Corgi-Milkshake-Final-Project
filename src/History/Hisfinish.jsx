@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Hisfinish = ({activities}) => {
   return (
     <>
-     <div className="">
+      <div className="">
         <div key={activities._id} className="flex justify-center">
           <Link
             to={`/your-activity/${activities._id}`}
