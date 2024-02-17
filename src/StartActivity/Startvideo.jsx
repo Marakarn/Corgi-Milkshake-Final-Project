@@ -10,7 +10,7 @@ const Startvideo = () => {
           </label>
           <iframe
             className="w-full aspect-video"
-            src="https://www.youtube.com/embed/f3zOrYCwquE"
+            src="https://www.youtube.com/embed/r-eCuqdZig8?si=PrOO5BF8SAGB3o3Z"
             allowFullScreen
             title="YouTube video player"
           ></iframe>

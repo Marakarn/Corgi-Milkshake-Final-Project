@@ -60,7 +60,7 @@ const Personaldetail = () => {
     if(  !isEmptyFname
       && !isEmptyLname
   ){
-      alert("Valid Data");
+
   try {
       const requestData = {
         signup_firstname: formData.firstName,
@@ -80,16 +80,13 @@ const Personaldetail = () => {
         window.location.reload()
       }, 1000);
       // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
-  } else {
-      alert("Failed to send data.");
   }
+
   } catch (error) {
-  console.error("Error sending data to the backend:", error);
+  console.error("Error sending data", error);
   alert("An error occurred while sending data.");
   }
 
-  } else{
-  alert("Invalid Data");
   };
 
   };
@@ -121,6 +118,15 @@ const Personaldetail = () => {
           <img className="mx-auto" src="./modal-edit-personal.png" alt="" />
           <p className="py-4 font-poppins text-base font-normal text-center">
             Successful update Personal Detail!
+          </p>
+        </div>
+      </dialog>
+
+      <dialog id="my_modal_3" className="modal justify-center">
+        <div className="modal-box p-[40px]">
+          <img className="mx-auto" src="./modal-error-login.svg" />
+          <p className="py-4 font-poppins text-base font-normal text-center">
+            Error sanding data!
           </p>
         </div>
       </dialog>

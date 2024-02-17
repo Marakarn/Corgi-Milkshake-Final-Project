@@ -219,7 +219,7 @@ const SignUp = () => {
               image: imagePath,
             }));
             // alert('Successfully upload image');
-            setphotoUploadMsg("Successfully upload image")
+            setphotoUploadMsg("Image has been upload")
             setphotoUploadMsgColor("text-[#8BCA00]")
           }
         } catch (error) {
