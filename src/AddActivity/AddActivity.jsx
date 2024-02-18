@@ -61,7 +61,7 @@ const AddActivity = () => {
     };
 
     if (id === "date") {
-      const isDateNotPresent = formData.date > today;
+      const isDateNotPresent = formData.date >= today;
       if(isDateNotPresent){
         setDateMsg("")
         setDateMsgColor("")

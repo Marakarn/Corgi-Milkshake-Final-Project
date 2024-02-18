@@ -67,7 +67,7 @@ const EditActivity = () => {
         };
 
         if (id === "editDate") {
-            const isDateNotPresent = formData.editDate > today;
+            const isDateNotPresent = formData.editDate >= today;
             if(isDateNotPresent){
               setDateMsg("")
               setDateMsgColor("")
