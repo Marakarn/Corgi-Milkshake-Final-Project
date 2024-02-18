@@ -18,6 +18,8 @@ const AddActivity = () => {
 
   const today = new Date().toISOString().split("T")[0];
 
+  const [photoUploadMsg, setphotoUploadMsg] = useState("");
+
   const initialFormData = { activityName: "", activityDes: "", activityType: "", activityIcon: "", hours: "", minutes: "",status: "", date: "", actImage: "https://images.pexels.com/photos/878151/pexels-photo-878151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"}
   const [formData, setFormData] = useState(initialFormData);
 
@@ -96,8 +98,8 @@ const AddActivity = () => {
           alert("Failed to send data.");
       }
     } catch (error) {
-      console.error("Error sending data to the backend:", error);
-      alert("An error occurred while sending data to the backend.");
+      console.error("Error sending data:", error);
+      alert("An error occurred while sending data.");
     }
 
     } else{
