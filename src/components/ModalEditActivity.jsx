@@ -45,8 +45,8 @@ const ModalEditActivity = ({_id, updateData}) => {
       <dialog id="my_modal_2" className="modal justify-center">
         <div className="modal-box p-[40px]">
           {/* <img className="mx-auto" src="./modal-add-activity.png" alt="" /> */}
-          <p className="py-4 font-poppins text-base font-normal text-center ">
-            You must correct all required form field (with "*") and Date must present or future!
+          <p className="py-4 font-poppins text-base font-normal text-center">
+            You must correct all required form field (with "*") and date must be present or future!
           </p>
           <div className="modal-action flex justify-center">
           <form method="dialog">

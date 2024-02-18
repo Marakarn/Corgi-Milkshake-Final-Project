@@ -17,9 +17,12 @@ function Timer({activity}) {
   const [isPaused, setIsPaused] = useState(true);
   const [mode, setMode] = useState('work'); // work/break/null
   const [secondsLeft, setSecondsLeft] = useState(0);
+
+  const [timeSaveMsg, setTimeSaveMsg] = useState("");
+  const [timeSaveMsgColor, setTimeSaveMsgColor] = useState("")
   
-  const [showModal, setShowModal] = useState(false);
-  const [modalMessage, setModalMessage] = useState('');
+  // const [showModal, setShowModal] = useState(false);
+  // const [modalMessage, setModalMessage] = useState('');
 
   const secondsLeftRef = useRef(secondsLeft);
   const isPausedRef = useRef(isPaused);
@@ -56,7 +59,7 @@ function Timer({activity}) {
       if (secondsLeftRef.current === 0) {
         clearInterval(interval);
         saveTimerDataToMongoDB({ remainingHours, remainingMinutes, remainingSeconds, activityId });
-        alert("Finish workout")
+        document.getElementById("my_modal_1").showModal();
       }
 
       tick();
@@ -140,11 +143,14 @@ function Timer({activity}) {
   
       if (response.status === 200) {
         console.log(`Save to MongoDB: ${remainingHours}:${remainingMinutes}:${remainingSeconds}`);
-        alert("Your activity time is save!");
-        // document.getElementById("my_modal_1").showModal();
+        // alert("Your activity time is save!");
+        setTimeSaveMsg("Your activity time is save!")
+        setTimeSaveMsgColor("text-[#8BCA00]")
         // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
       } else {
-          alert("Failed to send data to the backend.");
+        // alert("Failed to send data to the backend.");
+        setTimeSaveMsg("Fail to save your activity time")
+        setTimeSaveMsgColor("text-red-500")
       }
     };
 
@@ -160,6 +166,7 @@ function Timer({activity}) {
               tailColor: 'rgba(255,255,255,.2)',
             })}
           />
+          <p className={`${timeSaveMsgColor} text-xl mt-3`}>{timeSaveMsg}</p>
           <div style={{ marginTop: '20px' }}>
                 {isPaused ? (
                   <Playbutton onClick={() => { setIsPaused(false); isPausedRef.current = false; }} />

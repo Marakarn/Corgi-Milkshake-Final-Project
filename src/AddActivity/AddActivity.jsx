@@ -66,7 +66,7 @@ const AddActivity = () => {
         setDateMsg("")
         setDateMsgColor("")
       } else {
-        setDateMsg("Date must Present or future")
+        setDateMsg("Date must be present or future")
         setDateMsgColor("text-red-500")
       };
     };
