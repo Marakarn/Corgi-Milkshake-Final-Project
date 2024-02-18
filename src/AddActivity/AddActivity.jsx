@@ -18,7 +18,11 @@ const AddActivity = () => {
 
   const today = new Date().toISOString().split("T")[0];
 
-  const [photoUploadMsg, setphotoUploadMsg] = useState("");
+  const [dateMsg, setDateMsg] = useState("");
+  const [dateMsgColor, setDateMsgColor] = useState("")
+
+  const [durationMsg, setDurationMsg] = useState("");
+  const [durationMsgColor, setDurationMsgColor] = useState("")
 
   const initialFormData = { activityName: "", activityDes: "", activityType: "", activityIcon: "", hours: "", minutes: "",status: "", date: "", actImage: "https://images.pexels.com/photos/878151/pexels-photo-878151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"}
   const [formData, setFormData] = useState(initialFormData);
@@ -34,6 +38,9 @@ const AddActivity = () => {
     });
 
     if (id === "hours" || id === "minutes") {
+
+      const isEmptyHours = isEmpty(formData.hours);
+      const isEmptyMinutes = isEmpty(formData.minutes);
       // หากค่าทั้งสองเป็น 0 กำหนดค่าทั้งหมดเป็นค่าเปล่า
       if (id === "hours" && value === "0" && document.getElementById("minutes").value === "0") {
         document.getElementById("hours").value = "";
@@ -42,10 +49,42 @@ const AddActivity = () => {
         document.getElementById("hours").value = "";
         document.getElementById("minutes").value = "";
       };
+
+      if (isEmptyHours && isEmptyMinutes){
+        setDurationMsg("You must select both hours and minutes")
+        setDurationMsgColor("text-red-500")
+      } else {
+        setDurationMsg("")
+        setDurationMsgColor("")
+      };
+
     };
+
+    if (id === "date") {
+      const isDateNotPresent = formData.date >= today;
+      if(isDateNotPresent){
+        setDateMsg("")
+        setDateMsgColor("")
+      } else {
+        setDateMsg("Date must Present or future")
+        setDateMsgColor("text-red-500")
+      };
+    };
+
+    // if (id === "hours" && id) {
+    //   const isDateNotPresent = formData.date >= today;
+    //   if(isDateNotPresent){
+    //     setDateMsg("Date is valid")
+    //     setDateMsgColor("text-[#8BCA00]")
+    //   } else {
+    //     setDateMsg("Date must Present or future")
+    //     setDateMsgColor("text-red-500")
+    //   };
+    // };
+
   };
 
-  console.log(formData)
+  // console.log(formData)
 
   const createData = async (e) => {
     e.preventDefault();
@@ -64,7 +103,7 @@ const AddActivity = () => {
       && !isEmptyActivityDate
       && isDateNotPresent
     ){
-      alert("Valid Data");
+      // alert("Valid Data");
     
     try {
       const requestData = {
@@ -82,7 +121,7 @@ const AddActivity = () => {
 
       };
 
-      console.log(requestData);
+      // console.log(requestData);
 
       const response = await axios.post(
       "https://greensculpt.onrender.com/add-activity",
@@ -107,7 +146,7 @@ const AddActivity = () => {
       document.getElementById("my_modal_2").showModal();
     };
   
-  console.log(requestData);
+  // console.log(requestData);
 
 };
 
@@ -128,8 +167,8 @@ const AddActivity = () => {
 
               <div className="w-full md:w-1/2">
                 <form className="p-[32px] pt-0 md:pt-[32px]">
-                  <Activityduration handleInputChange={handleInputChange} />
-                  <Activiydate handleInputChange={handleInputChange} setFormData={setFormData} formData={formData}/>
+                  <Activityduration handleInputChange={handleInputChange} durationMsg={durationMsg} durationMsgColor={durationMsgColor} />
+                  <Activiydate handleInputChange={handleInputChange} setFormData={setFormData} formData={formData} dateMsg={dateMsg} dateMsgColor={dateMsgColor}/>
                   <Activityimage handleInputChange={handleInputChange} setFormData={setFormData}/>
                 </form>
               </div>

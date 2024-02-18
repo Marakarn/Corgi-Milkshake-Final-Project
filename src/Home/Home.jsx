@@ -19,7 +19,7 @@ const Home = () => {
 
   // console.log(JSON.parse(token));
   // console.log(firstname);
-  console.log(userData)
+  // console.log(userData)
 
   useEffect(() => {
     fetch('https://greensculpt.onrender.com/')

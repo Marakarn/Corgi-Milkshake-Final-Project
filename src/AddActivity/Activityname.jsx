@@ -11,7 +11,7 @@ const Activityname = ({handleInputChange}) => {
         </label>
         <input
           type="text"
-          placeholder="Activity Name"
+          placeholder="Activity Name : Max 30 characters"
           className="input input-bordered text-base font-normal"
           id="activityName"
           required

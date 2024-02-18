@@ -10,7 +10,7 @@ const Activitydescription = ({handleInputChange}) => {
           </span>
         </label>
         <textarea
-          placeholder="Activity Description"
+          placeholder="Activity Description : Max 100 characters"
           className="textarea textarea-bordered textarea-lg w-full text-base font-normal"
           id="activityDes"
           onChange={handleInputChange}

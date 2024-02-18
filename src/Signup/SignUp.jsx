@@ -51,8 +51,8 @@ const SignUp = () => {
     const [phoneColorfield, setPhoneColorfield] = useState("border-gray-800");
 
     //Set Photo upload
-    const [photoUploadMsg, setphotoUploadMsg] = useState("SELECT PHOTO");
-    const [photoUploadMsgColor, setphotoUploadMsgColor] = useState("")
+    const [photoUploadMsg, setPhotoUploadMsg] = useState("SELECT PHOTO");
+    const [photoUploadMsgColor, setPhotoUploadMsgColor] = useState("")
 
     //Set invalid msg
     const [invalidMsg, setInvalidMsg] = useState("");
@@ -193,7 +193,7 @@ const SignUp = () => {
 
     }
 
-    console.log(formData);
+    // console.log(formData);
 
     const handleInputPhoto = async (e) => {
         const file = e.target.files[0];
@@ -219,11 +219,13 @@ const SignUp = () => {
               image: imagePath,
             }));
             // alert('Successfully upload image');
-            setphotoUploadMsg("Image has been upload")
-            setphotoUploadMsgColor("text-[#8BCA00]")
+            setPhotoUploadMsg("Image has been upload");
+            setPhotoUploadMsgColor("text-[#8BCA00]");
           }
         } catch (error) {
-          alert('Error uploading image');
+        //   alert('Error uploading image');
+            setPhotoUploadMsgColor("text-red-500");
+            setPhotoUploadMsg("Image upload fail");
           console.error("Error uploading image:", error);
         }
     };
@@ -289,7 +291,7 @@ const SignUp = () => {
                 }
             } catch (error) {
                 console.error("Error sending data to the backend:", error);
-                alert("Email has already used or failed to send data.");
+                // alert("Email has already used or failed to send data.");
             }
 
             } else {
@@ -297,10 +299,7 @@ const SignUp = () => {
                 setInvalidMsgColor("text-red-500")
             };
 
-        console.log(toDate(formData.date_of_birth));
-        console.log(toInt(formData.height));
-        console.log(toInt(formData.weight));
-        console.log(formData);
+        // console.log(formData);
 
     }
 
