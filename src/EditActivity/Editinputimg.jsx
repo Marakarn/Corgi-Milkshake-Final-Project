@@ -1,7 +1,11 @@
 import React from "react";
 import axios from "axios";
+import { useState } from "react";
 
 const Editinputimg = ({setFormData}) => {
+
+  const [photoUploadMsg, setPhotoUploadMsg] = useState("");
+  const [photoUploadMsgColor, setPhotoUploadMsgColor] = useState("")
 
   const handleInputChange = async (e) => {
     const file = e.target.files[0];
@@ -26,16 +30,20 @@ const Editinputimg = ({setFormData}) => {
           ...prevData,
           editActImage: imagePath,
         }));
-        alert('Successfully upload image');
+        // alert('Successfully upload image');
+        setPhotoUploadMsg("Image has been upload");
+        setPhotoUploadMsgColor("text-[#8BCA00]");
       }
     } catch (error) {
-      alert('Error uploading image');
+      // alert('Error uploading image');
+      setPhotoUploadMsg("Image upload fail");
+      setPhotoUploadMsgColor("text-red-500");
       console.error("Error uploading image:", error);
     }
   };
 
   return (
-    <div>
+    <>
       <div className="form-control">
         <label className="label">
           <span className="label-text text-base font-medium">Image :</span>
@@ -48,7 +56,8 @@ const Editinputimg = ({setFormData}) => {
           onChange={handleInputChange}
         />
       </div>
-    </div>
+      <p className={`${photoUploadMsgColor} mt-3`}>{photoUploadMsg}</p>
+    </>
   );
 };
 

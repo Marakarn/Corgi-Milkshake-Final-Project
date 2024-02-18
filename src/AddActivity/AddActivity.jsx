@@ -61,7 +61,7 @@ const AddActivity = () => {
     };
 
     if (id === "date") {
-      const isDateNotPresent = formData.date >= today;
+      const isDateNotPresent = formData.date > today;
       if(isDateNotPresent){
         setDateMsg("")
         setDateMsgColor("")
@@ -70,17 +70,6 @@ const AddActivity = () => {
         setDateMsgColor("text-red-500")
       };
     };
-
-    // if (id === "hours" && id) {
-    //   const isDateNotPresent = formData.date >= today;
-    //   if(isDateNotPresent){
-    //     setDateMsg("Date is valid")
-    //     setDateMsgColor("text-[#8BCA00]")
-    //   } else {
-    //     setDateMsg("Date must Present or future")
-    //     setDateMsgColor("text-red-500")
-    //   };
-    // };
 
   };
 
@@ -137,7 +126,7 @@ const AddActivity = () => {
           alert("Failed to send data.");
       }
     } catch (error) {
-      console.error("Error sending data:", error);
+      console.error("Error sending data", error);
       alert("An error occurred while sending data.");
     }
 
