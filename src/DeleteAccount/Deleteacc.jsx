@@ -5,13 +5,33 @@ import Layout from "../components/Layout";
 import Boxfirstname from "./Boxfirstname";
 import Boxlastname from "./Boxlastname";
 import Boxemail from "./Boxemail";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Deleteacc = () => {
 
+  const [userData, setUserData] = useState([]);
+  const [reload, setReload] = useState(false);
+
   const token = JSON.parse(localStorage.getItem("token"));
-  const firstname = token.id.signup_firstname;
-  const lastname = token.id.signup_lastname;
-  const email = token.id.login_email;
+  const firstname = userData.signup_firstname;
+  const lastname = userData.signup_lastname;
+  const email = userData.login_email;
+  const id = token.id._id;
+
+  useEffect(()=> {
+
+    const getUserData = async () => {
+      const response = await axios.get(
+        `https://greensculpt.onrender.com/user-data/${id}`
+        // `http://localhost:3000/user-data/${id}`
+      );
+      setUserData(response.data);
+    };
+
+    getUserData();
+
+  }, [reload]);
 
   return (
     <Layout>

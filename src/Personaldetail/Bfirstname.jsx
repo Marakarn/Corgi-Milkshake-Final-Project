@@ -9,7 +9,7 @@ const Bfirstname = ({ firstname, handleInputChange }) => {
           <input
             type="text"
             className="form-control items-center"
-            placeholder="First Name"
+            placeholder="Set new first name"
             id="firstName"
             onChange={handleInputChange}
             maxLength="30"
