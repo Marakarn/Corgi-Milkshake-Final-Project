@@ -1,8 +1,7 @@
 import React from "react";
 
-const Editduration = ({handleInputChange}) => {
+const Editduration = ({handleInputChange, durationMsg, durationMsgColor}) => {
   return (
-    <div>
       <div className="form-control">
         <label className="label">
           <span className="label-text text-base font-medium">
@@ -25,8 +24,8 @@ const Editduration = ({handleInputChange}) => {
             ))}
           </select>
         </div>
+        <p className={`${durationMsgColor} mt-3`}>{durationMsg}</p>
       </div>
-    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Activityduration = ({handleInputChange}) => {
+const Activityduration = ({handleInputChange, durationMsg, durationMsgColor}) => {
 
   return (
     <>
@@ -26,6 +26,7 @@ const Activityduration = ({handleInputChange}) => {
             ))}
           </select>
         </div>
+        <p className={`${durationMsgColor} mt-3`}>{durationMsg}</p>
       </div>
     </>
   );

@@ -21,9 +21,15 @@ const EditActivity = () => {
     let { state } = useLocation();
     // const { _id } = useParams();
     const _id = state._id
-    console.log(_id)
+    // console.log(_id)
 
     const today = new Date().toISOString().split("T")[0];
+
+    const [dateMsg, setDateMsg] = useState("");
+    const [dateMsgColor, setDateMsgColor] = useState("")
+
+    const [durationMsg, setDurationMsg] = useState("");
+    const [durationMsgColor, setDurationMsgColor] = useState("")
 
     const initialFormData = { editActivityName: "", editActivityDes: "", editActivityType: "", editActivityIcon: "", editHours: "", editMinutes: "", editDate: "", editActImage: "https://images.pexels.com/photos/878151/pexels-photo-878151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"}
     const [formData, setFormData] = useState(initialFormData);
@@ -38,22 +44,43 @@ const EditActivity = () => {
             [id]:value,
         });
 
-        if (id === "hours" || id === "minutes") {
+        if (id === "editHours" || id === "editMinutes") {
+
+            const isEmptyHours = isEmpty(formData.editHours);
+            const isEmptyMinutes = isEmpty(formData.editMinutes);
             // หากค่าทั้งสองเป็น 0 กำหนดค่าทั้งหมดเป็นค่าเปล่า
-            if (id === "hours" && value === "0" && document.getElementById("minutes").value === "0") {
-              document.getElementById("hours").value = "";
-              document.getElementById("minutes").value = "";
-            } else if (id === "minutes" && value === "0" && document.getElementById("hours").value === "0") {
-              document.getElementById("hours").value = "";
-              document.getElementById("minutes").value = "";
+            if (id === "editHours" && value === "0" && document.getElementById("editMinutes").value === "0") {
+              document.getElementById("editHours").value = "";
+              document.getElementById("editMinutes").value = "";
+            } else if (id === "editMinutes" && value === "0" && document.getElementById("editHours").value === "0") {
+              document.getElementById("editHours").value = "";
+              document.getElementById("editMinutes").value = "";
             };
+
+            if (isEmptyHours && isEmptyMinutes){
+                setDurationMsg("You must select both hours and minutes")
+                setDurationMsgColor("text-red-500")
+              } else {
+                setDurationMsg("")
+                setDurationMsgColor("")
+              };
         };
+
+        if (id === "editDate") {
+            const isDateNotPresent = formData.editDate > today;
+            if(isDateNotPresent){
+              setDateMsg("")
+              setDateMsgColor("")
+            } else {
+              setDateMsg("Date must Present or future")
+              setDateMsgColor("text-red-500")
+            };
+          };
     };
 
-    console.log(formData)
+    // console.log(formData)
     
     const updateData = async (_id) => {
-        // e.preventDefault();
 
         const isEmptyActivityName = isEmpty(formData.editActivityName);
         const isEmptyActivityType = isEmpty(formData.editActivityType);
@@ -69,7 +96,7 @@ const EditActivity = () => {
             && !isEmptyActivityDate
             && isDateNotPresent
         ){
-            alert("Valid Data");
+            // alert("Valid Data");
         
         try {
             const requestData = {
@@ -87,7 +114,7 @@ const EditActivity = () => {
 
         };
 
-        console.log(requestData);
+        // console.log(requestData);
 
         const response = await axios.put(
             `https://greensculpt.onrender.com/your-activity/${_id}`,
@@ -103,7 +130,7 @@ const EditActivity = () => {
             alert("Failed to send data to the backend.");
         }
     } catch (error) {
-        console.error("Error sending data to the backend:", error);
+        console.error("Error sending data", error);
         alert("An error occurred while sending data.");
     }
     
@@ -112,7 +139,7 @@ const EditActivity = () => {
         document.getElementById("my_modal_2").showModal();
     };
 
-    console.log(requestData);
+    // console.log(requestData);
 
 };
 
@@ -132,8 +159,8 @@ const EditActivity = () => {
                         </div>
                         <div className="w-full md:w-1/2">
                             <form className="p-[32px] pt-0 md:pt-[32px]">
-                                <Editduration handleInputChange={handleInputChange}/>
-                                <Editdate handleInputChange={handleInputChange} setFormData={setFormData} formData={formData}/>
+                                <Editduration handleInputChange={handleInputChange} durationMsg={durationMsg} durationMsgColor={durationMsgColor}/>
+                                <Editdate handleInputChange={handleInputChange} setFormData={setFormData} formData={formData} dateMsg={dateMsg} dateMsgColor={dateMsgColor}/>
                                 <Editinputimg handleInputChange={handleInputChange} setFormData={setFormData}/>
                             </form>
                         </div>

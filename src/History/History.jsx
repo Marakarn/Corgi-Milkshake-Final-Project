@@ -94,7 +94,7 @@ function Display({ section, activities }) {
 
   return (
     <div>
-      {filteredActivities.map(activities => {
+      {filteredActivities.reverse().map(activities => {
         switch (section) {
           case "Plan":
             return <DisplayPlan key={activities._id} activities={activities} />;

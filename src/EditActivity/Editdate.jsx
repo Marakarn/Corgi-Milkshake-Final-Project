@@ -1,7 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-const Editdate = ({handleInputChange, setFormData, formData }) => {
+const Editdate = ({handleInputChange, setFormData, formData, dateMsg, dateMsgColor }) => {
+
+  const today = new Date().toISOString().split("T")[0];
 
   useEffect(() => {
     const todayDate = new Date().toISOString().split('T')[0];
@@ -18,10 +20,12 @@ const Editdate = ({handleInputChange, setFormData, formData }) => {
           type="date"
           id="editDate"
           name="editDate"
+          min={today}
           value={formData.editDate}
           className="input input-bordered"
           onChange={handleInputChange}
         />
+        <p className={`${dateMsgColor} mt-1`}>{dateMsg}</p>
       </div>
     </div>
   );
