@@ -1,4 +1,5 @@
 import React from "react";
+import SearchWeather from "./SearchWeather";
 
 const Headerhome = ({firstname}) => {
   return (
@@ -12,6 +13,7 @@ const Headerhome = ({firstname}) => {
               Hello, {firstname}
             </h1>
           </div>
+          <SearchWeather/>
         </div>
         <hr className="border-y-[#8BCA00] w-full mt-[40px]"></hr>
       </div>

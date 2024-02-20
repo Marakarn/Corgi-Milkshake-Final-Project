@@ -6,6 +6,7 @@ import Headerhome from "./Headerhome";
 import Tiltebutton from "./Tiltebutton";
 import Cardactivity from "./Cardactivity";
 import axios from "axios";
+import SearchWeather from "./SearchWeather";
 
 const Home = () => {
   const [activities, setActivities] = useState([]);
@@ -52,6 +53,7 @@ const Home = () => {
 
             <Cardactivity activities={activities} />
           </div>
+          
         </div>
       </Layout>
     </>
