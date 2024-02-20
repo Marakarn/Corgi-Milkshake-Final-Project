@@ -18,6 +18,8 @@ const AddActivity = () => {
 
   const today = new Date().toISOString().split("T")[0];
 
+  const [photoUploadMsg, setphotoUploadMsg] = useState("");
+
   const initialFormData = { activityName: "", activityDes: "", activityType: "", activityIcon: "", hours: "", minutes: "",status: "", date: "", actImage: "https://images.pexels.com/photos/878151/pexels-photo-878151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"}
   const [formData, setFormData] = useState(initialFormData);
 
@@ -83,25 +85,25 @@ const AddActivity = () => {
       console.log(requestData);
 
       const response = await axios.post(
-      // "https://greensculpt.onrender.com/add-activity",
-      `http://localhost:3000/add-activity`,
+      "https://greensculpt.onrender.com/add-activity",
+      // `http://localhost:3000/add-activity`,
       requestData
       );
 
       if (response.status === 200) {
-        alert("Data successfully sent to the backend!");
+        // alert("Data successfully sent to the backend!");
         document.getElementById("my_modal_1").showModal();
         // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
       } else {
-          alert("Failed to send data to the backend.");
+          alert("Failed to send data.");
       }
     } catch (error) {
-      console.error("Error sending data to the backend:", error);
-      alert("An error occurred while sending data to the backend.");
+      console.error("Error sending data:", error);
+      alert("An error occurred while sending data.");
     }
 
     } else{
-      alert("Invalid Data");
+      // alert("Invalid Data");
       document.getElementById("my_modal_2").showModal();
     };
   
@@ -128,7 +130,7 @@ const AddActivity = () => {
                 <form className="p-[32px] pt-0 md:pt-[32px]">
                   <Activityduration handleInputChange={handleInputChange} />
                   <Activiydate handleInputChange={handleInputChange} setFormData={setFormData} formData={formData}/>
-                  <Activityimage handleInputChange={handleInputChange} />
+                  <Activityimage handleInputChange={handleInputChange} setFormData={setFormData}/>
                 </form>
               </div>
             </div>

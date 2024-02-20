@@ -1,16 +1,23 @@
 import "../App.css";
-// import Layout from "./Layout";
 import Backfunction from "../components/Backfunction";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { jwtDecode } from "jwt-decode";
-// import jwtDecode from "jwt-decode";
+import Modal from "../components/Modal"
 
 const Login = () => {
 
-  // useEffect(() => {}, [localStorage.getItem("token")])
+  useEffect(() => {
+    fetch('https://greensculpt.onrender.com/')
+      .then(response => {
+        console.log('Backend is up');
+      })
+      .catch(error => {
+        console.error('Error pinging backend:', error);
+      });
+  }, []);
 
   const navigate = useNavigate();
 
@@ -30,8 +37,8 @@ const Login = () => {
 
     try {
       // Endpoint ของ backend API ที่คุณต้องการส่งข้อมูลไป
-      //const backendEndpoint = 'https://greensculpt.onrender.com/login';
-      const backendEndpoint = `http://localhost:3000/login`;
+      const backendEndpoint = 'https://greensculpt.onrender.com/login';
+      // const backendEndpoint = `http://localhost:3000/login`;
 
       // สร้าง object ที่มีข้อมูลทั้งหมดที่คุณต้องการส่งไปยัง backend
       const requestData = {
@@ -45,19 +52,12 @@ const Login = () => {
 
       // ตรวจสอบ response จาก backend
       if (response.status === 200) {
-          alert("Login successfully");
-
-          // const { token } = response.data;
-          // localStorage.setItem("token", token);
-          // const decodedToken = jwtDecode(token);
+          // alert("Login successfully");
 
           const { token } = response.data;
           const decodedToken = jwtDecode(token);
           localStorage.setItem("token", JSON.stringify(decodedToken));
 
-          // const emailDecode = decodedToken.id;
-          // const reponse2 = await axios.post(backendEndpoint, emailDecode);
-          
           // ใช้ decodedToken ตามต้องการ
           console.log(decodedToken); // เพื่อดูข้อมูลใน decodedToken ใน console
 
@@ -67,16 +67,16 @@ const Login = () => {
           return response;
 
       } else {
-          alert("Login Failed");
+          // alert("Login Failed");
+          document.getElementById("my_modal_1").showModal()
       }
       
       } catch (error) {
-      console.error("Error sending data to the backend:", error);
-      alert("An error occurred while sending data to the backend.");
+      // console.error("Error sending data to the backend:", error);
+      // alert("An error occurred while sending data");
+      document.getElementById("my_modal_1").showModal()
       }
-  }
-  // console.log(formData)
-  // console.log(error.message)
+  };
 
   return (
     <>
@@ -143,6 +143,7 @@ const Login = () => {
             </article>
           </section>
         </main>
+        <Modal text="Login Failed" picture="/modal-error-login.svg" />
       </div>
     </>
   );

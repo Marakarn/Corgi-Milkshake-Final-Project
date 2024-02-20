@@ -1,5 +1,6 @@
 // import React from 'react'
 import Backfunction from "./Backfunction";
+import BackfunctionMobile from "./BackfunctionMobile";
 import modalDeleteActivityPic from "/modal-delete-activity.png"
 import { useParams } from "react-router-dom";
 import { useLocation } from 'react-router-dom';
@@ -12,16 +13,15 @@ const ModalDeleteActivity = ({_id}) => {
   const removeData = async (_id) => {
     const response = await axios.delete(
       `https://greensculpt.onrender.com/your-activity/${_id}`
+      // `http://localhost:3000/your-activity/${_id}`
     );
 
     if (response.status === 200) {
+      handleDeleteCard(_id);
       setReload(!reload);
     };
+
   };
-
-  // const handleClick = () => {
-
-  // }
 
   return (
     <>
@@ -48,7 +48,8 @@ const ModalDeleteActivity = ({_id}) => {
           </p>
           <div className="modal-action flex justify-center">
             <form method="dialog">
-              <Backfunction path="/home" />
+              <Backfunction path="/home"/>
+              <BackfunctionMobile path="/home"/>
             </form>
           </div>
         </div>

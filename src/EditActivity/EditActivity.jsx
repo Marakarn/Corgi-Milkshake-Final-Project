@@ -91,11 +91,12 @@ const EditActivity = () => {
 
         const response = await axios.put(
             `https://greensculpt.onrender.com/your-activity/${_id}`,
+            // `http://localhost:3000/your-activity/${_id}`,
             requestData
         );
         
         if (response.status === 200) {
-            alert("Data successfully sent to the backend!");
+            // alert("Data successfully sent to the backend!");
             document.getElementById("my_modal_1").showModal();
             // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
         } else {
@@ -103,11 +104,11 @@ const EditActivity = () => {
         }
     } catch (error) {
         console.error("Error sending data to the backend:", error);
-        alert("An error occurred while sending data to the backend.");
+        alert("An error occurred while sending data.");
     }
     
     } else{
-        alert("Invalid Data");
+        // alert("Invalid Data");
         document.getElementById("my_modal_2").showModal();
     };
 
@@ -133,7 +134,7 @@ const EditActivity = () => {
                             <form className="p-[32px] pt-0 md:pt-[32px]">
                                 <Editduration handleInputChange={handleInputChange}/>
                                 <Editdate handleInputChange={handleInputChange} setFormData={setFormData} formData={formData}/>
-                                <Editinputimg handleInputChange={handleInputChange}/>
+                                <Editinputimg handleInputChange={handleInputChange} setFormData={setFormData}/>
                             </form>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 // import React from 'react'
 import Backfunction from "./Backfunction";
+import BackfunctionMobile from "./BackfunctionMobile";
 
 const ModalAddActivity = ({submitData}) => {
   
@@ -29,6 +30,7 @@ const ModalAddActivity = ({submitData}) => {
           </p>
           <div className="modal-action flex justify-center">
             <Backfunction path={"/home"} />
+            <BackfunctionMobile path="/home"/>
           </div>
         </div>
       </dialog>

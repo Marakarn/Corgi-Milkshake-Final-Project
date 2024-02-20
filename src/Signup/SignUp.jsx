@@ -10,14 +10,14 @@ import isStrongPassword from 'validator/lib/isStrongPassword';
 import isNumeric from 'validator/lib/isNumeric';
 import toDate from "validator/lib/toDate";
 import toInt from "validator/lib/toInt";
-import axios, { isCancel, AxiosError } from 'axios';
+import axios from 'axios';
+import ModalSignUp from "../components/ModalSignUp";
+import Modal from "../components/Modal";
 import { Link } from "react-router-dom";
-import randomToken from "random-token";
-import Backfunction from "../components/Backfunction";
 
 const SignUp = () => {
 
-    const initialFormData = { email: "", firstname: "", lastname: "", password: "", confirmpassword: "", date_of_birth: "", gender: "", height: "", weight: "", phone_Number: "", image: "" }
+    const initialFormData = { email: "", firstname: "", lastname: "", password: "", confirmpassword: "", date_of_birth: "", gender: "", height: "", weight: "", phone_Number: "", image: "https://jsd6greensculpt.s3.ap-southeast-1.amazonaws.com/pixil-frame-0 (2).png" }
     const [formData, setFormData] = useState(initialFormData);
 
     //Set Email input
@@ -50,13 +50,20 @@ const SignUp = () => {
     const [phoneColorMsg, setPhoneColorMsg] = useState("");
     const [phoneColorfield, setPhoneColorfield] = useState("border-gray-800");
 
+    //Set Photo upload
+    const [photoUploadMsg, setphotoUploadMsg] = useState("SELECT PHOTO");
+    const [photoUploadMsgColor, setphotoUploadMsgColor] = useState("")
+
+    //Set invalid msg
+    const [invalidMsg, setInvalidMsg] = useState("");
+    const [invalidMsgColor, setInvalidMsgColor] = useState("");
+
+
     const handleInputChange = (e) => {
         const { id, value } = e.target;
         setFormData({
             ...formData,
             [id]: value,
-            // [id]:id === "height" || id === "weight" ? parseInt(value, 10) : value,
-            // [id]: id === "date_of_birth" ? new Date() : id === "height" || id === "weight" ? parseInt(value, 10) : value
         });
 
         //Check Email
@@ -172,8 +179,8 @@ const SignUp = () => {
                 setPhoneMsg("Your phone number is valid");
                 setPhoneColorMsg("text-[#8BCA00]");
                 setPhoneColorfield("border-[#8BCA00]");
-            } else if (!isPhoneNumeric && !phoneLength) {
-                setPhoneMsg("Your phone number is Invalid");
+            } else if (!isPhoneNumeric || !phoneLength) {
+                setPhoneMsg("Your phone number is Invalid, must contain 10 Numbers");
                 setPhoneColorMsg("text-red-500");
                 setPhoneColorfield("border-red-500");
             } if (isEmptyPhone) {
@@ -183,9 +190,43 @@ const SignUp = () => {
             };
         };
 
-    };
+
+    }
 
     console.log(formData);
+
+    const handleInputPhoto = async (e) => {
+        const file = e.target.files[0];
+        const formData = new FormData();
+        formData.append("actImage", file);
+    
+        try {
+          const response = await axios.post(
+            "https://greensculpt.onrender.com/api/upload"
+            // "http://localhost:3000/api/upload"
+          , formData, 
+            {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          );
+    
+          if (response.status === 200) {
+            const imagePath = `https://jsd6greensculpt.s3.ap-southeast-1.amazonaws.com/${response.data.originalname}`;
+            setFormData((prevData) => ({
+              ...prevData,
+              image: imagePath,
+            }));
+            // alert('Successfully upload image');
+            setphotoUploadMsg("Image has been upload")
+            setphotoUploadMsgColor("text-[#8BCA00]")
+          }
+        } catch (error) {
+          alert('Error uploading image');
+          console.error("Error uploading image:", error);
+        }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -210,16 +251,16 @@ const SignUp = () => {
             && !isEmptyDate
             && isPhoneNumLength
         ) {
-            alert("Valid Data");
+            // setInvalidMsg("Valid Data");
+            // setInvalidMsgColor("text-[#8BCA00]")
             // ทำอย่างอื่นต่อ เช่น ส่งข้่อมูลไป Back-end
             try {
                 // Endpoint ของ backend API ที่คุณต้องการส่งข้อมูลไป
-                //const backendEndpoint = 'https://greensculpt.onrender.com/signup';
-                const backendEndpoint = `http://localhost:3000/signup`;
+                const backendEndpoint = 'https://greensculpt.onrender.com/signup';
+                // const backendEndpoint = `http://localhost:3000/signup`;
 
                 // สร้าง object ที่มีข้อมูลทั้งหมดที่คุณต้องการส่งไปยัง backend
                 const requestData = {
-                    userId: randomToken(16),
                     login_email: formData.email,
                     signup_firstname: formData.firstname,
                     signup_lastname: formData.lastname,
@@ -238,55 +279,54 @@ const SignUp = () => {
 
                 // ตรวจสอบ response จาก backend
                 if (response.status === 200) {
-                    alert("Data successfully sent to the backend!");
+                    // alert("Data successfully sent to the backend!");
                     // ทำอย่างอื่นต่อ เช่น redirect หน้า, แสดงข้อความ, ฯลฯ
+                    document.getElementById("my_modal_2").showModal()
+                } else if (response.status === 404){
+                    alert("This email has been used.");
                 } else {
-                    alert("Failed to send data to the backend.");
+                    alert("Failed to send data.");
                 }
             } catch (error) {
                 console.error("Error sending data to the backend:", error);
-                alert("An error occurred while sending data to the backend.");
+                alert("Email has already used or failed to send data.");
             }
 
-        } else {
-            alert("Invalid Data");
-        }
+            } else {
+                setInvalidMsg("Invalid data, you must correct all form")
+                setInvalidMsgColor("text-red-500")
+            };
 
         console.log(toDate(formData.date_of_birth));
         console.log(toInt(formData.height));
         console.log(toInt(formData.weight));
+        console.log(formData);
 
     }
 
     return (
         <>
-            <div className="bg-[url('/moutain_pic.png')] bg-fixed bg-no-repeat bg-cover min-h-[1800px] md:min-h-[1100px] h-screen w-screen">
+            <div className="bg-[url('/moutain_pic.png')] bg-fixed bg-no-repeat bg-cover min-h-[1830px] md:min-h-[1100px] h-screen w-screen">
                 <form onSubmit={handleSubmit} noValidate>
                     <main className="container mx-auto font-poppins">
                         <section className="pt-20 relative">
-
-                            {/* <Backfunction /> */}
-
-                            <Link to="/login">
+                            <Link to="/">
                                 <button className="btn bg-[#d2fe71] hover:bg-[#a5cf4a]/80 drop-shadow text-xl font-normal border-none hidden md:flex absolute top-[90px] left-[10px]">
                                     <span className="material-symbols-outlined">arrow_back</span>
                                     Back
                                 </button>
                             </Link>
-
                             <div className="bg-[#8BCA00]/60 text-center rounded-t-[20px] p-[10px]">
                                 <h2 className="text-white font-semibold text-[32px]">Sign Up</h2>
                             </div>
                             <div className="flex flex-col md:flex-row bg-[rgb(255,255,255)]/75 ">
                                 <div className="md:w-1/5 flex justify-center" >
                                     <div className="justify-center bg-grey-lighter pt-10 md:p-24">
-                                        <label className="w-48 h-48 md:h-36 md:w-36 flex flex-col items-center justify-center bg-gray-200 text-blue rounded-[40px] shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-[#8BCA00]">
-                                            <span className="material-symbols-outlined">
-                                                photo_camera
-                                            </span>
-                                            <p className="mt-2 text-base text-center leading-normal">Select a Photo</p>
-                                            <input type='file' accept=".jpg, .png, .jpeg" className="hidden" id="signup_photo" />
+                                        <label className={`w-48 h-48 md:h-36 md:w-36 flex flex-col items-center justify-center text-blue rounded-[40px] shadow-lg  tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-[#8BCA00]`}>
+                                            <p className={`mt-2 text-base text-center ${photoUploadMsgColor} leading-normal`}>{photoUploadMsg}</p>
+                                            <input type='file' accept=".jpg, .png, .jpeg" className="hidden" id="signup_photo" onChange={handleInputPhoto}/>
                                         </label>
+                                        <p className="text-center text-[#8BCA00]"></p>
                                     </div>
                                 </div>
                                 <div className="md:w-4/5 flex flex-col md:flex-row">
@@ -329,7 +369,7 @@ const SignUp = () => {
                                         <div className="md:flex md:justify-evenly">
                                             <div className="md:w-2/5">
                                                 <label className="font-medium text-xl text-gray-800" htmlFor="Date of Birth">Date of Birth</label>
-                                                <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="date" id="date_of_birth" onChange={handleInputChange} />
+                                                <input className="w-full p-2 mb-10 bg-transparent border-b-2 border-gray-800 focus:outline-none placeholder-gray-700" type="date" id="date_of_birth" min="1964-01-01" max="2009-01-01" onChange={handleInputChange} />
                                             </div>
 
                                             <div className="md:w-2/5 md:flex md:justify-between">
@@ -377,8 +417,11 @@ const SignUp = () => {
                                                 <button className="btn bg-[#d2fe71] hover:bg-[#a5cf4a]/80 w-full drop-shadow text-xl font-normal border-none">Sign Up</button>
                                             </div>
                                             {/* Div เปล่า ทำให้ด้านข้างเสมอกันกับข้างล่าง */}
-                                            <div className="md:w-2/5"></div>
+                                            <div className="md:w-2/5">
+                                            <p className={`${invalidMsgColor} text-center`}>{invalidMsg}</p></div>
                                         </div>
+                                        <Modal />
+                                        <ModalSignUp />
                                     </div>
                                 </div>
                             </div>

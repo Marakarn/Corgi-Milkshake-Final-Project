@@ -10,22 +10,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const YourActivity = () => {
-  // const { _id } = useParams();
-  // const data = activities[_id];
-  // const [activities, setActivities] = useState([]);
-  // const [reload, setReload] = useState(false);
-  // console.log("we are here")
-  // useEffect(()=> {
-  //   const getData = async () => {
-  //     const response = await axios.get(
-  //       `https://greensculpt.onrender.com/add-activity${_id}`
-  //     );
-  //     console.log(response)
-  //     setActivities(response.data);
-  //   };
-  //  console.log("sd"+getData)
-  //   getData();
-  // }, [reload]);
 
   const { _id } = useParams();
   const [activities, setActivities] = useState([]);
@@ -35,12 +19,15 @@ const YourActivity = () => {
       console.log('id From Front ' + _id);
       const response = await axios.get(
         `https://greensculpt.onrender.com/your-activity/${_id}`
+        // `http://localhost:3000/your-activity/${_id}`
       );
       setActivities(response.data);
     };
 
     getData();
   }, [_id]);
+
+  console.log(activities.actImage)
   
   return (
     <>
